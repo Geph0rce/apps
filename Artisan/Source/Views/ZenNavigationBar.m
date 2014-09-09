@@ -10,7 +10,7 @@
 #import "ZenCategory.h"
 #import "ZenNavigationBar.h"
 
-#define kZenNavigationBarTitleColor kZenMainFontColor
+#define kZenNavigationBarTitleColor [UIColor whiteColor]
 #define kDefaultBarColor ZenColorFromRGB(0x1abc9c)
 #define kHighlightBarColor ZenColorFromRGB(0x16a085)
 #define kZenNavigationBarH 44.0f

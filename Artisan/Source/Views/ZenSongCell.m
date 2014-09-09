@@ -14,15 +14,11 @@
 
 - (void)awakeFromNib
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - 1.0f)];
+    self.backgroundColor = [UIColor clearColor];
+    UIView *view = [[UIView alloc] initWithFrame:self.bounds];
     view.backgroundColor = kZenHighlightDaytime;
     self.selectedBackgroundView = view;
-    
-    UIView *backView = [[UIView alloc] init];
-    UIColor *color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dot_border"]];
-    backView.frame = _border.frame;
-    backView.backgroundColor = color;
-    [self addSubview:backView];
+    _border.backgroundColor = kZenBorderColor;
 }
 
 

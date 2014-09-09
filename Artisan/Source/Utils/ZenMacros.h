@@ -45,9 +45,7 @@ alpha:0.8]
 //#define kZenMainColor ZenColorFromRGB(0xfcfcfc)
 #define kZenHighlightColor (kZenNightMode? kZenHighlightNight : kZenHighlightDaytime)
 
-#define kZenBorderColorDaytime ZenColorFromRGB(0xe0e0e0)
-#define kZenBorderColorNight ZenColorFromRGB(0x272727)
-#define kZenBorderColor (kZenNightMode? kZenBorderColorNight : kZenBorderColorDaytime)
+#define kZenBorderColor [UIColor colorWithPatternImage:[UIImage imageNamed:@"dot_border"]]
 
 #ifndef ZenPro
 #define kZenAppID @"750634897"
