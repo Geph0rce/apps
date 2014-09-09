@@ -1,0 +1,34 @@
+# 豆瓣音乐人API
+# 热门单曲
+http://music.douban.com/api/artist/chart?type=song&cb=%24.setp(0.6716672366019338)&app_name=music_artist&version=50&_=1375406925617
+
+# 热门音乐人
+http://music.douban.com/api/artist/chart?type=artist&cb=%24.setp(0.7050669395830482)&app_name=music_artist&version=50&_=1375407053109
+	# 音乐人曲库(专辑)
+	http://music.douban.com/api/artist/artist_playlist?id=101781&cb=%24.setp(0.394894793163985)&app_name=music_artist&version=50&_=1375407086467
+		# 专辑曲目
+		http://music.douban.com/api/artist/songs?id=5926591&cb=%24.setp(0.039444928988814354)&app_name=music_artist&version=50&_=1375407307054
+	# 音乐人活动
+	http://music.douban.com/api/artist/artist_event?id=101781&cb=%24.setp(0.8623318003956228)&app_name=music_artist&version=50&_=1375407129235
+	# 音乐人相册
+	http://music.douban.com/api/artist/artist_album?id=101781&cb=%24.setp(0.9051197252701968)&app_name=music_artist&version=50&_=1375407170641
+	# 音乐人动态
+	http://music.douban.com/api/artist/artist_update?id=101781&cb=%24.setp(0.4849264349322766)&app_name=music_artist&version=50&_=1375407197976
+	# 音乐人留言板
+	http://music.douban.com/api/artist/artist_board?id=101781&cb=%24.setp(0.7785837340634316)&app_name=music_artist&version=50&_=1375407275757
+
+# 搜索、分类浏览
+http://music.douban.com/api/artist/search?q=&cb=%24.setp(0.9311540012713522)&app_name=music_artist&version=50&_=1375407366220
+
+# 分类
+http://music.douban.com/api/artist/genre?gid=2&type=artist&sortby=hot&cb=%24.setp(0.24728498421609402)&app_name=music_artist&version=50&_=1376636103383
+
+gid:  流行 : 6 
+	  摇滚 : 8
+	  电子 : 3
+	  民谣 : 4
+	  爵士 : 5
+	  轻音乐 : 2
+	  古典 : 1
+	  说唱 : 7
+
