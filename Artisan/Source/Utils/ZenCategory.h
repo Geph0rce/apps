@@ -64,7 +64,7 @@
 
 @end
 
-@interface NSData (Crypt)
+@interface NSData (ZenHelper)
 
 - (NSData *)AES128EncryptWithKey:(NSString *)key iv:(NSString *)iv;
 
@@ -73,6 +73,8 @@
 - (NSString *)dataToPlainText;
 
 - (BOOL)isGif;
+
+- (NSData *)filter;
 
 @end
 

@@ -11,8 +11,8 @@
 #import "ZenNavigationBar.h"
 
 #define kZenNavigationBarTitleColor kZenMainFontColor
-#define kDefaultBarColor ZenColorFromRGB(0xfcfcfc)
-#define kHighiteBarColor  (kZenNightMode ? ZenColorFromRGB(0x080808) : ZenColorFromRGB(0xdfdfdf))
+#define kDefaultBarColor ZenColorFromRGB(0x1abc9c)
+#define kHighlightBarColor ZenColorFromRGB(0x16a085)
 #define kZenNavigationBarH 44.0f
 
 #define kZenButtonRealBlue ZenColorFromRGB(0x3498db)
@@ -61,10 +61,6 @@
         label.center = CGPointMake(CGRectGetWidth(self.frame)/2.0f, ((CGRectGetHeight(self.frame) - _paddingY)/2.0f) + _paddingY);
         _title = label;
         [self addSubview:label];
-        
-        UIImageView *shadow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"header_shadow"]];
-        [shadow setFrame:CGRectMake(0.0f, 40.0f + _paddingY, CGRectGetWidth(self.frame), CGRectGetHeight(shadow.frame))];
-        [self addSubview:shadow];
     }
 
     return self;
@@ -120,7 +116,7 @@
     }
     
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBtn setBackgroundImage:[UIImage imageWithColor:kHighiteBarColor ] forState:UIControlStateHighlighted];
+    [leftBtn setBackgroundImage:[UIImage imageWithColor:kHighlightBarColor ] forState:UIControlStateHighlighted];
     _leftBtn = leftBtn;
     [leftBtn setFrame:CGRectMake(0.0f, _paddingY, 44.0f, 44.0f)];
     [self addSubview:_leftBtn];
@@ -137,11 +133,11 @@
     
     switch (style) {
         case ZenNavigationItemStyleMenu:
-             [_leftBtn setImage:[UIImage imageNamed:@"nav-icon-menu"] forState:
+             [_leftBtn setImage:[UIImage imageNamed:@"menu"] forState:
               UIControlStateNormal];
             break;
         case ZenNavigationItemStyleBack:
-             [_leftBtn setImage:[UIImage imageNamed:@"nav-icon-back"] forState:UIControlStateNormal];
+             [_leftBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
             break;
         case ZenNavigationItemStyleCancel:
              [_leftBtn setImage:[UIImage imageNamed:@"nav-icon-cancel"] forState:UIControlStateNormal];
@@ -159,7 +155,7 @@
     
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setFrame:CGRectMake(CGRectGetWidth(self.frame) - 44.0f, _paddingY, 44.0f, 44.0f)];
-    [rightBtn setBackgroundImage:[UIImage imageWithColor:kHighiteBarColor ] forState:UIControlStateHighlighted];
+    [rightBtn setBackgroundImage:[UIImage imageWithColor:kHighlightBarColor ] forState:UIControlStateHighlighted];
     _rightBtn = rightBtn;
     [self addSubview:_rightBtn];
     [_rightBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -193,9 +189,9 @@
 - (void)refresh
 {
     self.backgroundColor = kZenBackgroundColor;
-    [_leftBtn setBackgroundImage:[UIImage imageWithColor:kHighiteBarColor ] forState:UIControlStateHighlighted];
-    [_rightBtn setBackgroundImage:[UIImage imageWithColor:kHighiteBarColor ] forState:UIControlStateHighlighted];
-    _title.textColor = kZenMainFontColor;
+    [_leftBtn setBackgroundImage:[UIImage imageWithColor:kHighlightBarColor ] forState:UIControlStateHighlighted];
+    [_rightBtn setBackgroundImage:[UIImage imageWithColor:kHighlightBarColor ] forState:UIControlStateHighlighted];
+    _title.textColor = [UIColor whiteColor];
 }
 
 - (void)setTitle:(NSString *)title

@@ -60,7 +60,7 @@
 @protocol ZenConnectionDelegate <NSObject>
 
 @optional
-- (void)requestDidFinished:(ZenConnection *)connection;
-- (void)requestDidFailed:(ZenConnection *)connection;
+- (void)requestDidFinished:(ZenConnection *)conn;
+- (void)requestDidFailed:(ZenConnection *)conn;
 
 @end

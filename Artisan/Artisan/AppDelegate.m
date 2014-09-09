@@ -13,7 +13,7 @@
 #import "AppDelegate.h"
 
 #import "ZenBoardsController.h"
-
+#import "ZenHotSongsController.h"
 
 #define kZenUmengAppKey @"53ad110856240b7d51008592"
 
@@ -29,7 +29,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    UIViewController *controller = nil;
+    UIViewController *controller = [[ZenHotSongsController alloc] init];
     DDMenuController *menuController = [[DDMenuController alloc] initWithRootViewController:controller];
     ZenBoardsController *leftController = [ZenBoardsController sharedInstance];
     menuController.leftViewController = leftController;

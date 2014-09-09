@@ -313,7 +313,7 @@
 
 @end
 
-@implementation NSData (Crypt)
+@implementation NSData (ZenHelper)
 
 - (NSData *)AES128Operation:(CCOperation)operation key:(NSString *)key iv:(NSString *)iv
 {
@@ -383,6 +383,19 @@
     }
     
     return isGIF;
+}
+
+- (NSData *)filter
+{
+    NSString *str = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+    if (str) {
+        NSRange r = [str rangeOfString:@"\\{.+\\}" options:NSRegularExpressionSearch];
+        if (r.location != NSNotFound) {
+            NSString *result = [str substringWithRange:r];
+            return  [result dataUsingEncoding:NSUTF8StringEncoding];
+        }
+    }
+    return nil;
 }
 
 @end

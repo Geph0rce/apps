@@ -6,6 +6,7 @@
 //  Copyright (c) 2013年 Zen. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "DDMenuController.h"
 #import "ZenStatusBarOverlay.h"
 
