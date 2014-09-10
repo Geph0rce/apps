@@ -233,6 +233,13 @@
 		DBE9DC4F19BFED080068C1C3 /* ZenArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC4D19BFED080068C1C3 /* ZenArtistCell.m */; };
 		DBE9DC5019BFED080068C1C3 /* ZenArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC4E19BFED080068C1C3 /* ZenArtistCell.xib */; };
 		DBE9DC5319BFEECE0068C1C3 /* ZenCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC5219BFEECE0068C1C3 /* ZenCategoryController.m */; };
+		DBE9DC5C19C01E6A0068C1C3 /* ZenProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC5B19C01E6A0068C1C3 /* ZenProfileView.m */; };
+		DBE9DC5E19C01E790068C1C3 /* ZenProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC5D19C01E790068C1C3 /* ZenProfileView.xib */; };
+		DBE9DC6119C021280068C1C3 /* ZenAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC6019C021280068C1C3 /* ZenAlbumController.m */; };
+		DBE9DC6419C0213C0068C1C3 /* ZenAlbumModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC6319C0213C0068C1C3 /* ZenAlbumModel.m */; };
+		DBE9DC6819C024AE0068C1C3 /* ZenAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC6619C024AE0068C1C3 /* ZenAlbumCell.m */; };
+		DBE9DC6919C024AE0068C1C3 /* ZenAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC6719C024AE0068C1C3 /* ZenAlbumCell.xib */; };
+		DBE9DC6C19C029400068C1C3 /* ZenAlbumData.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC6B19C029400068C1C3 /* ZenAlbumData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -553,6 +560,18 @@
 		DBE9DC4E19BFED080068C1C3 /* ZenArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenArtistCell.xib; sourceTree = "<group>"; };
 		DBE9DC5119BFEECE0068C1C3 /* ZenCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenCategoryController.h; sourceTree = "<group>"; };
 		DBE9DC5219BFEECE0068C1C3 /* ZenCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenCategoryController.m; sourceTree = "<group>"; };
+		DBE9DC5A19C01E6A0068C1C3 /* ZenProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenProfileView.h; sourceTree = "<group>"; };
+		DBE9DC5B19C01E6A0068C1C3 /* ZenProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenProfileView.m; sourceTree = "<group>"; };
+		DBE9DC5D19C01E790068C1C3 /* ZenProfileView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenProfileView.xib; sourceTree = "<group>"; };
+		DBE9DC5F19C021280068C1C3 /* ZenAlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenAlbumController.h; sourceTree = "<group>"; };
+		DBE9DC6019C021280068C1C3 /* ZenAlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenAlbumController.m; sourceTree = "<group>"; };
+		DBE9DC6219C0213C0068C1C3 /* ZenAlbumModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenAlbumModel.h; sourceTree = "<group>"; };
+		DBE9DC6319C0213C0068C1C3 /* ZenAlbumModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenAlbumModel.m; sourceTree = "<group>"; };
+		DBE9DC6519C024AE0068C1C3 /* ZenAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenAlbumCell.h; sourceTree = "<group>"; };
+		DBE9DC6619C024AE0068C1C3 /* ZenAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenAlbumCell.m; sourceTree = "<group>"; };
+		DBE9DC6719C024AE0068C1C3 /* ZenAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenAlbumCell.xib; sourceTree = "<group>"; };
+		DBE9DC6A19C029400068C1C3 /* ZenAlbumData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenAlbumData.h; sourceTree = "<group>"; };
+		DBE9DC6B19C029400068C1C3 /* ZenAlbumData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenAlbumData.m; sourceTree = "<group>"; };
 		DBFB6F781833B27100AABDE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DBFB6F7A1833C4BF00AABDE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -686,6 +705,8 @@
 				DBE9DA9719BEC30A0068C1C3 /* ZenHotSongsController.m */,
 				DBE9DC5119BFEECE0068C1C3 /* ZenCategoryController.h */,
 				DBE9DC5219BFEECE0068C1C3 /* ZenCategoryController.m */,
+				DBE9DC5F19C021280068C1C3 /* ZenAlbumController.h */,
+				DBE9DC6019C021280068C1C3 /* ZenAlbumController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -703,6 +724,10 @@
 				DBE9DC4719BFECD30068C1C3 /* ZenArtistData.m */,
 				DBE9DC4919BFECE50068C1C3 /* ZenCategoryModel.h */,
 				DBE9DC4A19BFECE50068C1C3 /* ZenCategoryModel.m */,
+				DBE9DC6A19C029400068C1C3 /* ZenAlbumData.h */,
+				DBE9DC6B19C029400068C1C3 /* ZenAlbumData.m */,
+				DBE9DC6219C0213C0068C1C3 /* ZenAlbumModel.h */,
+				DBE9DC6319C0213C0068C1C3 /* ZenAlbumModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -753,6 +778,12 @@
 				DBE9DC4C19BFED080068C1C3 /* ZenArtistCell.h */,
 				DBE9DC4D19BFED080068C1C3 /* ZenArtistCell.m */,
 				DBE9DC4E19BFED080068C1C3 /* ZenArtistCell.xib */,
+				DBE9DC5A19C01E6A0068C1C3 /* ZenProfileView.h */,
+				DBE9DC5B19C01E6A0068C1C3 /* ZenProfileView.m */,
+				DBE9DC5D19C01E790068C1C3 /* ZenProfileView.xib */,
+				DBE9DC6519C024AE0068C1C3 /* ZenAlbumCell.h */,
+				DBE9DC6619C024AE0068C1C3 /* ZenAlbumCell.m */,
+				DBE9DC6719C024AE0068C1C3 /* ZenAlbumCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1279,6 +1310,7 @@
 				DBE9DBBE19BEC4720068C1C3 /* player_back@2x.png in Resources */,
 				DBE9DB8A19BEC4720068C1C3 /* list2.png in Resources */,
 				DBE9DBDA19BEC4720068C1C3 /* status_pause@2x.png in Resources */,
+				DBE9DC5E19C01E790068C1C3 /* ZenProfileView.xib in Resources */,
 				DBE9DBCD19BEC4720068C1C3 /* settingcell_bg_selected.png in Resources */,
 				DBE9DB4019BEC4720068C1C3 /* boards.plist in Resources */,
 				DBE9DB4C19BEC4720068C1C3 /* album_btn_add_click@2x.png in Resources */,
@@ -1343,6 +1375,7 @@
 				DBE9DB8619BEC4720068C1C3 /* header_shadow@2x.png in Resources */,
 				DBE9DB6419BEC4720068C1C3 /* bottom_icon_more@2x.png in Resources */,
 				DBE9DBF819BEDAA60068C1C3 /* ZenSongCell.xib in Resources */,
+				DBE9DC6919C024AE0068C1C3 /* ZenAlbumCell.xib in Resources */,
 				DBE9DB7319BEC4720068C1C3 /* btn_login.png in Resources */,
 				DBE9DB6719BEC4720068C1C3 /* bottom_icon_prev.png in Resources */,
 				DBE9DBA519BEC4720068C1C3 /* more_reply.png in Resources */,
@@ -1402,6 +1435,7 @@
 				DBE9DBF719BEDAA60068C1C3 /* ZenSongCell.m in Sources */,
 				DBE9DA5519BE97190068C1C3 /* TFHpple.m in Sources */,
 				DBE9DA3219BE97190068C1C3 /* ZenOpenUDID.m in Sources */,
+				DBE9DC6119C021280068C1C3 /* ZenAlbumController.m in Sources */,
 				DBE9DA5319BE97190068C1C3 /* SDWebImagePrefetcher.m in Sources */,
 				DBE9DBE219BECBDE0068C1C3 /* ZenLoadingController.m in Sources */,
 				DBE9DA5919BE97190068C1C3 /* UIImage+GIF.m in Sources */,
@@ -1420,17 +1454,21 @@
 				DBE9DBF319BED6850068C1C3 /* ZenSongData.m in Sources */,
 				DBE9DA0319BE97190068C1C3 /* ZenBaseController.m in Sources */,
 				DBE9DA9819BEC30A0068C1C3 /* ZenHotSongsController.m in Sources */,
+				DBE9DC5C19C01E6A0068C1C3 /* ZenProfileView.m in Sources */,
 				DBE9DA5819BE97190068C1C3 /* UIColor+MLPFlatColors.m in Sources */,
 				DBE9DBF019BED02A0068C1C3 /* DoubanArtist.m in Sources */,
+				DBE9DC6C19C029400068C1C3 /* ZenAlbumData.m in Sources */,
 				DBE9DA3519BE97190068C1C3 /* EGOLoadMoreTableFooterView.m in Sources */,
 				DBE9DC4B19BFECE50068C1C3 /* ZenCategoryModel.m in Sources */,
 				DBE9DA0419BE97190068C1C3 /* ZenBoardsController.m in Sources */,
 				DBE9DC4819BFECD30068C1C3 /* ZenArtistData.m in Sources */,
 				DBE9DA4E19BE97190068C1C3 /* EGORefreshTableHeaderView.m in Sources */,
 				DBE9DC4F19BFED080068C1C3 /* ZenArtistCell.m in Sources */,
+				DBE9DC6819C024AE0068C1C3 /* ZenAlbumCell.m in Sources */,
 				DBE9D94A19BE97190068C1C3 /* AppDelegate.m in Sources */,
 				DBE9DA3F19BE97190068C1C3 /* ZenMoreOptionsView.m in Sources */,
 				DBE9DA3C19BE97190068C1C3 /* ZenLoadingView.m in Sources */,
+				DBE9DC6419C0213C0068C1C3 /* ZenAlbumModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,7 +45,7 @@
     
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
     [bar addLeftItemWithStyle:ZenNavigationItemStyleMenu target:self action:@selector(menu:)];
-    [bar setTitle:@"热门音乐人"];
+    [bar setTitle:@"热门单曲"];
     [_container addSubview:bar];
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
     

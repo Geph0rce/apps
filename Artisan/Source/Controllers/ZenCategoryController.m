@@ -11,6 +11,8 @@
 #import "ZenArtistCell.h"
 #import "ZenCategoryController.h"
 
+#import "ZenAlbumController.h"
+
 #define kZenArtistCellId @"ZenArtistCellId"
 
 @interface ZenCategoryController ()
@@ -100,6 +102,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZenArtistData *artist = _model.list[indexPath.row];
+    ZenAlbumController *controller = [[ZenAlbumController alloc] init];
+    controller.aid = artist.aid;
+    controller.view.frame = _container.bounds;
+    [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+}
+
 #pragma mark
 #pragma mark Handel Notifications From Model
 
@@ -114,7 +125,6 @@
     [self done];
     [self failed:@"加载失败..."];
 }
-
 
 
 @end

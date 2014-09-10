@@ -13,7 +13,7 @@
 @interface ZenLoadingController : ZenBaseController <UITableViewDataSource, UITableViewDelegate>
 {
     UITableView *_table;
-    BOOL *_enableLoadMore;
+    BOOL _enableLoadMore;
     CGFloat _barHeight;
 }
 

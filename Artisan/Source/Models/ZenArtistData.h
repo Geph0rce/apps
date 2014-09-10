@@ -13,12 +13,14 @@
     NSString *_picture;
     NSString *_name;
     NSString *_follower;
+    NSString *_style;
     NSString *_aid;
 }
 
-@property (nonatomic, retain) NSString *picture;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *follower;
-@property (nonatomic, retain) NSString *aid;
+@property (nonatomic, strong) NSString *picture;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *follower;
+@property (nonatomic, strong) NSString *style;
+@property (nonatomic, strong) NSString *aid;
 
 @end
