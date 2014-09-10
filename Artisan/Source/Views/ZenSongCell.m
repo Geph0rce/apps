@@ -21,6 +21,10 @@
     _border.backgroundColor = kZenBorderColor;
     _name.font = kZenFont15;
     _artist.font = kZenFont13;
+    
+    CALayer *layer = _picture.layer;
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius:25.0f];
 }
 
 

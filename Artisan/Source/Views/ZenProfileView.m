@@ -19,6 +19,10 @@
     _name.font = kZenFont15;
     _follower.font = kZenFont13;
     _style.font = kZenFont13;
+    
+    CALayer *layer = _picture.layer;
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius:25.0f];
 }
 
 - (void)load:(ZenArtistData *)artist
