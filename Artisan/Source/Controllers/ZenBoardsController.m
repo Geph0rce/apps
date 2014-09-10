@@ -16,6 +16,8 @@
 #import "ZenColorManager.h"
 #import "ZenTableViewCell.h"
 #import "ZenBoardsController.h"
+#import "ZenHotSongsController.h"
+#import "ZenCategoryController.h"
 
 
 #define kZenBoardWidth 240.0f
@@ -254,11 +256,10 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
             NSLog(@"gid: %@", gid);
             
             DDMenuController *menuController = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
-            //[menuController setRootController:topics animated:YES];
-//            if ([fid isEqualToString:kZenPandora]) {
-//                PandoraAccountsController *pandora = [[PandoraAccountsController alloc] init];
-//                [menuController setRootController:pandora animated:YES];
-//            }
+            ZenCategoryController *controller = [[ZenCategoryController alloc] init];
+            controller.name = name;
+            controller.gid = gid;
+            [menuController setRootController:controller animated:YES];
         }
     }
 }

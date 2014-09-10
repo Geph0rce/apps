@@ -57,11 +57,11 @@ SINGLETON_FOR_CLASS(DoubanArtist);
     return  url;
 }
 
-- (NSString *)genre:(NSString *)gid
+- (NSString *)genre:(NSString *)gid page:(int)page
 {
     NSMutableString *url = [[NSMutableString alloc] init];
     [url appendString:kDoubanArtistBaseURL];
-    [url appendFormat:@"/genre?gid=%@&type=artist&sortby=hot", gid];
+    [url appendFormat:@"/genre?gid=%@&type=artist&sortby=hot&page=%d", gid, page];
     [url appendString:[self callback]];
     [url appendString:kDoubanArtistApp];
     [url appendString:kDoubanArtistVersion];

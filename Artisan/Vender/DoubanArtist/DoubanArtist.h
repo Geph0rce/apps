@@ -16,7 +16,7 @@
 
 - (NSString *)artists;
 - (NSString *)songs;
-- (NSString *)genre:(NSString *)gid;
+- (NSString *)genre:(NSString *)gid page:(int)page;
 - (NSString *)playlist:(NSString *)aid;
 - (NSString *)songs:(NSString *)pid;
 

@@ -228,6 +228,11 @@
 		DBE9DBF319BED6850068C1C3 /* ZenSongData.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBF219BED6850068C1C3 /* ZenSongData.m */; };
 		DBE9DBF719BEDAA60068C1C3 /* ZenSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBF519BEDAA60068C1C3 /* ZenSongCell.m */; };
 		DBE9DBF819BEDAA60068C1C3 /* ZenSongCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DBF619BEDAA60068C1C3 /* ZenSongCell.xib */; };
+		DBE9DC4819BFECD30068C1C3 /* ZenArtistData.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC4719BFECD30068C1C3 /* ZenArtistData.m */; };
+		DBE9DC4B19BFECE50068C1C3 /* ZenCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC4A19BFECE50068C1C3 /* ZenCategoryModel.m */; };
+		DBE9DC4F19BFED080068C1C3 /* ZenArtistCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC4D19BFED080068C1C3 /* ZenArtistCell.m */; };
+		DBE9DC5019BFED080068C1C3 /* ZenArtistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC4E19BFED080068C1C3 /* ZenArtistCell.xib */; };
+		DBE9DC5319BFEECE0068C1C3 /* ZenCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC5219BFEECE0068C1C3 /* ZenCategoryController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -539,6 +544,15 @@
 		DBE9DBF419BEDAA60068C1C3 /* ZenSongCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenSongCell.h; sourceTree = "<group>"; };
 		DBE9DBF519BEDAA60068C1C3 /* ZenSongCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenSongCell.m; sourceTree = "<group>"; };
 		DBE9DBF619BEDAA60068C1C3 /* ZenSongCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenSongCell.xib; sourceTree = "<group>"; };
+		DBE9DC4619BFECD30068C1C3 /* ZenArtistData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenArtistData.h; sourceTree = "<group>"; };
+		DBE9DC4719BFECD30068C1C3 /* ZenArtistData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenArtistData.m; sourceTree = "<group>"; };
+		DBE9DC4919BFECE50068C1C3 /* ZenCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenCategoryModel.h; sourceTree = "<group>"; };
+		DBE9DC4A19BFECE50068C1C3 /* ZenCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenCategoryModel.m; sourceTree = "<group>"; };
+		DBE9DC4C19BFED080068C1C3 /* ZenArtistCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenArtistCell.h; sourceTree = "<group>"; };
+		DBE9DC4D19BFED080068C1C3 /* ZenArtistCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenArtistCell.m; sourceTree = "<group>"; };
+		DBE9DC4E19BFED080068C1C3 /* ZenArtistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenArtistCell.xib; sourceTree = "<group>"; };
+		DBE9DC5119BFEECE0068C1C3 /* ZenCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenCategoryController.h; sourceTree = "<group>"; };
+		DBE9DC5219BFEECE0068C1C3 /* ZenCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenCategoryController.m; sourceTree = "<group>"; };
 		DBFB6F781833B27100AABDE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DBFB6F7A1833C4BF00AABDE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -670,6 +684,8 @@
 				DBE9DBE119BECBDE0068C1C3 /* ZenLoadingController.m */,
 				DBE9DA9619BEC30A0068C1C3 /* ZenHotSongsController.h */,
 				DBE9DA9719BEC30A0068C1C3 /* ZenHotSongsController.m */,
+				DBE9DC5119BFEECE0068C1C3 /* ZenCategoryController.h */,
+				DBE9DC5219BFEECE0068C1C3 /* ZenCategoryController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -683,6 +699,10 @@
 				DBE9DBF219BED6850068C1C3 /* ZenSongData.m */,
 				DBE9DBE619BECFA90068C1C3 /* ZenHotSongsModel.h */,
 				DBE9DBE719BECFA90068C1C3 /* ZenHotSongsModel.m */,
+				DBE9DC4619BFECD30068C1C3 /* ZenArtistData.h */,
+				DBE9DC4719BFECD30068C1C3 /* ZenArtistData.m */,
+				DBE9DC4919BFECE50068C1C3 /* ZenCategoryModel.h */,
+				DBE9DC4A19BFECE50068C1C3 /* ZenCategoryModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -730,6 +750,9 @@
 				DBE9DBF419BEDAA60068C1C3 /* ZenSongCell.h */,
 				DBE9DBF519BEDAA60068C1C3 /* ZenSongCell.m */,
 				DBE9DBF619BEDAA60068C1C3 /* ZenSongCell.xib */,
+				DBE9DC4C19BFED080068C1C3 /* ZenArtistCell.h */,
+				DBE9DC4D19BFED080068C1C3 /* ZenArtistCell.m */,
+				DBE9DC4E19BFED080068C1C3 /* ZenArtistCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1248,6 +1271,7 @@
 				DBE9DB7219BEC4720068C1C3 /* bottom_icon_write@2x.png in Resources */,
 				DBE9DBC119BEC4720068C1C3 /* prev2@2x.png in Resources */,
 				DBE9DBB519BEC4720068C1C3 /* play.png in Resources */,
+				DBE9DC5019BFED080068C1C3 /* ZenArtistCell.xib in Resources */,
 				DBE9DBB619BEC4720068C1C3 /* play2.png in Resources */,
 				DBE9DBD519BEC4720068C1C3 /* share_pic_background@2x.png in Resources */,
 				DBE9DB7E19BEC4720068C1C3 /* cover_default@2x.png in Resources */,
@@ -1386,6 +1410,7 @@
 				DBE9DA6519BE9AE70068C1C3 /* ZenConfig.m in Sources */,
 				DBE9DBE519BECF3E0068C1C3 /* ZenBaseModel.m in Sources */,
 				DBE9DA5119BE97190068C1C3 /* SDWebImageDownloader.m in Sources */,
+				DBE9DC5319BFEECE0068C1C3 /* ZenCategoryController.m in Sources */,
 				DBE9DA4D19BE97190068C1C3 /* DDMenuController.m in Sources */,
 				DBE9DA6919BE9D670068C1C3 /* ZenTableViewCell.m in Sources */,
 				DBE9DA5019BE97190068C1C3 /* SDWebImageDecoder.m in Sources */,
@@ -1398,8 +1423,11 @@
 				DBE9DA5819BE97190068C1C3 /* UIColor+MLPFlatColors.m in Sources */,
 				DBE9DBF019BED02A0068C1C3 /* DoubanArtist.m in Sources */,
 				DBE9DA3519BE97190068C1C3 /* EGOLoadMoreTableFooterView.m in Sources */,
+				DBE9DC4B19BFECE50068C1C3 /* ZenCategoryModel.m in Sources */,
 				DBE9DA0419BE97190068C1C3 /* ZenBoardsController.m in Sources */,
+				DBE9DC4819BFECD30068C1C3 /* ZenArtistData.m in Sources */,
 				DBE9DA4E19BE97190068C1C3 /* EGORefreshTableHeaderView.m in Sources */,
+				DBE9DC4F19BFED080068C1C3 /* ZenArtistCell.m in Sources */,
 				DBE9D94A19BE97190068C1C3 /* AppDelegate.m in Sources */,
 				DBE9DA3F19BE97190068C1C3 /* ZenMoreOptionsView.m in Sources */,
 				DBE9DA3C19BE97190068C1C3 /* ZenLoadingView.m in Sources */,
