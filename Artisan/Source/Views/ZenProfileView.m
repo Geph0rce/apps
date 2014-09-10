@@ -16,6 +16,9 @@
 {
     self.backgroundColor = [UIColor clearColor];
     _border.backgroundColor = kZenBorderColor;
+    _name.font = kZenFont15;
+    _follower.font = kZenFont13;
+    _style.font = kZenFont13;
 }
 
 - (void)load:(ZenArtistData *)artist

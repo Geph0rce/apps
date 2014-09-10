@@ -19,6 +19,8 @@
     view.backgroundColor = kZenHighlightDaytime;
     self.selectedBackgroundView = view;
     _border.backgroundColor = kZenBorderColor;
+    _name.font = kZenFont15;
+    _artist.font = kZenFont13;
 }
 
 
