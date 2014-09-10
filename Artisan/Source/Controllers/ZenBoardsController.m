@@ -188,8 +188,10 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
     NSString *fid = [board stringForKey:@"fid"];
     [item setTitle:title];
     if ([fid isEqualToString:kZenHotSongsFid]) {
-        _item = item;
-        item.style = ZenMenuItemStylePerson;
+        item.style = ZenMenuItemStyleHotSongs;
+    }
+    else if ([fid isEqualToString:kZenHotArtistsFid]) {
+        item.style = ZenMenuItemStyleHotArtists;
     }
     else if ([fid isEqualToString:kZenSettingsFid]) {
         item.style = ZenMenuItemStyleSettings;

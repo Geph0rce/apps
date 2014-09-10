@@ -111,8 +111,14 @@
     else if (style == ZenMenuItemStylePerson) {
         [self setImage:[UIImage imageNamed:@"menu_notifications"]];
     }
-    else if (style == ZenMenuItemStatusArchived) {
+    else if (style == ZenMenuItemStyleArchived) {
         [self setImage:[UIImage imageNamed:@"menu_saved"]];
+    }
+    else if (style == ZenMenuItemStyleHotSongs) {
+        [self setImage:[UIImage imageNamed:@"hot_songs"]];
+    }
+    else if (style == ZenMenuItemStyleHotArtists) {
+        [self setImage:[UIImage imageNamed:@"hot_artists"]];
     }
 }
 

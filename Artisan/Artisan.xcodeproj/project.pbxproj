@@ -240,6 +240,12 @@
 		DBE9DC6819C024AE0068C1C3 /* ZenAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC6619C024AE0068C1C3 /* ZenAlbumCell.m */; };
 		DBE9DC6919C024AE0068C1C3 /* ZenAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC6719C024AE0068C1C3 /* ZenAlbumCell.xib */; };
 		DBE9DC6C19C029400068C1C3 /* ZenAlbumData.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC6B19C029400068C1C3 /* ZenAlbumData.m */; };
+		DBE9DC7319C04A1A0068C1C3 /* hot_songs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC6D19C04A190068C1C3 /* hot_songs@2x.png */; };
+		DBE9DC7419C04A1A0068C1C3 /* hot_artists.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC6E19C04A1A0068C1C3 /* hot_artists.png */; };
+		DBE9DC7519C04A1A0068C1C3 /* hot_artists@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC6F19C04A1A0068C1C3 /* hot_artists@2x.png */; };
+		DBE9DC7619C04A1A0068C1C3 /* offline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC7019C04A1A0068C1C3 /* offline@2x.png */; };
+		DBE9DC7719C04A1A0068C1C3 /* hot_songs.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC7119C04A1A0068C1C3 /* hot_songs.png */; };
+		DBE9DC7819C04A1A0068C1C3 /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC7219C04A1A0068C1C3 /* offline.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -572,6 +578,12 @@
 		DBE9DC6719C024AE0068C1C3 /* ZenAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenAlbumCell.xib; sourceTree = "<group>"; };
 		DBE9DC6A19C029400068C1C3 /* ZenAlbumData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenAlbumData.h; sourceTree = "<group>"; };
 		DBE9DC6B19C029400068C1C3 /* ZenAlbumData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenAlbumData.m; sourceTree = "<group>"; };
+		DBE9DC6D19C04A190068C1C3 /* hot_songs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hot_songs@2x.png"; sourceTree = "<group>"; };
+		DBE9DC6E19C04A1A0068C1C3 /* hot_artists.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot_artists.png; sourceTree = "<group>"; };
+		DBE9DC6F19C04A1A0068C1C3 /* hot_artists@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hot_artists@2x.png"; sourceTree = "<group>"; };
+		DBE9DC7019C04A1A0068C1C3 /* offline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offline@2x.png"; sourceTree = "<group>"; };
+		DBE9DC7119C04A1A0068C1C3 /* hot_songs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot_songs.png; sourceTree = "<group>"; };
+		DBE9DC7219C04A1A0068C1C3 /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
 		DBFB6F781833B27100AABDE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DBFB6F7A1833C4BF00AABDE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -972,6 +984,12 @@
 		DBE9DAA319BEC4720068C1C3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DBE9DC7119C04A1A0068C1C3 /* hot_songs.png */,
+				DBE9DC6D19C04A190068C1C3 /* hot_songs@2x.png */,
+				DBE9DC6E19C04A1A0068C1C3 /* hot_artists.png */,
+				DBE9DC6F19C04A1A0068C1C3 /* hot_artists@2x.png */,
+				DBE9DC7219C04A1A0068C1C3 /* offline.png */,
+				DBE9DC7019C04A1A0068C1C3 /* offline@2x.png */,
 				DBE9DAA419BEC4720068C1C3 /* about_more.png */,
 				DBE9DAA519BEC4720068C1C3 /* about_more@2x.png */,
 				DBE9DAA619BEC4720068C1C3 /* account@2x.png */,
@@ -1235,6 +1253,7 @@
 				DBE9DB4419BEC4720068C1C3 /* FZLanTingHei-R-GBK.TTF in Resources */,
 				DBE9DB8C19BEC4720068C1C3 /* list@2x.png in Resources */,
 				DBE9DBB119BEC4720068C1C3 /* pause.png in Resources */,
+				DBE9DC7319C04A1A0068C1C3 /* hot_songs@2x.png in Resources */,
 				DBE9DB7919BEC4720068C1C3 /* comment_box.png in Resources */,
 				DBE9DB9819BEC4720068C1C3 /* menu_saved@2x.png in Resources */,
 				DBE9DBAB19BEC4720068C1C3 /* next2@2x.png in Resources */,
@@ -1293,6 +1312,7 @@
 				DBE9DBB819BEC4720068C1C3 /* play@2x.png in Resources */,
 				DBE9DB9719BEC4720068C1C3 /* menu_saved.png in Resources */,
 				DBE9DBB919BEC4720068C1C3 /* play_hover.png in Resources */,
+				DBE9DC7419C04A1A0068C1C3 /* hot_artists.png in Resources */,
 				DBE9D95119BE97190068C1C3 /* InfoPlist.strings in Resources */,
 				DBE9DBA719BEC4720068C1C3 /* more_share.png in Resources */,
 				DBE9DBDF19BEC4720068C1C3 /* weibo_more@2x.png in Resources */,
@@ -1308,6 +1328,7 @@
 				DBE9DB7E19BEC4720068C1C3 /* cover_default@2x.png in Resources */,
 				DBE9DBD919BEC4720068C1C3 /* status_pause.png in Resources */,
 				DBE9DBBE19BEC4720068C1C3 /* player_back@2x.png in Resources */,
+				DBE9DC7719C04A1A0068C1C3 /* hot_songs.png in Resources */,
 				DBE9DB8A19BEC4720068C1C3 /* list2.png in Resources */,
 				DBE9DBDA19BEC4720068C1C3 /* status_pause@2x.png in Resources */,
 				DBE9DC5E19C01E790068C1C3 /* ZenProfileView.xib in Resources */,
@@ -1354,11 +1375,13 @@
 				DBE9DB4119BEC4720068C1C3 /* menubar.bundle in Resources */,
 				DBE9DB8219BEC4720068C1C3 /* empty_normal@2x.png in Resources */,
 				DBE9DB6119BEC4720068C1C3 /* bottom_icon_comment.png in Resources */,
+				DBE9DC7519C04A1A0068C1C3 /* hot_artists@2x.png in Resources */,
 				DBE9DBDB19BEC4720068C1C3 /* status_play.png in Resources */,
 				DBE9DB7119BEC4720068C1C3 /* bottom_icon_write.png in Resources */,
 				DBE9DBC519BEC4720068C1C3 /* preview_close_pressed.png in Resources */,
 				DBE9DB8419BEC4720068C1C3 /* feedback_more@2x.png in Resources */,
 				DBE9DB9D19BEC4720068C1C3 /* menu_settings.png in Resources */,
+				DBE9DC7819C04A1A0068C1C3 /* offline.png in Resources */,
 				DBE9DB9519BEC4720068C1C3 /* menu_right_arrow.png in Resources */,
 				DBE9DB7B19BEC4720068C1C3 /* cover.png in Resources */,
 				DBE9DB6F19BEC4720068C1C3 /* bottom_icon_share.png in Resources */,
@@ -1371,6 +1394,7 @@
 				DBE9DB6619BEC4720068C1C3 /* bottom_icon_next@2x.png in Resources */,
 				DBE9DB4D19BEC4720068C1C3 /* arrow_down.png in Resources */,
 				DBE9DB5C19BEC4720068C1C3 /* blackArrow.png in Resources */,
+				DBE9DC7619C04A1A0068C1C3 /* offline@2x.png in Resources */,
 				DBE9DB9619BEC4720068C1C3 /* menu_right_arrow@2x.png in Resources */,
 				DBE9DB8619BEC4720068C1C3 /* header_shadow@2x.png in Resources */,
 				DBE9DB6419BEC4720068C1C3 /* bottom_icon_more@2x.png in Resources */,

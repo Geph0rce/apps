@@ -12,7 +12,9 @@ typedef enum {
     ZenMenuItemStyleExpandable,
     ZenMenuItemStylePerson,
     ZenMenuItemStyleSettings,
-    ZenMenuItemStatusArchived
+    ZenMenuItemStyleArchived,
+    ZenMenuItemStyleHotSongs,
+    ZenMenuItemStyleHotArtists
 }ZenMenuItemStyle;
 
 typedef enum {

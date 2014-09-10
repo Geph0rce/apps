@@ -14,7 +14,7 @@
 
 - (void)awakeFromNib
 {
-    self.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor whiteColor];
     _border.backgroundColor = kZenBorderColor;
     _name.font = kZenFont15;
     _follower.font = kZenFont13;
