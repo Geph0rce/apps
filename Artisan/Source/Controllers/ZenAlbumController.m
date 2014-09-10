@@ -51,7 +51,7 @@
     [defaultCenter addObserver:self selector:@selector(requestFailed:) name:kZenAlbumRequestFailed object:_model];
     
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
-    [bar addLeftItemWithStyle:ZenNavigationItemStyleMenu target:self action:@selector(menu:)];
+    [bar addLeftItemWithStyle:ZenNavigationItemStyleBack target:self action:@selector(back:)];
     [bar setTitle:@"播放列表"];
     [_container addSubview:bar];
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
@@ -72,10 +72,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)menu:(id)sender
+- (void)back:(id)sender
 {
-    DDMenuController *menuController = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
-    [menuController showLeftController:YES];
+    [self dismissViewControllerWithOption:ZenAnimationOptionHorizontal completion:NULL];
 }
 
 #pragma mark
@@ -101,7 +100,10 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    [_profileView load:_model.artist];
+    if (_model.artist) {
+        [_profileView load:_model.artist];
+    }
+    
     return _profileView;
 }
 
