@@ -32,7 +32,7 @@
 
 #define LOG_QUEUED_BUFFERS 1
 
-#define kNumAQBufs 24			// Number of audio queue buffers we allocate.
+#define kNumAQBufs 48			// Number of audio queue buffers we allocate.
 								// Needs to be big enough to keep audio pipeline
 								// busy (non-zero number of queued buffers) but
 								// not so big that audio takes too long to begin

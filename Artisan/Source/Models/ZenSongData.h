@@ -21,14 +21,16 @@ typedef enum {
     NSString *_length;
     NSString *_picture;
     NSString *_src;
+    NSString *_hash;
     ZenSongStatus _status;
 }
 
-@property (nonatomic, retain) NSString *artist;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *length;
-@property (nonatomic, retain) NSString *picture;
-@property (nonatomic, retain) NSString *src;
+@property (nonatomic, strong) NSString *artist;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *length;
+@property (nonatomic, strong) NSString *picture;
+@property (nonatomic, strong) NSString *src;
+@property (nonatomic, strong) NSString *hash;
 @property (nonatomic, assign) ZenSongStatus status;
 
 @end

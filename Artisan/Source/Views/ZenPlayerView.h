@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "ZenSongData.h"
 
+typedef enum {
+    ZenPlayerControlTypePrev,
+    ZenPlayerControlTypePlay,
+    ZenPlayerControlTypeNext
+} ZenPlayerControlType;
+
+
 @interface ZenPlayerView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *name;
@@ -21,5 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;
 
 - (void)load:(ZenSongData *)song;
+- (void)setTimeLabelText:(NSString *)text;
+- (void)addTarget:(id)target action:(SEL)action;
 
 @end
