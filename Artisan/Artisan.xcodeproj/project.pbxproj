@@ -246,6 +246,8 @@
 		DBE9DC7619C04A1A0068C1C3 /* offline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC7019C04A1A0068C1C3 /* offline@2x.png */; };
 		DBE9DC7719C04A1A0068C1C3 /* hot_songs.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC7119C04A1A0068C1C3 /* hot_songs.png */; };
 		DBE9DC7819C04A1A0068C1C3 /* offline.png in Resources */ = {isa = PBXBuildFile; fileRef = DBE9DC7219C04A1A0068C1C3 /* offline.png */; };
+		DBE9DC7B19C135D70068C1C3 /* ZenPlaylistController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC7A19C135D70068C1C3 /* ZenPlaylistController.m */; };
+		DBE9DC7E19C135E90068C1C3 /* ZenPlaylistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DC7D19C135E90068C1C3 /* ZenPlaylistModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -584,6 +586,10 @@
 		DBE9DC7019C04A1A0068C1C3 /* offline@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offline@2x.png"; sourceTree = "<group>"; };
 		DBE9DC7119C04A1A0068C1C3 /* hot_songs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hot_songs.png; sourceTree = "<group>"; };
 		DBE9DC7219C04A1A0068C1C3 /* offline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline.png; sourceTree = "<group>"; };
+		DBE9DC7919C135D70068C1C3 /* ZenPlaylistController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenPlaylistController.h; sourceTree = "<group>"; };
+		DBE9DC7A19C135D70068C1C3 /* ZenPlaylistController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenPlaylistController.m; sourceTree = "<group>"; };
+		DBE9DC7C19C135E90068C1C3 /* ZenPlaylistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenPlaylistModel.h; sourceTree = "<group>"; };
+		DBE9DC7D19C135E90068C1C3 /* ZenPlaylistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenPlaylistModel.m; sourceTree = "<group>"; };
 		DBFB6F781833B27100AABDE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DBFB6F7A1833C4BF00AABDE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -719,6 +725,8 @@
 				DBE9DC5219BFEECE0068C1C3 /* ZenCategoryController.m */,
 				DBE9DC5F19C021280068C1C3 /* ZenAlbumController.h */,
 				DBE9DC6019C021280068C1C3 /* ZenAlbumController.m */,
+				DBE9DC7919C135D70068C1C3 /* ZenPlaylistController.h */,
+				DBE9DC7A19C135D70068C1C3 /* ZenPlaylistController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -740,6 +748,8 @@
 				DBE9DC6B19C029400068C1C3 /* ZenAlbumData.m */,
 				DBE9DC6219C0213C0068C1C3 /* ZenAlbumModel.h */,
 				DBE9DC6319C0213C0068C1C3 /* ZenAlbumModel.m */,
+				DBE9DC7C19C135E90068C1C3 /* ZenPlaylistModel.h */,
+				DBE9DC7D19C135E90068C1C3 /* ZenPlaylistModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1467,10 +1477,12 @@
 				DBE9DA5219BE97190068C1C3 /* SDWebImageManager.m in Sources */,
 				DBE9DA6519BE9AE70068C1C3 /* ZenConfig.m in Sources */,
 				DBE9DBE519BECF3E0068C1C3 /* ZenBaseModel.m in Sources */,
+				DBE9DC7B19C135D70068C1C3 /* ZenPlaylistController.m in Sources */,
 				DBE9DA5119BE97190068C1C3 /* SDWebImageDownloader.m in Sources */,
 				DBE9DC5319BFEECE0068C1C3 /* ZenCategoryController.m in Sources */,
 				DBE9DA4D19BE97190068C1C3 /* DDMenuController.m in Sources */,
 				DBE9DA6919BE9D670068C1C3 /* ZenTableViewCell.m in Sources */,
+				DBE9DC7E19C135E90068C1C3 /* ZenPlaylistModel.m in Sources */,
 				DBE9DA5019BE97190068C1C3 /* SDWebImageDecoder.m in Sources */,
 				DBE9DA5E19BE97190068C1C3 /* SinaWeiboAuthorizeView.m in Sources */,
 				DBE9D95319BE97190068C1C3 /* main.m in Sources */,

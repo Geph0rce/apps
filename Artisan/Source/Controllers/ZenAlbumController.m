@@ -12,6 +12,7 @@
 #import "ZenProfileView.h"
 #import "ZenNavigationBar.h"
 #import "ZenAlbumController.h"
+#import "ZenPlaylistController.h"
 
 #define kZenAlbumCellId @"ZenAlbumCellId"
 #define kZenAlbumHeaderId @"ZenAlbumHeaderId"
@@ -118,6 +119,16 @@
     ZenAlbumCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenAlbumCellId];
     [cell load:album.name];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZenAlbumData *album = _model.list[indexPath.row];
+    ZenPlaylistController *controller = [[ZenPlaylistController alloc] init];
+    controller.name = album.name;
+    controller.pid = album.aid;
+    controller.view.frame = _container.bounds;
+    [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
 }
 
 #pragma mark
