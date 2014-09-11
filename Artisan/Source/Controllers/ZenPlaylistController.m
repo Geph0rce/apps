@@ -11,6 +11,8 @@
 #import "ZenSongCell.h"
 #import "ZenPlaylistController.h"
 
+#import "ZenPlayerController.h"
+
 #define kZenPlaylistCellId @"ZenPlaylistCellId"
 
 @interface ZenPlaylistController ()
@@ -83,6 +85,20 @@
     ZenSongCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenPlaylistCellId];
     [cell load:song];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    @try {
+        ZenPlayerController *controller = [ZenPlayerController sharedInstance];
+        controller.list = [[NSMutableArray alloc] initWithArray:_model.list];
+        controller.index = indexPath.row;
+        controller.view.frame = _container.bounds;
+        [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"exception: %@", [exception description]);
+    }
 }
 
 #pragma mark

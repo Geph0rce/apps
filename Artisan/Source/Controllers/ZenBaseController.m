@@ -40,11 +40,6 @@
 
 - (void)dealloc
 {
-    if (self.parentController) {
-        [self removeObserver:self.parentController forKeyPath:@"hasMask"];
-        [self.view removeObserver:self.parentController forKeyPath:@"frame"];
-    }
-    
     NSLog(@"ZenBaseController dealloc!");
 }
 
@@ -81,7 +76,6 @@
 - (void) viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    _parentController.shouldBlockGesture = NO;
 }
 
 - (void)pushController:(ZenBaseController *)controller
@@ -253,6 +247,9 @@
                                  [self.view removeFromSuperview];
                                  [self viewDidDisappear:YES];
                                  [self.parentController  viewDidAppear:YES];
+                                 [self removeObserver:self.parentController forKeyPath:@"hasMask"];
+                                 [self.view removeObserver:self.parentController forKeyPath:@"frame"];
+                                 self.parentController = nil;
                                  [[ZenStack sharedInstance] pop:self];
                                  
                              }];
@@ -423,6 +420,9 @@
                              [self.view removeFromSuperview];
 
                              [_parentController viewDidAppear:YES];
+                             [self removeObserver:self.parentController forKeyPath:@"hasMask"];
+                             [self.view removeObserver:self.parentController forKeyPath:@"frame"];
+                             self.parentController = nil;
                              [[ZenStack sharedInstance] pop:self];
                          }];
     }
@@ -443,6 +443,9 @@
                              [self.view removeFromSuperview];
 
                              [_parentController viewDidAppear:YES];
+                             [self removeObserver:self.parentController forKeyPath:@"hasMask"];
+                             [self.view removeObserver:self.parentController forKeyPath:@"frame"];
+                             self.parentController = nil;
                              [[ZenStack sharedInstance] pop:self];
                          }];
     }

@@ -10,6 +10,7 @@
 #import "ZenNavigationBar.h"
 #import "ZenSongCell.h"
 #import "ZenHotSongsController.h"
+#import "ZenPlayerController.h"
 
 #define kZenSongCellId @"ZenSongCellId"
 
@@ -96,7 +97,16 @@
     return cell;
 }
 
-#pragma mark 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZenPlayerController *controller = [ZenPlayerController sharedInstance];
+    controller.list = [[NSMutableArray alloc] initWithArray:_model.list];
+    controller.index = indexPath.row;
+    controller.view.frame = _container.bounds;
+    [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+}
+
+#pragma mark
 #pragma mark Handel Notifications From Model 
 
 - (void)requestFinished:(NSNotification *)notification

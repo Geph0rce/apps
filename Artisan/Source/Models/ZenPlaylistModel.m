@@ -65,6 +65,7 @@
             song.length = item[@"length"];
             song.picture = item[@"picture"];
             song.src = item[@"src"];
+            song.status = ZenSongStatusNone;
             [_list addObject:song];
         }
         [self send:kZenPlaylistRequestFinished];
