@@ -17,6 +17,7 @@
 #import "ZenTableViewCell.h"
 #import "ZenBoardsController.h"
 #import "ZenHotSongsController.h"
+#import "ZenHotArtistsController.h"
 #import "ZenCategoryController.h"
 
 
@@ -275,13 +276,18 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
     @try {
         NSUInteger section = item.tag;
         NSDictionary *board = [_boardsData safeObjectAtIndex:section];
+        DDMenuController *menuController = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
         if (board) {
             NSString *fid = [board stringForKey:@"fid"];
             if ([fid isEqualToString:kZenHotSongsFid]) {
                 // hot songs
+                ZenHotSongsController *controller = [[ZenHotSongsController alloc] init];
+                [menuController setRootController:controller animated:YES];
             }
             else if ([fid isEqualToString:kZenHotArtistsFid]) {
                 // hot artists
+                ZenHotArtistsController *controller = [[ZenHotArtistsController alloc] init];
+                [menuController setRootController:controller animated:YES];
             }
             else if ([fid isEqualToString:kZenSettingsFid]) {
                 // settings
