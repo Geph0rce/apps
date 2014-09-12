@@ -32,7 +32,8 @@
 #define kZenBoardTag 1001
 #define kZenHotSongsFid @"1001"
 #define kZenHotArtistsFid @"1002"
-#define kZenSettingsFid @"1003"
+#define kZenDownloadFid @"1003"
+#define kZenSettingsFid @"1004"
 
 
 @interface ZenBoardsController () <UITableViewDataSource, UITableViewDelegate, ZenMenuItemDelegate>
@@ -124,7 +125,7 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
                 
                 
                 NSString *fid = [board stringForKey:@"fid"];
-                if ([fid isEqualToString:kZenHotSongsFid] || [fid isEqualToString:kZenSettingsFid] || [fid isEqualToString:kZenHotArtistsFid]) {
+                if ([fid isEqualToString:kZenHotSongsFid] || [fid isEqualToString:kZenSettingsFid] || [fid isEqualToString:kZenHotArtistsFid] || [fid isEqualToString:kZenDownloadFid]) {
                     [_childBoardsData addObject:[NSArray array]];
                     continue;
                 }
@@ -196,6 +197,9 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
     }
     else if ([fid isEqualToString:kZenSettingsFid]) {
         item.style = ZenMenuItemStyleSettings;
+    }
+    else if ([fid isEqualToString:kZenDownloadFid]) {
+        item.style = ZenMenuItemStyleDownload;
     }
     else {
         item.style = ZenMenuItemStyleExpandable;

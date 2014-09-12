@@ -82,7 +82,7 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>app plays audio</string>
+		<string>audio</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

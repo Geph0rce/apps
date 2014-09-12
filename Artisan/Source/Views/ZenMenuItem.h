@@ -14,7 +14,8 @@ typedef enum {
     ZenMenuItemStyleSettings,
     ZenMenuItemStyleArchived,
     ZenMenuItemStyleHotSongs,
-    ZenMenuItemStyleHotArtists
+    ZenMenuItemStyleHotArtists,
+    ZenMenuItemStyleDownload
 }ZenMenuItemStyle;
 
 typedef enum {

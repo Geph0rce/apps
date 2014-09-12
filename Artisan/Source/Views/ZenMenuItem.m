@@ -120,6 +120,9 @@
     else if (style == ZenMenuItemStyleHotArtists) {
         [self setImage:[UIImage imageNamed:@"hot_artists"]];
     }
+    else if (style == ZenMenuItemStyleDownload) {
+        [self setImage:[UIImage imageNamed:@"download"]];
+    }
 }
 
 - (void)setColor:(UIColor *)color highlight:(UIColor *)hl

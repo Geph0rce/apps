@@ -10,6 +10,9 @@
 #import "ZenMacros.h"
 #import "ZenColorManager.h"
 
+#define kZenColorGreen ZenColorFromRGB(0x6fca2b)
+#define kZenColorGreenHL ZenColorFromRGB(0x4a8726)
+
 #define kZenColorMidGreen  ZenColorFromRGB(0x1abc9c)
 #define kZenColorMidGreenHL ZenColorFromRGB(0x16a085)
 
@@ -55,6 +58,7 @@ SINGLETON_FOR_CLASS(ZenColorManager);
     self = [super init];
     if (self) {
         NSArray *normal = @[
+            kZenColorGreen,
             kZenColorMidGreen,
             kZenColorLightBlue,
             kZenColorPurple,
@@ -69,6 +73,7 @@ SINGLETON_FOR_CLASS(ZenColorManager);
         self.normal = normal;
         
         NSArray *highlight = @[
+            kZenColorGreenHL,
             kZenColorMidGreenHL,
             kZenColorLightBlueHL,
             kZenColorPurpleHL,
