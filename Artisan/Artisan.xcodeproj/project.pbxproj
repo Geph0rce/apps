@@ -13,6 +13,24 @@
 		DB1A06B7190E1A7E00F1924F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB818006183110CB0053BC69 /* AudioToolbox.framework */; };
 		DB24CA3419D2A4E000C307A8 /* ZenOfflineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA3319D2A4E000C307A8 /* ZenOfflineModel.m */; };
 		DB24CA4019D2D97100C307A8 /* ZenOfflineController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA3F19D2D97100C307A8 /* ZenOfflineController.m */; };
+		DB24CA6A19D2F1C800C307A8 /* DOUAudioAnalyzer+Default.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA4319D2F1C800C307A8 /* DOUAudioAnalyzer+Default.m */; };
+		DB24CA6B19D2F1C800C307A8 /* DOUAudioAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA4519D2F1C800C307A8 /* DOUAudioAnalyzer.m */; };
+		DB24CA6C19D2F1C800C307A8 /* DOUAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA4919D2F1C800C307A8 /* DOUAudioDecoder.m */; };
+		DB24CA6D19D2F1C800C307A8 /* DOUAudioEventLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA4B19D2F1C800C307A8 /* DOUAudioEventLoop.m */; };
+		DB24CA6E19D2F1C800C307A8 /* DOUAudioFilePreprocessor.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA4E19D2F1C800C307A8 /* DOUAudioFilePreprocessor.m */; };
+		DB24CA6F19D2F1C800C307A8 /* DOUAudioFileProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5019D2F1C800C307A8 /* DOUAudioFileProvider.m */; };
+		DB24CA7019D2F1C800C307A8 /* DOUAudioFrequencyAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5219D2F1C800C307A8 /* DOUAudioFrequencyAnalyzer.m */; };
+		DB24CA7119D2F1C800C307A8 /* DOUAudioLPCM.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5419D2F1C800C307A8 /* DOUAudioLPCM.m */; };
+		DB24CA7219D2F1C800C307A8 /* DOUAudioPlaybackItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5619D2F1C800C307A8 /* DOUAudioPlaybackItem.m */; };
+		DB24CA7319D2F1C800C307A8 /* DOUAudioRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5819D2F1C800C307A8 /* DOUAudioRenderer.m */; };
+		DB24CA7419D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5A19D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.m */; };
+		DB24CA7519D2F1C800C307A8 /* DOUAudioStreamer+Options.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5C19D2F1C800C307A8 /* DOUAudioStreamer+Options.m */; };
+		DB24CA7619D2F1C800C307A8 /* DOUAudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA5E19D2F1C800C307A8 /* DOUAudioStreamer.m */; };
+		DB24CA7719D2F1C800C307A8 /* DOUAudioVisualizer.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA6119D2F1C800C307A8 /* DOUAudioVisualizer.m */; };
+		DB24CA7819D2F1C800C307A8 /* DOUEAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA6319D2F1C800C307A8 /* DOUEAGLView.m */; };
+		DB24CA7919D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA6519D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.m */; };
+		DB24CA7A19D2F1C800C307A8 /* DOUSimpleHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA6719D2F1C800C307A8 /* DOUSimpleHTTPRequest.m */; };
+		DB24CA7B19D2F1C800C307A8 /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA6919D2F1C800C307A8 /* NSData+DOUMappedFile.m */; };
 		DB50FDE919C2810A008E7974 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE719C2810A008E7974 /* download.png */; };
 		DB50FDEA19C2810A008E7974 /* download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE819C2810A008E7974 /* download@2x.png */; };
 		DB817FF3183110660053BC69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FF2183110660053BC69 /* QuartzCore.framework */; };
@@ -225,7 +243,6 @@
 		DBE9DBE219BECBDE0068C1C3 /* ZenLoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBE119BECBDE0068C1C3 /* ZenLoadingController.m */; };
 		DBE9DBE519BECF3E0068C1C3 /* ZenBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBE419BECF3E0068C1C3 /* ZenBaseModel.m */; };
 		DBE9DBE819BECFA90068C1C3 /* ZenHotSongsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBE719BECFA90068C1C3 /* ZenHotSongsModel.m */; };
-		DBE9DBEF19BED02A0068C1C3 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBEB19BED02A0068C1C3 /* AudioStreamer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DBE9DBF019BED02A0068C1C3 /* DoubanArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBEE19BED02A0068C1C3 /* DoubanArtist.m */; };
 		DBE9DBF319BED6850068C1C3 /* ZenSongData.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBF219BED6850068C1C3 /* ZenSongData.m */; };
 		DBE9DBF719BEDAA60068C1C3 /* ZenSongCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9DBF519BEDAA60068C1C3 /* ZenSongCell.m */; };
@@ -283,6 +300,46 @@
 		DB24CA3319D2A4E000C307A8 /* ZenOfflineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOfflineModel.m; sourceTree = "<group>"; };
 		DB24CA3E19D2D97100C307A8 /* ZenOfflineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenOfflineController.h; sourceTree = "<group>"; };
 		DB24CA3F19D2D97100C307A8 /* ZenOfflineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOfflineController.m; sourceTree = "<group>"; };
+		DB24CA4219D2F1C800C307A8 /* DOUAudioAnalyzer+Default.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DOUAudioAnalyzer+Default.h"; sourceTree = "<group>"; };
+		DB24CA4319D2F1C800C307A8 /* DOUAudioAnalyzer+Default.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DOUAudioAnalyzer+Default.m"; sourceTree = "<group>"; };
+		DB24CA4419D2F1C800C307A8 /* DOUAudioAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioAnalyzer.h; sourceTree = "<group>"; };
+		DB24CA4519D2F1C800C307A8 /* DOUAudioAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioAnalyzer.m; sourceTree = "<group>"; };
+		DB24CA4619D2F1C800C307A8 /* DOUAudioAnalyzer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioAnalyzer_Private.h; sourceTree = "<group>"; };
+		DB24CA4719D2F1C800C307A8 /* DOUAudioBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioBase.h; sourceTree = "<group>"; };
+		DB24CA4819D2F1C800C307A8 /* DOUAudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioDecoder.h; sourceTree = "<group>"; };
+		DB24CA4919D2F1C800C307A8 /* DOUAudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioDecoder.m; sourceTree = "<group>"; };
+		DB24CA4A19D2F1C800C307A8 /* DOUAudioEventLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioEventLoop.h; sourceTree = "<group>"; };
+		DB24CA4B19D2F1C800C307A8 /* DOUAudioEventLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioEventLoop.m; sourceTree = "<group>"; };
+		DB24CA4C19D2F1C800C307A8 /* DOUAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioFile.h; sourceTree = "<group>"; };
+		DB24CA4D19D2F1C800C307A8 /* DOUAudioFilePreprocessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioFilePreprocessor.h; sourceTree = "<group>"; };
+		DB24CA4E19D2F1C800C307A8 /* DOUAudioFilePreprocessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioFilePreprocessor.m; sourceTree = "<group>"; };
+		DB24CA4F19D2F1C800C307A8 /* DOUAudioFileProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioFileProvider.h; sourceTree = "<group>"; };
+		DB24CA5019D2F1C800C307A8 /* DOUAudioFileProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioFileProvider.m; sourceTree = "<group>"; };
+		DB24CA5119D2F1C800C307A8 /* DOUAudioFrequencyAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioFrequencyAnalyzer.h; sourceTree = "<group>"; };
+		DB24CA5219D2F1C800C307A8 /* DOUAudioFrequencyAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioFrequencyAnalyzer.m; sourceTree = "<group>"; };
+		DB24CA5319D2F1C800C307A8 /* DOUAudioLPCM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioLPCM.h; sourceTree = "<group>"; };
+		DB24CA5419D2F1C800C307A8 /* DOUAudioLPCM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioLPCM.m; sourceTree = "<group>"; };
+		DB24CA5519D2F1C800C307A8 /* DOUAudioPlaybackItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioPlaybackItem.h; sourceTree = "<group>"; };
+		DB24CA5619D2F1C800C307A8 /* DOUAudioPlaybackItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioPlaybackItem.m; sourceTree = "<group>"; };
+		DB24CA5719D2F1C800C307A8 /* DOUAudioRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioRenderer.h; sourceTree = "<group>"; };
+		DB24CA5819D2F1C800C307A8 /* DOUAudioRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioRenderer.m; sourceTree = "<group>"; };
+		DB24CA5919D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioSpatialAnalyzer.h; sourceTree = "<group>"; };
+		DB24CA5A19D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioSpatialAnalyzer.m; sourceTree = "<group>"; };
+		DB24CA5B19D2F1C800C307A8 /* DOUAudioStreamer+Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DOUAudioStreamer+Options.h"; sourceTree = "<group>"; };
+		DB24CA5C19D2F1C800C307A8 /* DOUAudioStreamer+Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DOUAudioStreamer+Options.m"; sourceTree = "<group>"; };
+		DB24CA5D19D2F1C800C307A8 /* DOUAudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioStreamer.h; sourceTree = "<group>"; };
+		DB24CA5E19D2F1C800C307A8 /* DOUAudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioStreamer.m; sourceTree = "<group>"; };
+		DB24CA5F19D2F1C800C307A8 /* DOUAudioStreamer_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioStreamer_Private.h; sourceTree = "<group>"; };
+		DB24CA6019D2F1C800C307A8 /* DOUAudioVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAudioVisualizer.h; sourceTree = "<group>"; };
+		DB24CA6119D2F1C800C307A8 /* DOUAudioVisualizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAudioVisualizer.m; sourceTree = "<group>"; };
+		DB24CA6219D2F1C800C307A8 /* DOUEAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUEAGLView.h; sourceTree = "<group>"; };
+		DB24CA6319D2F1C800C307A8 /* DOUEAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUEAGLView.m; sourceTree = "<group>"; };
+		DB24CA6419D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUMPMediaLibraryAssetLoader.h; sourceTree = "<group>"; };
+		DB24CA6519D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUMPMediaLibraryAssetLoader.m; sourceTree = "<group>"; };
+		DB24CA6619D2F1C800C307A8 /* DOUSimpleHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUSimpleHTTPRequest.h; sourceTree = "<group>"; };
+		DB24CA6719D2F1C800C307A8 /* DOUSimpleHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUSimpleHTTPRequest.m; sourceTree = "<group>"; };
+		DB24CA6819D2F1C800C307A8 /* NSData+DOUMappedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+DOUMappedFile.h"; sourceTree = "<group>"; };
+		DB24CA6919D2F1C800C307A8 /* NSData+DOUMappedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+DOUMappedFile.m"; sourceTree = "<group>"; };
 		DB416BDD18E552940020160F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DB4B42421861924D00E875FC /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		DB50FDE719C2810A008E7974 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
@@ -563,8 +620,6 @@
 		DBE9DBE419BECF3E0068C1C3 /* ZenBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenBaseModel.m; sourceTree = "<group>"; };
 		DBE9DBE619BECFA90068C1C3 /* ZenHotSongsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenHotSongsModel.h; sourceTree = "<group>"; };
 		DBE9DBE719BECFA90068C1C3 /* ZenHotSongsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenHotSongsModel.m; sourceTree = "<group>"; };
-		DBE9DBEA19BED02A0068C1C3 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
-		DBE9DBEB19BED02A0068C1C3 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
 		DBE9DBED19BED02A0068C1C3 /* DoubanArtist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanArtist.h; sourceTree = "<group>"; };
 		DBE9DBEE19BED02A0068C1C3 /* DoubanArtist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanArtist.m; sourceTree = "<group>"; };
 		DBE9DBF119BED6850068C1C3 /* ZenSongData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenSongData.h; sourceTree = "<group>"; };
@@ -708,6 +763,53 @@
 				DB12147A180F86A900C7C1EE /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB24CA4119D2F1C800C307A8 /* DouAudioStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				DB24CA4219D2F1C800C307A8 /* DOUAudioAnalyzer+Default.h */,
+				DB24CA4319D2F1C800C307A8 /* DOUAudioAnalyzer+Default.m */,
+				DB24CA4419D2F1C800C307A8 /* DOUAudioAnalyzer.h */,
+				DB24CA4519D2F1C800C307A8 /* DOUAudioAnalyzer.m */,
+				DB24CA4619D2F1C800C307A8 /* DOUAudioAnalyzer_Private.h */,
+				DB24CA4719D2F1C800C307A8 /* DOUAudioBase.h */,
+				DB24CA4819D2F1C800C307A8 /* DOUAudioDecoder.h */,
+				DB24CA4919D2F1C800C307A8 /* DOUAudioDecoder.m */,
+				DB24CA4A19D2F1C800C307A8 /* DOUAudioEventLoop.h */,
+				DB24CA4B19D2F1C800C307A8 /* DOUAudioEventLoop.m */,
+				DB24CA4C19D2F1C800C307A8 /* DOUAudioFile.h */,
+				DB24CA4D19D2F1C800C307A8 /* DOUAudioFilePreprocessor.h */,
+				DB24CA4E19D2F1C800C307A8 /* DOUAudioFilePreprocessor.m */,
+				DB24CA4F19D2F1C800C307A8 /* DOUAudioFileProvider.h */,
+				DB24CA5019D2F1C800C307A8 /* DOUAudioFileProvider.m */,
+				DB24CA5119D2F1C800C307A8 /* DOUAudioFrequencyAnalyzer.h */,
+				DB24CA5219D2F1C800C307A8 /* DOUAudioFrequencyAnalyzer.m */,
+				DB24CA5319D2F1C800C307A8 /* DOUAudioLPCM.h */,
+				DB24CA5419D2F1C800C307A8 /* DOUAudioLPCM.m */,
+				DB24CA5519D2F1C800C307A8 /* DOUAudioPlaybackItem.h */,
+				DB24CA5619D2F1C800C307A8 /* DOUAudioPlaybackItem.m */,
+				DB24CA5719D2F1C800C307A8 /* DOUAudioRenderer.h */,
+				DB24CA5819D2F1C800C307A8 /* DOUAudioRenderer.m */,
+				DB24CA5919D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.h */,
+				DB24CA5A19D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.m */,
+				DB24CA5B19D2F1C800C307A8 /* DOUAudioStreamer+Options.h */,
+				DB24CA5C19D2F1C800C307A8 /* DOUAudioStreamer+Options.m */,
+				DB24CA5D19D2F1C800C307A8 /* DOUAudioStreamer.h */,
+				DB24CA5E19D2F1C800C307A8 /* DOUAudioStreamer.m */,
+				DB24CA5F19D2F1C800C307A8 /* DOUAudioStreamer_Private.h */,
+				DB24CA6019D2F1C800C307A8 /* DOUAudioVisualizer.h */,
+				DB24CA6119D2F1C800C307A8 /* DOUAudioVisualizer.m */,
+				DB24CA6219D2F1C800C307A8 /* DOUEAGLView.h */,
+				DB24CA6319D2F1C800C307A8 /* DOUEAGLView.m */,
+				DB24CA6419D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.h */,
+				DB24CA6519D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.m */,
+				DB24CA6619D2F1C800C307A8 /* DOUSimpleHTTPRequest.h */,
+				DB24CA6719D2F1C800C307A8 /* DOUSimpleHTTPRequest.m */,
+				DB24CA6819D2F1C800C307A8 /* NSData+DOUMappedFile.h */,
+				DB24CA6919D2F1C800C307A8 /* NSData+DOUMappedFile.m */,
+			);
+			path = DouAudioStreamer;
 			sourceTree = "<group>";
 		};
 		DBE9D7B319BE97180068C1C3 /* Artisan */ = {
@@ -854,7 +956,7 @@
 		DBE9D91519BE97190068C1C3 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
-				DBE9DBE919BED02A0068C1C3 /* AudioStreamer */,
+				DB24CA4119D2F1C800C307A8 /* DouAudioStreamer */,
 				DBE9DBEC19BED02A0068C1C3 /* DoubanArtist */,
 				DBE9D91619BE97190068C1C3 /* DDMenuController */,
 				DBE9D91919BE97190068C1C3 /* RefreshTableHeaderView */,
@@ -1200,15 +1302,6 @@
 			path = images;
 			sourceTree = "<group>";
 		};
-		DBE9DBE919BED02A0068C1C3 /* AudioStreamer */ = {
-			isa = PBXGroup;
-			children = (
-				DBE9DBEA19BED02A0068C1C3 /* AudioStreamer.h */,
-				DBE9DBEB19BED02A0068C1C3 /* AudioStreamer.m */,
-			);
-			path = AudioStreamer;
-			sourceTree = "<group>";
-		};
 		DBE9DBEC19BED02A0068C1C3 /* DoubanArtist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1496,29 +1589,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBE9DC8219C13B7D0068C1C3 /* ZenPlayerController.m in Sources */,
+				DB24CA7219D2F1C800C307A8 /* DOUAudioPlaybackItem.m in Sources */,
 				DB24CA4019D2D97100C307A8 /* ZenOfflineController.m in Sources */,
 				DBE9DA4019BE97190068C1C3 /* ZenNavigationBar.m in Sources */,
 				DBE9DC9319C1703E0068C1C3 /* ZenHotArtistsModel.m in Sources */,
+				DB24CA7919D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
 				DBE9DA2C19BE97190068C1C3 /* ZenCategory.m in Sources */,
 				DBE9DA2F19BE97190068C1C3 /* ZenConnection.m in Sources */,
 				DBE9DA5F19BE97190068C1C3 /* SinaWeiboRequest.m in Sources */,
 				DBE9DA3319BE97190068C1C3 /* ZenStack.m in Sources */,
 				DBE9DA4F19BE97190068C1C3 /* SDImageCache.m in Sources */,
+				DB24CA7619D2F1C800C307A8 /* DOUAudioStreamer.m in Sources */,
 				DBE9DBE819BECFA90068C1C3 /* ZenHotSongsModel.m in Sources */,
 				DBE9DA6419BE9AE70068C1C3 /* ZenColorManager.m in Sources */,
 				DBE9DA5719BE97190068C1C3 /* XPathQuery.m in Sources */,
+				DB24CA7019D2F1C800C307A8 /* DOUAudioFrequencyAnalyzer.m in Sources */,
+				DB24CA6C19D2F1C800C307A8 /* DOUAudioDecoder.m in Sources */,
 				DBE9DA4819BE97190068C1C3 /* ZenStatusBarOverlay.m in Sources */,
 				DBE9DA5419BE97190068C1C3 /* UIImageView+WebCache.m in Sources */,
 				DBE9DA5D19BE97190068C1C3 /* SinaWeibo.m in Sources */,
 				DBE9DA2919BE97190068C1C3 /* GCDHelper.m in Sources */,
 				DBE9DA3E19BE97190068C1C3 /* ZenMenuItem.m in Sources */,
+				DB24CA6B19D2F1C800C307A8 /* DOUAudioAnalyzer.m in Sources */,
 				DBE9DBF719BEDAA60068C1C3 /* ZenSongCell.m in Sources */,
+				DB24CA7519D2F1C800C307A8 /* DOUAudioStreamer+Options.m in Sources */,
 				DBE9DA5519BE97190068C1C3 /* TFHpple.m in Sources */,
 				DBE9DA3219BE97190068C1C3 /* ZenOpenUDID.m in Sources */,
+				DB24CA7719D2F1C800C307A8 /* DOUAudioVisualizer.m in Sources */,
+				DB24CA6E19D2F1C800C307A8 /* DOUAudioFilePreprocessor.m in Sources */,
 				DBE9DC6119C021280068C1C3 /* ZenAlbumController.m in Sources */,
 				DBE9DA5319BE97190068C1C3 /* SDWebImagePrefetcher.m in Sources */,
 				DBE9DC8C19C1482A0068C1C3 /* ZenPlayerCell.m in Sources */,
+				DB24CA7419D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.m in Sources */,
 				DBE9DBE219BECBDE0068C1C3 /* ZenLoadingController.m in Sources */,
+				DB24CA6D19D2F1C800C307A8 /* DOUAudioEventLoop.m in Sources */,
 				DBE9DA5919BE97190068C1C3 /* UIImage+GIF.m in Sources */,
 				DBE9DA5619BE97190068C1C3 /* TFHppleElement.m in Sources */,
 				DBE9DA5219BE97190068C1C3 /* SDWebImageManager.m in Sources */,
@@ -1530,11 +1634,13 @@
 				DBE9DC5319BFEECE0068C1C3 /* ZenCategoryController.m in Sources */,
 				DBE9DA4D19BE97190068C1C3 /* DDMenuController.m in Sources */,
 				DBE9DA6919BE9D670068C1C3 /* ZenTableViewCell.m in Sources */,
+				DB24CA7B19D2F1C800C307A8 /* NSData+DOUMappedFile.m in Sources */,
 				DBE9DC7E19C135E90068C1C3 /* ZenPlaylistModel.m in Sources */,
 				DBE9DA5019BE97190068C1C3 /* SDWebImageDecoder.m in Sources */,
 				DBE9DA5E19BE97190068C1C3 /* SinaWeiboAuthorizeView.m in Sources */,
 				DBE9D95319BE97190068C1C3 /* main.m in Sources */,
-				DBE9DBEF19BED02A0068C1C3 /* AudioStreamer.m in Sources */,
+				DB24CA7119D2F1C800C307A8 /* DOUAudioLPCM.m in Sources */,
+				DB24CA7819D2F1C800C307A8 /* DOUEAGLView.m in Sources */,
 				DBE9DBF319BED6850068C1C3 /* ZenSongData.m in Sources */,
 				DBE9DC8819C13F560068C1C3 /* ZenPlayerView.m in Sources */,
 				DBE9DA0319BE97190068C1C3 /* ZenBaseController.m in Sources */,
@@ -1545,10 +1651,14 @@
 				DBE9DBF019BED02A0068C1C3 /* DoubanArtist.m in Sources */,
 				DBE9DC6C19C029400068C1C3 /* ZenAlbumData.m in Sources */,
 				DBE9DA3519BE97190068C1C3 /* EGOLoadMoreTableFooterView.m in Sources */,
+				DB24CA6F19D2F1C800C307A8 /* DOUAudioFileProvider.m in Sources */,
 				DBE9DC4B19BFECE50068C1C3 /* ZenCategoryModel.m in Sources */,
 				DBE9DA0419BE97190068C1C3 /* ZenBoardsController.m in Sources */,
+				DB24CA7319D2F1C800C307A8 /* DOUAudioRenderer.m in Sources */,
 				DBE9DC4819BFECD30068C1C3 /* ZenArtistData.m in Sources */,
 				DBE9DA4E19BE97190068C1C3 /* EGORefreshTableHeaderView.m in Sources */,
+				DB24CA7A19D2F1C800C307A8 /* DOUSimpleHTTPRequest.m in Sources */,
+				DB24CA6A19D2F1C800C307A8 /* DOUAudioAnalyzer+Default.m in Sources */,
 				DBE9DC4F19BFED080068C1C3 /* ZenArtistCell.m in Sources */,
 				DBE9DC6819C024AE0068C1C3 /* ZenAlbumCell.m in Sources */,
 				DBE9D94A19BE97190068C1C3 /* AppDelegate.m in Sources */,

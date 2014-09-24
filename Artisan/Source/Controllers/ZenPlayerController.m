@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
-#import <AVFoundation/AVFoundation.h>
+
 #import "ZenOfflineModel.h"
-#import "AudioStreamer.h"
+#import "DOUAudioStreamer.h"
 #import "Singleton.h"
 #import "ZenCategory.h"
 #import "ZenNavigationBar.h"
@@ -19,15 +19,18 @@
 #define kZenPlayerCellId @"ZenPlayerCellId"
 #define kZenPlayerHeight 160.0f
 
+static void *kStatusKVOKey = &kStatusKVOKey;
+static void *kDurationKVOKey = &kDurationKVOKey;
+static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
+
 @interface ZenPlayerController () <UITableViewDataSource, UITableViewDelegate>
 {
     UITableView *_table;
     ZenPlayerView *_player;
-    AudioStreamer *_streamer;
+    DOUAudioStreamer *_streamer;
     UIBackgroundTaskIdentifier _taskId;
     NSTimer *_timer;
     NSString *_hash;
-    AVAudioPlayer *_avAudioPlayer;
 }
 
 @property (nonatomic, strong) ZenPlayerView *player;
@@ -145,6 +148,48 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
         }
     }
 }
+
+- (void)cancelStreamer
+{
+    if (_streamer != nil) {
+        [_streamer pause];
+        [_streamer removeObserver:self forKeyPath:@"status"];
+        [_streamer removeObserver:self forKeyPath:@"duration"];
+        [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
+        _streamer = nil;
+    }
+}
+
+- (void)resetStreamer
+{
+    [self cancelStreamer];
+    
+    if (0 == [_list count])
+    {
+        NSLog(@"no track avaiable");
+    }
+    else
+    {
+        ZenSongData *song = [_list objectAtIndex:_index];
+        
+        _streamer = [DOUAudioStreamer streamerWithAudioFile:song];
+        [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
+        [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];
+        [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
+        
+        [_streamer play];
+    }
+}
+
+//- (void)_setupHintForStreamer
+//{
+//    NSUInteger nextIndex = _currentTrackIndex + 1;
+//    if (nextIndex >= [_tracks count]) {
+//        nextIndex = 0;
+//    }
+//    
+//    [DOUAudioStreamer setHintWithAudioFile:[_tracks objectAtIndex:nextIndex]];
+//}
 
 - (void)changeToPlayStatus:(ZenSongStatus)status index:(NSUInteger)index
 {

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DOUAudioFile.h"
 
 typedef enum {
     ZenSongStatusNone,
@@ -14,7 +15,7 @@ typedef enum {
     ZenSongStatusPause
 } ZenSongStatus;
 
-@interface ZenSongData : NSObject
+@interface ZenSongData : NSObject <DOUAudioFile>
 {
     NSString *_artist;
     NSString *_name;
