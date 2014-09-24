@@ -20,7 +20,6 @@
 #define kZenPlayerHeight 160.0f
 
 static void *kStatusKVOKey = &kStatusKVOKey;
-static void *kDurationKVOKey = &kDurationKVOKey;
 static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 @interface ZenPlayerController () <UITableViewDataSource, UITableViewDelegate>
@@ -79,6 +78,16 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 {
     [super viewWillAppear:animated];
     [self load];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if (_timer) {
+        [_timer invalidate];
+        self.timer = nil;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,10 +139,9 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     if (song) {
         if (!_hash || ![song.hash isEqualToString:_hash]) {
             self.hash = song.hash;
-            NSURL *url = [NSURL URLWithString:song.src];
-            if ([ZenOfflineModel songExists:song]) {
-                url = [ZenOfflineModel urlForSong:song];
-            }
+            [self changeToPlayStatus:ZenSongStatusPlay index:_index];
+            [_player load:song];
+            [self resetStreamer];
         }
     }
 }
@@ -143,7 +151,6 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     if (_streamer != nil) {
         [_streamer pause];
         [_streamer removeObserver:self forKeyPath:@"status"];
-        [_streamer removeObserver:self forKeyPath:@"duration"];
         [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
         _streamer = nil;
     }
@@ -160,25 +167,14 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     else
     {
         ZenSongData *song = [_list objectAtIndex:_index];
-        
         _streamer = [DOUAudioStreamer streamerWithAudioFile:song];
         [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
-        [_streamer addObserver:self forKeyPath:@"duration" options:NSKeyValueObservingOptionNew context:kDurationKVOKey];
         [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
         
         [_streamer play];
     }
 }
 
-//- (void)_setupHintForStreamer
-//{
-//    NSUInteger nextIndex = _currentTrackIndex + 1;
-//    if (nextIndex >= [_tracks count]) {
-//        nextIndex = 0;
-//    }
-//    
-//    [DOUAudioStreamer setHintWithAudioFile:[_tracks objectAtIndex:nextIndex]];
-//}
 
 - (void)changeToPlayStatus:(ZenSongStatus)status index:(NSUInteger)index
 {
@@ -252,32 +248,22 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     [self becomeFirstResponder];
 }
 
-- (void)updateStatus:(NSTimer *)timer
+
+- (void)timerAction:(id)timer
 {
-//    int time = (int)(_streamer.duration - _streamer.progress);
-//    NSString *timeStr = nil;
-//    if (time == 0) {
-//        timeStr = @"loading...";
-//        [_player setTimeLabelText:timeStr];
-//    }
-//    else if ([_streamer isPlaying]){
-//        int min = time/60;
-//        int sec = time%60;
-//        timeStr = [NSString stringWithFormat:@"%d:%02d", min, sec];
-//        [_player setTimeLabelText:timeStr];
-//    }
+    int time = (int)(_streamer.duration - _streamer.currentTime);
     
+    if (time == 0) {
+        [_player setTimeLabelText:@"loading"];
+    }
+    else {
+        int min = time/60;
+        int sec = time%60;
+        NSString *timeStr = [NSString stringWithFormat:@"%d:%02d", min, sec];
+        [_player setTimeLabelText:timeStr];
+    }
 }
 
-- (void)_timerAction:(id)timer
-{
-//    if ([_streamer duration] == 0.0) {
-//        [_progressSlider setValue:0.0f animated:NO];
-//    }
-//    else {
-//        [_progressSlider setValue:[_streamer currentTime] / [_streamer duration] animated:YES];
-//    }
-}
 
 - (void)updateStatus
 {
@@ -296,6 +282,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
         case DOUAudioStreamerFinished:
             //[_statusLabel setText:@"finished"];
             //[self _actionNext:nil];
+            [self next];
             break;
             
         case DOUAudioStreamerBuffering:
@@ -310,7 +297,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 
 - (void)_updateBufferingStatus
 {
-    NSLog([NSString stringWithFormat:@"Received %.2f/%.2f MB (%.2f %%), Speed %.2f MB/s", (double)[_streamer receivedLength] / 1024 / 1024, (double)[_streamer expectedLength] / 1024 / 1024, [_streamer bufferingRatio] * 100.0, (double)[_streamer downloadSpeed] / 1024 / 1024]);
+    NSLog(@"%@", [NSString stringWithFormat:@"Received %.2f/%.2f MB (%.2f %%), Speed %.2f MB/s", (double)[_streamer receivedLength] / 1024 / 1024, (double)[_streamer expectedLength] / 1024 / 1024, [_streamer bufferingRatio] * 100.0, (double)[_streamer downloadSpeed] / 1024 / 1024]);
     
     if ([_streamer bufferingRatio] >= 1.0) {
         NSLog(@"sha256: %@", [_streamer sha256]);
@@ -321,12 +308,6 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 {
     if (context == kStatusKVOKey) {
         [self performSelector:@selector(updateStatus)
-                     onThread:[NSThread mainThread]
-                   withObject:nil
-                waitUntilDone:NO];
-    }
-    else if (context == kDurationKVOKey) {
-        [self performSelector:@selector(_timerAction:)
                      onThread:[NSThread mainThread]
                    withObject:nil
                 waitUntilDone:NO];
