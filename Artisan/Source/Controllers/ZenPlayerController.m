@@ -34,10 +34,10 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 
 @property (nonatomic, strong) ZenPlayerView *player;
-@property (nonatomic, strong) AudioStreamer *streamer;
+@property (nonatomic, strong) DOUAudioStreamer *streamer;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSString *hash;
-@property (nonatomic, strong) AVAudioPlayer *avAudioPlayer;
+
 @end
 
 @implementation ZenPlayerController
@@ -134,17 +134,6 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
             if ([ZenOfflineModel songExists:song]) {
                 url = [ZenOfflineModel urlForSong:song];
             }
-            else {
-//
-//                [self changeToPlayStatus:ZenSongStatusPlay index:_index];
-//                [self createStreamer:url];
-//                [_streamer start];
-//                [_player load:song];
-            }
-            self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
-            //avAudioPlayer.delegate = self;
-            [_avAudioPlayer prepareToPlay];
-            [_avAudioPlayer play];
         }
     }
 }
@@ -210,17 +199,18 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 
 - (void)play
 {
-    ZenSongStatus status = ZenSongStatusNone;
-    if (_streamer.isPaused) {
-        [_streamer start];
-        status = ZenSongStatusPlay;
+    ZenSongStatus songStatus = ZenSongStatusNone;
+    DOUAudioStreamerStatus status = [_streamer status];
+    if (status == DOUAudioStreamerPaused) {
+        [_streamer play];
+        songStatus = ZenSongStatusPlay;
     }
     else
     {
-        status = ZenSongStatusPause;
+        songStatus = ZenSongStatusPause;
         [_streamer pause];
     }
-    [self changeToPlayStatus:status index:_index];
+    [self changeToPlayStatus:songStatus index:_index];
     ZenSongData *song = [_list safeObjectAtIndex:_index];
     if (song) {
         [_player load:song];
@@ -264,77 +254,96 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 
 - (void)updateStatus:(NSTimer *)timer
 {
-    int time = (int)(_streamer.duration - _streamer.progress);
-    NSString *timeStr = nil;
-    if (time == 0) {
-        timeStr = @"loading...";
-        [_player setTimeLabelText:timeStr];
-    }
-    else if ([_streamer isPlaying]){
-        int min = time/60;
-        int sec = time%60;
-        timeStr = [NSString stringWithFormat:@"%d:%02d", min, sec];
-        [_player setTimeLabelText:timeStr];
-    }
+//    int time = (int)(_streamer.duration - _streamer.progress);
+//    NSString *timeStr = nil;
+//    if (time == 0) {
+//        timeStr = @"loading...";
+//        [_player setTimeLabelText:timeStr];
+//    }
+//    else if ([_streamer isPlaying]){
+//        int min = time/60;
+//        int sec = time%60;
+//        timeStr = [NSString stringWithFormat:@"%d:%02d", min, sec];
+//        [_player setTimeLabelText:timeStr];
+//    }
     
 }
 
-- (void)playbackStateChanged:(NSNotification *)notification
+- (void)_timerAction:(id)timer
 {
-    //NSLog(@"state changed: %d", _streamer.state);
-    if ([_streamer isWaiting])
-	{
-		NSLog(@"waiting, %d", _streamer.state);
-        [_player setTimeLabelText:@"loading..."];
-	}
-	else if ([_streamer isPlaying])
-	{
-        NSLog(@"playing.");
-        [self changeToPlayStatus:ZenSongStatusPlay index:_index];
-        ZenSongData *song = [_list safeObjectAtIndex:_index];
-        if (song) {
-            [_player load:song];
-        }
-    }
-	else if ([_streamer isIdle])
-	{
-        NSLog(@"idle");
-        [self next];
+//    if ([_streamer duration] == 0.0) {
+//        [_progressSlider setValue:0.0f animated:NO];
+//    }
+//    else {
+//        [_progressSlider setValue:[_streamer currentTime] / [_streamer duration] animated:YES];
+//    }
+}
+
+- (void)updateStatus
+{
+    switch ([_streamer status]) {
+        case DOUAudioStreamerPlaying:
+            
+            break;
+            
+        case DOUAudioStreamerPaused:
+            
+            break;
+            
+        case DOUAudioStreamerIdle:
+            break;
+            
+        case DOUAudioStreamerFinished:
+            //[_statusLabel setText:@"finished"];
+            //[self _actionNext:nil];
+            break;
+            
+        case DOUAudioStreamerBuffering:
+            [_player setTimeLabelText:@"loading..."];
+            break;
+            
+        case DOUAudioStreamerError:
+            //[_statusLabel setText:@"error"];
+            break;
     }
 }
 
-- (void)destoryStreamer
+- (void)_updateBufferingStatus
 {
-	if (_streamer)
-	{
-		[[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:ASStatusChangedNotification
-                                                      object:_streamer];
-        [_timer invalidate];
-		self.timer = nil;
-		
-		[_streamer stop];
-		self.streamer = nil;
-	}
+    NSLog([NSString stringWithFormat:@"Received %.2f/%.2f MB (%.2f %%), Speed %.2f MB/s", (double)[_streamer receivedLength] / 1024 / 1024, (double)[_streamer expectedLength] / 1024 / 1024, [_streamer bufferingRatio] * 100.0, (double)[_streamer downloadSpeed] / 1024 / 1024]);
+    
+    if ([_streamer bufferingRatio] >= 1.0) {
+        NSLog(@"sha256: %@", [_streamer sha256]);
+    }
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == kStatusKVOKey) {
+        [self performSelector:@selector(updateStatus)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }
+    else if (context == kDurationKVOKey) {
+        [self performSelector:@selector(_timerAction:)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }
+    else if (context == kBufferingRatioKVOKey) {
+        [self performSelector:@selector(_updateBufferingStatus)
+                     onThread:[NSThread mainThread]
+                   withObject:nil
+                waitUntilDone:NO];
+    }
+    else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 
 - (void)createStreamer:(NSURL *)src
 {
-	[self destoryStreamer];
-    
-	_streamer = [[AudioStreamer alloc] initWithURL:src];
-	
-	_timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
-                                              target:self
-                                            selector:@selector(updateStatus:)
-                                            userInfo:nil
-                                             repeats:YES];
-    
-	[[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playbackStateChanged:)
-                                                 name:ASStatusChangedNotification
-                                               object:_streamer];
     [self newBackgoundTask];
 }
 
