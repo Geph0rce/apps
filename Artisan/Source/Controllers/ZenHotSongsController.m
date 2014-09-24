@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
+#import "ZenOfflineModel.h"
 #import "ZenHotSongsModel.h"
 #import "ZenNavigationBar.h"
 #import "ZenSongCell.h"
@@ -46,6 +47,7 @@
     
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
     [bar addLeftItemWithStyle:ZenNavigationItemStyleMenu target:self action:@selector(menu:)];
+    [bar addRightItemWithStyle:ZenNavigationItemStyleOffline target:self action:@selector(offline:)];
     [bar setTitle:@"热门单曲"];
     [_container addSubview:bar];
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
@@ -65,6 +67,12 @@
 {
     DDMenuController *menuController = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
     [menuController showLeftController:YES];
+}
+
+- (void)offline:(id)sender
+{
+    [self success:@"已加入[离线]队列"];
+    [[ZenOfflineModel sharedInstance] offline:_model.list];
 }
 
 #pragma mark

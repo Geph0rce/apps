@@ -33,4 +33,6 @@ typedef enum {
 @property (nonatomic, strong) NSString *hash;
 @property (nonatomic, assign) ZenSongStatus status;
 
+- (NSDictionary *)dictionary;
+
 @end

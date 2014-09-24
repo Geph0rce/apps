@@ -6,6 +6,8 @@
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
+#import "ZenOfflineModel.h"
 #import "AudioStreamer.h"
 #import "Singleton.h"
 #import "ZenCategory.h"
@@ -25,13 +27,14 @@
     UIBackgroundTaskIdentifier _taskId;
     NSTimer *_timer;
     NSString *_hash;
+    AVAudioPlayer *_avAudioPlayer;
 }
 
 @property (nonatomic, strong) ZenPlayerView *player;
 @property (nonatomic, strong) AudioStreamer *streamer;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) NSString *hash;
-
+@property (nonatomic, strong) AVAudioPlayer *avAudioPlayer;
 @end
 
 @implementation ZenPlayerController
@@ -124,13 +127,21 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     if (song) {
         if (!_hash || ![song.hash isEqualToString:_hash]) {
             self.hash = song.hash;
-            [self changeToPlayStatus:ZenSongStatusPlay index:_index];
-            ZenSongData *song = [_list safeObjectAtIndex:_index];
-            if(song){
-                [self createStreamer:song.src];
-                [_streamer start];
-                [_player load:song];
+            NSURL *url = [NSURL URLWithString:song.src];
+            if ([ZenOfflineModel songExists:song]) {
+                url = [ZenOfflineModel urlForSong:song];
             }
+            else {
+//
+//                [self changeToPlayStatus:ZenSongStatusPlay index:_index];
+//                [self createStreamer:url];
+//                [_streamer start];
+//                [_player load:song];
+            }
+            self.avAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:NULL];
+            //avAudioPlayer.delegate = self;
+            [_avAudioPlayer prepareToPlay];
+            [_avAudioPlayer play];
         }
     }
 }
@@ -263,12 +274,11 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 }
 
 
-- (void)createStreamer:(NSString *)src
+- (void)createStreamer:(NSURL *)src
 {
 	[self destoryStreamer];
     
-	NSURL *url = [NSURL URLWithString:src];
-	_streamer = [[AudioStreamer alloc] initWithURL:url];
+	_streamer = [[AudioStreamer alloc] initWithURL:src];
 	
 	_timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
                                               target:self

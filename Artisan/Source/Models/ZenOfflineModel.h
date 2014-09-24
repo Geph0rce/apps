@@ -24,5 +24,7 @@
 
 + (ZenOfflineModel *)sharedInstance;
 - (void)offline:(NSMutableArray *)songs;
++ (NSURL *)urlForSong:(ZenSongData *)song;
++ (BOOL)songExists:(ZenSongData *)song;
 
 @end
