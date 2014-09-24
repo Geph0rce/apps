@@ -11,6 +11,7 @@
 		DB121464180F86A900C7C1EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121463180F86A900C7C1EE /* CoreGraphics.framework */; };
 		DB121466180F86A900C7C1EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121465180F86A900C7C1EE /* UIKit.framework */; };
 		DB1A06B7190E1A7E00F1924F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB818006183110CB0053BC69 /* AudioToolbox.framework */; };
+		DB24CA3419D2A4E000C307A8 /* ZenOfflineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA3319D2A4E000C307A8 /* ZenOfflineModel.m */; };
 		DB50FDE919C2810A008E7974 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE719C2810A008E7974 /* download.png */; };
 		DB50FDEA19C2810A008E7974 /* download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE819C2810A008E7974 /* download@2x.png */; };
 		DB817FF3183110660053BC69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FF2183110660053BC69 /* QuartzCore.framework */; };
@@ -277,6 +278,8 @@
 		DB1A06B0190E1A5300F1924F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DB1A06B2190E1A6500F1924F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		DB1A06B5190E1A7300F1924F /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		DB24CA3219D2A4E000C307A8 /* ZenOfflineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenOfflineModel.h; sourceTree = "<group>"; };
+		DB24CA3319D2A4E000C307A8 /* ZenOfflineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOfflineModel.m; sourceTree = "<group>"; };
 		DB416BDD18E552940020160F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DB4B42421861924D00E875FC /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		DB50FDE719C2810A008E7974 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
@@ -775,6 +778,8 @@
 				DBE9DC6319C0213C0068C1C3 /* ZenAlbumModel.m */,
 				DBE9DC7C19C135E90068C1C3 /* ZenPlaylistModel.h */,
 				DBE9DC7D19C135E90068C1C3 /* ZenPlaylistModel.m */,
+				DB24CA3219D2A4E000C307A8 /* ZenOfflineModel.h */,
+				DB24CA3319D2A4E000C307A8 /* ZenOfflineModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1513,6 +1518,7 @@
 				DBE9DA5219BE97190068C1C3 /* SDWebImageManager.m in Sources */,
 				DBE9DA6519BE9AE70068C1C3 /* ZenConfig.m in Sources */,
 				DBE9DBE519BECF3E0068C1C3 /* ZenBaseModel.m in Sources */,
+				DB24CA3419D2A4E000C307A8 /* ZenOfflineModel.m in Sources */,
 				DBE9DC7B19C135D70068C1C3 /* ZenPlaylistController.m in Sources */,
 				DBE9DA5119BE97190068C1C3 /* SDWebImageDownloader.m in Sources */,
 				DBE9DC5319BFEECE0068C1C3 /* ZenCategoryController.m in Sources */,

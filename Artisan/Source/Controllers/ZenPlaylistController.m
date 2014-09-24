@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
+#import "ZenOfflineModel.h"
 #import "ZenNavigationBar.h"
 #import "ZenPlaylistModel.h"
 #import "ZenSongCell.h"
@@ -18,6 +19,7 @@
 @interface ZenPlaylistController ()
 {
     ZenPlaylistModel *_model;
+    ZenOfflineModel *_offline;
 }
 @end
 
@@ -40,8 +42,11 @@
     [defaultCenter addObserver:self selector:@selector(requestFinished:) name:kZenPlaylistRequestFinished object:_model];
     [defaultCenter addObserver:self selector:@selector(requestFailed:) name:kZenPlaylistRequestFailed object:_model];
     
+    _offline = [ZenOfflineModel sharedInstance];
+    
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
     [bar addLeftItemWithStyle:ZenNavigationItemStyleBack target:self action:@selector(back:)];
+    [bar addRightItemWithStyle:ZenNavigationItemStyleOffline target:self action:@selector(offline:)];
     [bar setTitle:_name];
     [_container addSubview:bar];
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
@@ -56,6 +61,13 @@
 {
     [self dismissViewControllerWithOption:ZenAnimationOptionHorizontal completion:NULL];
 }
+
+- (void)offline:(id)sender
+{
+    [self success:@"已加入[离线]队列"];
+    [_offline offline:_model.list];
+}
+
 
 #pragma mark
 #pragma mark override model load methods

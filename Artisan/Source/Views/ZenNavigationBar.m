@@ -171,8 +171,12 @@
             break;
         case ZenNavigationItemStyleWrite:
             [_rightBtn setImage:[UIImage imageNamed:@"nav-icon-write"] forState:UIControlStateNormal];
+            break;
         case ZenNavigationItemStyleOk:
              [_rightBtn setImage:[UIImage imageNamed:@"nav-icon-ok"] forState:UIControlStateNormal];
+            break;
+        case ZenNavigationItemStyleOffline:
+            [_rightBtn setImage:[UIImage imageNamed:@"download"] forState:UIControlStateNormal];
         default:
             break;
     }

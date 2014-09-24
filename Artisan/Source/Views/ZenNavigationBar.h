@@ -18,7 +18,8 @@ typedef enum
     ZenNavigationItemStyleShare,
     ZenNavigationItemStyleWrite,
     ZenNavigationItemStyleCancel,
-    ZenNavigationItemStyleOk
+    ZenNavigationItemStyleOk,
+    ZenNavigationItemStyleOffline
 }ZenNavigationItemStyle;
 
 @interface ZenNavigationBar : UIView
