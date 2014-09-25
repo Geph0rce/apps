@@ -12,6 +12,7 @@
 {
     NSURLConnection *_connection;
     NSURL *_url;
+    NSUInteger _expectedLength;
     
 }
 @property (nonatomic, strong) NSURL *url;
@@ -220,6 +221,11 @@ OSStatus extractIdentityAndTrust(CFDataRef inP12data, SecIdentityRef *identity, 
 #pragma mark - 
 #pragma mark NSURLConnectionDataDelegate Methods
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    _expectedLength = (NSUInteger)response.expectedContentLength;
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (!_responseData) {
@@ -228,13 +234,10 @@ OSStatus extractIdentityAndTrust(CFDataRef inP12data, SecIdentityRef *identity, 
     else {
         [_responseData appendData:data];
     }
-}
-
-- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten
- totalBytesWritten:(NSInteger)totalBytesWritten
-totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
-{
-    NSLog(@"progress: %d", (100 * totalBytesWritten)/totalBytesExpectedToWrite);
+    if (_expectedLength > 0 && _delegate && [_delegate respondsToSelector:@selector(progressOfConnection:)]) {
+        _progress = ( 100 * _responseData.length) / _expectedLength;
+        [_delegate progressOfConnection:self];
+    }
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection

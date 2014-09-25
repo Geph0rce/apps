@@ -206,4 +206,9 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     [self fetch];
 }
 
+- (void)progressOfConnection:(ZenConnection *)connection
+{
+    NSLog(@"progress: %d", connection.progress);
+}
+
 @end

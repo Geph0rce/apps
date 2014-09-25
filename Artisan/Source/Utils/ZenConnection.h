@@ -22,6 +22,7 @@
     NSError *_error;
     BOOL _shouldHandleCookies;
     int _tag;
+    NSUInteger _progress;
 }
 
 @property (nonatomic, assign) SEL didFinishedSelector;
@@ -37,7 +38,7 @@
 @property (nonatomic, strong) NSString *responseString;
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic, assign) BOOL shouldHandleCookies;
-
+@property (nonatomic, assign) NSUInteger progress;
 /**
  *	init method
  *
@@ -60,7 +61,8 @@
 @protocol ZenConnectionDelegate <NSObject>
 
 @optional
-- (void)requestDidFinished:(ZenConnection *)conn;
-- (void)requestDidFailed:(ZenConnection *)conn;
+- (void)requestDidFinished:(ZenConnection *)connection;
+- (void)requestDidFailed:(ZenConnection *)connection;
+- (void)progressOfConnection:(ZenConnection *)connection;
 
 @end
