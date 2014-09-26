@@ -19,6 +19,7 @@
     ZenOfflineModel *_model;
     UITableView *_table;
     ZenNavigationBar *_bar;
+    BOOL _editing;
 }
 @end
 
@@ -62,6 +63,7 @@
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
     
     [_table registerNib:[UINib nibWithNibName:@"ZenSongCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineCellId];
+    _editing = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,10 +83,12 @@
     if (_table.isEditing) {
         [_bar setRightButtonTitle:@"编辑"];
         [_table setEditing:NO animated:YES];
+        _editing = NO;
     }
     else {
         [_bar setRightButtonTitle:@"完成"];
         [_table setEditing:YES animated:YES];
+        _editing = YES;
     }
     
 }
@@ -169,7 +173,10 @@
 
 - (void)offlineStateChanged:(NSNotification *)notification
 {
-    [_table reloadData];
+    if (!_editing) {
+        [_table reloadData];
+    }
+    
 }
 
 @end

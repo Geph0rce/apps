@@ -202,6 +202,13 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
             [ZenOfflineModel removeSong:song];
         }
         [_offline removeObjectAtIndex:index];
+        NSMutableArray *list = [NSMutableArray array];
+        for (ZenSongData *song in _offline) {
+            [list addObject:[self dictionaryForSong:song]];
+        }
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setObject:list forKey:kZenOfflineList];
+        [ud synchronize];
     }
     @catch (NSException *exception) {
         NSLog(@"ZenOfflineModel removeOfflineObjectAtIndex exception: %@", [exception description]);
