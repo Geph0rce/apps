@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
+#import "ZenMacros.h"
 #import "ZenNavigationBar.h"
 #import "ZenSongCell.h"
 #import "ZenOfflineModel.h"
@@ -20,6 +21,7 @@
     UITableView *_table;
     ZenNavigationBar *_bar;
     BOOL _editing;
+    UILabel *_empty;
 }
 @end
 
@@ -50,13 +52,29 @@
     _table.dataSource = self;
     _table.scrollsToTop = YES;
     _table.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 18.0f)];
+    label.font = kZenFont15;
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor grayColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.hidden = YES;
+    _empty = label;
     if (_type == ZenOfflineTypeOffline) {
         [_table setAllowsSelection:YES];
         [bar setTitle:@"已离线"];
+        [label setText:@"离线完成的歌曲会出现在这里"];
+        if (_model.offline.count == 0) {
+            _empty.hidden = NO;
+        }
     }
     else {
         [bar setTitle:@"离线中"];
         [_table setAllowsSelection:NO];
+        [label setText:@"没有离线任务"];
+        if (_model.download.count == 0) {
+            _empty.hidden = NO;
+        }
     }
     
     [_container addSubview:table];
@@ -64,6 +82,9 @@
     
     [_table registerNib:[UINib nibWithNibName:@"ZenSongCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineCellId];
     _editing = NO;
+    
+    [_container addSubview:label];
+    [_empty centerInGravity];
 }
 
 - (void)didReceiveMemoryWarning
@@ -176,7 +197,16 @@
     if (!_editing) {
         [_table reloadData];
     }
-    
+    if (_type == ZenOfflineTypeDownloading) {
+        if (_model.download.count == 0) {
+            _empty.hidden = NO;
+        }
+    }
+    else {
+        if (_model.offline.count == 0) {
+            _empty.hidden = NO;
+        }
+    }
 }
 
 @end
