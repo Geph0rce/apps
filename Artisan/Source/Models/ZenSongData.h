@@ -24,6 +24,7 @@ typedef enum {
     NSString *_src;
     NSString *_hash;
     ZenSongStatus _status;
+    NSUInteger _progress;
 }
 
 @property (nonatomic, strong) NSString *artist;
@@ -33,6 +34,7 @@ typedef enum {
 @property (nonatomic, strong) NSString *src;
 @property (nonatomic, strong) NSString *hash;
 @property (nonatomic, assign) ZenSongStatus status;
+@property (nonatomic, assign) NSUInteger progress;
 
 - (NSDictionary *)dictionary;
 

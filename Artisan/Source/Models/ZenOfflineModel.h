@@ -23,8 +23,10 @@
 @property (nonatomic, strong) NSMutableArray *download;
 
 + (ZenOfflineModel *)sharedInstance;
-- (void)offline:(NSMutableArray *)songs;
 + (NSURL *)urlForSong:(ZenSongData *)song;
 + (BOOL)songExists:(ZenSongData *)song;
 
+- (void)offline:(NSMutableArray *)songs;
+- (void)removeOfflineObjectAtIndex:(NSUInteger)index;
+- (void)removeDownloadingObjectAtIndex:(NSUInteger)index;
 @end

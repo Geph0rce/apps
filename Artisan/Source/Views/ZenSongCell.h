@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIView *border;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *artist;
+@property (weak, nonatomic) IBOutlet UIView *progress;
 
 - (void)load:(ZenSongData *)song;
 

@@ -18,6 +18,7 @@
 {
     ZenOfflineModel *_model;
     UITableView *_table;
+    ZenNavigationBar *_bar;
 }
 @end
 
@@ -37,8 +38,10 @@
     
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
     [bar addLeftItemWithStyle:ZenNavigationItemStyleMenu target:self action:@selector(menu:)];
-    [bar setTitle:@"离线"];
+    [bar addRightButtonWithTarget:self action:@selector(edit:)];
+    [bar setRightButtonTitle:@"编辑"];
     [_container addSubview:bar];
+    _bar = bar;
     
     UITableView *table = [[UITableView alloc] initWithFrame:_container.bounds];
     _table = table;
@@ -46,12 +49,19 @@
     _table.dataSource = self;
     _table.scrollsToTop = YES;
     _table.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [_table setAllowsSelection:YES];
+    if (_type == ZenOfflineTypeOffline) {
+        [_table setAllowsSelection:YES];
+        [bar setTitle:@"已离线"];
+    }
+    else {
+        [bar setTitle:@"离线中"];
+        [_table setAllowsSelection:NO];
+    }
+    
     [_container addSubview:table];
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
     
     [_table registerNib:[UINib nibWithNibName:@"ZenSongCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineCellId];
-    [self enablePanRightGestureWithDismissBlock:NULL];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,12 +76,55 @@
     [menuController showLeftController:YES];
 }
 
+- (void)edit:(id)sender
+{
+    if (_table.isEditing) {
+        [_bar setRightButtonTitle:@"编辑"];
+        [_table setEditing:NO animated:YES];
+    }
+    else {
+        [_bar setRightButtonTitle:@"完成"];
+        [_table setEditing:YES animated:YES];
+    }
+    
+}
+
 #pragma mark
 #pragma mark UITableViewDataSource and UITableViewDelegate Methods
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        if (_type == ZenOfflineTypeOffline) {
+            [_model removeOfflineObjectAtIndex:indexPath.row];
+        }
+        else {
+            [_model removeDownloadingObjectAtIndex:indexPath.row];
+        }
+        [_table deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                       withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _model.offline.count;
+    if (_type == ZenOfflineTypeOffline) {
+        return _model.offline.count;
+    }
+    else {
+        return _model.download.count;
+    }
 }
 
 
@@ -82,7 +135,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZenSongData *song = _model.offline[indexPath.row];
+    ZenSongData *song = nil;
+    if (_type == ZenOfflineTypeOffline) {
+        song = _model.offline[indexPath.row];
+    }
+    else {
+        song = _model.download[indexPath.row];
+    }
     ZenSongCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenOfflineCellId];
     [cell load:song];
     return cell;
@@ -91,11 +150,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     @try {
-        ZenPlayerController *controller = [ZenPlayerController sharedInstance];
-        controller.list = [[NSMutableArray alloc] initWithArray:_model.offline];
-        controller.index = indexPath.row;
-        controller.view.frame = _container.bounds;
-        [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+        if (_type == ZenOfflineTypeOffline) {
+            ZenPlayerController *controller = [ZenPlayerController sharedInstance];
+            controller.list = [[NSMutableArray alloc] initWithArray:_model.offline];
+            controller.index = indexPath.row;
+            controller.view.frame = _container.bounds;
+            [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"exception: %@", [exception description]);

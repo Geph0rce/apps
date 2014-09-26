@@ -28,6 +28,31 @@
 
 SINGLETON_FOR_CLASS(ZenOfflineModel)
 
+
++ (NSURL *)urlForSong:(ZenSongData *)song
+{
+    NSString *path = [ZenOfflineModel sharedInstance].path;
+    NSString *url = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.hash]];
+    return [NSURL fileURLWithPath:url];
+}
+
++ (BOOL)songExists:(ZenSongData *)song
+{
+    return [[NSFileManager defaultManager] fileExistsAtPath:[self pathForSong:song]];
+}
+
++ (void)removeSong:(ZenSongData *)song
+{
+    [[NSFileManager defaultManager] removeItemAtPath:[ZenOfflineModel pathForSong:song] error:NULL];
+}
+
++ (NSString *)pathForSong:(ZenSongData *)song
+{
+    NSString *path = [ZenOfflineModel sharedInstance].path;
+    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.hash]];
+    return path;
+}
+
 - (id)init
 {
     self = [super init];
@@ -59,45 +84,6 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
                 [_download addObject:song];
             }
         }
-    }
-}
-
-- (void)clear
-{
-    for (ZenSongData *song in _download) {
-        if ([ZenOfflineModel songExists:song]) {
-            [_download removeObject:song];
-        }
-    }
-}
-
-- (void)fetch
-{
-    [self clear];
-    if (_download.count > 0) {
-        ZenSongData *song = _download[0];
-        ZenConnection *conn = [ZenConnection connectionWithURL:[NSURL URLWithString:song.src]];
-        conn.delegate = self;
-        self.connection = conn;
-        [conn startAsynchronous];
-    }
-    else {
-        [self send:kZenOfflineStateChange];
-    }
-}
-
-- (void)offline:(NSMutableArray *)songs
-{
-    @try {
-        if (_download.count > 0) {
-            [self send:kZenOfflineDownloading];
-            return;
-        }
-        [_download addObjectsFromArray:songs];
-        [self fetch];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"ZenOfflineModel offline exception: %@", [exception description]);
     }
 }
 
@@ -134,26 +120,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     @catch (NSException *exception) {
         NSLog(@"ZenOfflineModel loadOfflineList exception: %@", [exception description]);
     }
-
-}
-
-+ (NSURL *)urlForSong:(ZenSongData *)song
-{
-    NSString *path = [ZenOfflineModel sharedInstance].path;
-    NSString *url = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.hash]];
-    return [NSURL fileURLWithPath:url];
-}
-
-+ (BOOL)songExists:(ZenSongData *)song
-{
-    return [[NSFileManager defaultManager] fileExistsAtPath:[self pathForSong:song]];
-}
-
-+ (NSString *)pathForSong:(ZenSongData *)song
-{
-    NSString *path = [ZenOfflineModel sharedInstance].path;
-    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.hash]];
-    return path;
+    
 }
 
 - (NSDictionary *)dictionaryForSong:(ZenSongData *)song
@@ -171,6 +138,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     @try {
         NSFileManager *fileManager = [[NSFileManager alloc] init];
         [fileManager createFileAtPath:[ZenOfflineModel pathForSong:song] contents:data attributes:nil];
+        song.progress = 0;
         [_offline addObject:song];
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         NSMutableArray *list = [NSMutableArray array];
@@ -184,6 +152,73 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
         NSLog(@"ZenOfflineModel save exception: %@", [exception description]);
     }
 }
+
+
+- (void)clear
+{
+    for (int i = 0; i < _download.count; i++) {
+        ZenSongData *song = _download[i];
+        if ([ZenOfflineModel songExists:song]) {
+            [_download removeObjectAtIndex:i];
+        }
+    }
+}
+
+- (void)fetch
+{
+    if (_download.count > 0) {
+        ZenSongData *song = _download[0];
+        ZenConnection *conn = [ZenConnection connectionWithURL:[NSURL URLWithString:song.src]];
+        conn.delegate = self;
+        self.connection = conn;
+        [conn startAsynchronous];
+    }
+    else {
+        [self send:kZenOfflineStateChange];
+    }
+}
+
+- (void)offline:(NSMutableArray *)songs
+{
+    @try {
+        if (_download.count > 0) {
+            [self send:kZenOfflineDownloading];
+            return;
+        }
+        [_download addObjectsFromArray:songs];
+        [self clear];
+        [self fetch];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"ZenOfflineModel offline exception: %@", [exception description]);
+    }
+}
+
+- (void)removeOfflineObjectAtIndex:(NSUInteger)index
+{
+    @try {
+        ZenSongData *song = _offline[index];
+        if ([ZenOfflineModel songExists:song]) {
+            [ZenOfflineModel removeSong:song];
+        }
+        [_offline removeObjectAtIndex:index];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"ZenOfflineModel removeOfflineObjectAtIndex exception: %@", [exception description]);
+    }
+}
+
+- (void)removeDownloadingObjectAtIndex:(NSUInteger)index
+{
+    @try {
+        [_download removeObjectAtIndex:index];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"ZenOfflineModel removeDownloadingObjectAtIndex exception: %@", [exception description]);
+    }
+}
+
+
 
 #pragma mark
 #pragma mark ZenConnectionDelegate
@@ -208,7 +243,13 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 
 - (void)progressOfConnection:(ZenConnection *)connection
 {
-    NSLog(@"progress: %d", connection.progress);
+    NSUInteger progress = connection.progress;
+    NSLog(@"progress: %d", progress);
+    if (_download.count > 0) {
+        ZenSongData *song = _download[0];
+        song.progress = progress;
+        [self send:kZenOfflineStateChange];
+    }
 }
 
 @end

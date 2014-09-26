@@ -33,6 +33,7 @@
 		DB24CA7B19D2F1C800C307A8 /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA6919D2F1C800C307A8 /* NSData+DOUMappedFile.m */; };
 		DB50FDE919C2810A008E7974 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE719C2810A008E7974 /* download.png */; };
 		DB50FDEA19C2810A008E7974 /* download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE819C2810A008E7974 /* download@2x.png */; };
+		DB6F07D219D5050A00A202C3 /* board_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB6F07D119D5050A00A202C3 /* board_2.plist */; };
 		DB817FF3183110660053BC69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FF2183110660053BC69 /* QuartzCore.framework */; };
 		DBB7B2E718238DCA00FDFC0B /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7B2E618238DCA00FDFC0B /* libxml2.2.dylib */; };
 		DBBAF1EE195D51F9004FE37B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FEC183110490053BC69 /* libz.dylib */; };
@@ -345,6 +346,7 @@
 		DB50FDE719C2810A008E7974 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		DB50FDE819C2810A008E7974 /* download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@2x.png"; sourceTree = "<group>"; };
 		DB5F569E1963B11E00250B79 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		DB6F07D119D5050A00A202C3 /* board_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = board_2.plist; sourceTree = "<group>"; };
 		DB817FE8183110360053BC69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		DB817FEA183110400053BC69 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DB817FEC183110490053BC69 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -1111,6 +1113,7 @@
 			isa = PBXGroup;
 			children = (
 				DBE9DA9B19BEC4720068C1C3 /* board_1.plist */,
+				DB6F07D119D5050A00A202C3 /* board_2.plist */,
 				DBE9DA9C19BEC4720068C1C3 /* boards.plist */,
 			);
 			path = boards;
@@ -1512,6 +1515,7 @@
 				DBE9DB5319BEC4720068C1C3 /* back@2x.png in Resources */,
 				DBE9DB4819BEC4720068C1C3 /* action_add.png in Resources */,
 				DBE9DB4A19BEC4720068C1C3 /* album_btn_add@2x.png in Resources */,
+				DB6F07D219D5050A00A202C3 /* board_2.plist in Resources */,
 				DBE9DC8D19C1482A0068C1C3 /* ZenPlayerCell.xib in Resources */,
 				DBE9DBCA19BEC4720068C1C3 /* settingcell_arrow@2x.png in Resources */,
 				DBE9DBD619BEC4720068C1C3 /* share_pocket@2x.png in Resources */,

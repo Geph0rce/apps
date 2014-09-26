@@ -14,9 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="O90-8H-tZn">
+                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="O90-8H-tZn">
                         <rect key="frame" x="12" y="11" width="50" height="50"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                     </imageView>
                     <view contentMode="scaleToFill" id="iRP-10-8Nf">
                         <rect key="frame" x="15" y="69" width="290" height="1"/>
@@ -37,6 +37,11 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" id="m7N-uf-cLb">
+                        <rect key="frame" x="15" y="64" width="290" height="4"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -44,6 +49,7 @@
                 <outlet property="border" destination="iRP-10-8Nf" id="rIB-gz-0CF"/>
                 <outlet property="name" destination="PQJ-il-3Bh" id="6sj-pU-Ist"/>
                 <outlet property="picture" destination="O90-8H-tZn" id="AZ5-4Y-LcW"/>
+                <outlet property="progress" destination="m7N-uf-cLb" id="7uy-dg-iLF"/>
             </connections>
         </tableViewCell>
     </objects>

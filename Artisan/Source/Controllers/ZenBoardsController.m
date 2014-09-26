@@ -35,6 +35,9 @@
 #define kZenDownloadFid @"1003"
 #define kZenSettingsFid @"1004"
 
+#define kZenOfflineDone @"2001"
+#define kZenOfflineDownloading @"2002"
+
 
 @interface ZenBoardsController () <UITableViewDataSource, UITableViewDelegate, ZenMenuItemDelegate>
 {
@@ -261,12 +264,24 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
             NSString *gid = [board stringForKey:@"gid"];
             NSString *name = [board stringForKey:@"name"];
             NSLog(@"gid: %@", gid);
-            
-            DDMenuController *menuController = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
-            ZenCategoryController *controller = [[ZenCategoryController alloc] init];
-            controller.name = name;
-            controller.gid = gid;
-            [menuController setRootController:controller animated:YES];
+             DDMenuController *menuController = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
+            if ([gid isEqualToString:kZenOfflineDone]) {
+                ZenOfflineController *controller = [[ZenOfflineController alloc] init];
+                controller.type = ZenOfflineTypeOffline;
+                [menuController setRootController:controller animated:YES];
+            }
+            else if ([gid isEqualToString:kZenOfflineDownloading]) {
+                ZenOfflineController *controller = [[ZenOfflineController alloc] init];
+                controller.type = ZenOfflineTypeDownloading;
+                [menuController setRootController:controller animated:YES];
+            }
+            else {
+               
+                ZenCategoryController *controller = [[ZenCategoryController alloc] init];
+                controller.name = name;
+                controller.gid = gid;
+                [menuController setRootController:controller animated:YES];
+            }
         }
     }
 }

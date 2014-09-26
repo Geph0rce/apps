@@ -10,12 +10,6 @@
 #import "ZenSongData.h"
 
 @implementation ZenSongData
-NSString *_artist;
-NSString *_name;
-NSString *_length;
-NSString *_picture;
-NSString *_src;
-NSString *_hash;
 
 - (NSDictionary *)dictionary
 {

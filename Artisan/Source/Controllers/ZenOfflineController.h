@@ -8,6 +8,16 @@
 
 #import "ZenBaseController.h"
 
+typedef enum {
+    ZenOfflineTypeDownloading,
+    ZenOfflineTypeOffline
+} ZenOfflineType;
+
 @interface ZenOfflineController : ZenBaseController
+{
+    ZenOfflineType _type;
+}
+
+@property (nonatomic, assign) ZenOfflineType type;
 
 @end
