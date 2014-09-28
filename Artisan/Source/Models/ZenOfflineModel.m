@@ -154,7 +154,32 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     }
 }
 
+- (BOOL)exists:(ZenSongData *)song
+{
+    @try {
+        // check if song exists at offline queue
+        for (ZenSongData *item in _offline) {
+            if ([item.hash isEqualToString:song.hash]) {
+                return YES;
+            }
+        }
+        // check if song exists at download queue
+        for (ZenSongData *item in _download) {
+            if ([item.hash isEqualToString:song.hash]) {
+                return YES;
+            }
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"ZenOfflineModel extists exception: %@", [exception description]);
+    }
+    // otherwise song does not exist
+    return NO;
+}
 
+/**
+ *  check if item exists at local store, and remove it
+ */
 - (void)clear
 {
     for (int i = 0; i < _download.count; i++) {
@@ -162,6 +187,13 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
         if ([ZenOfflineModel songExists:song]) {
             [_download removeObjectAtIndex:i];
         }
+    }
+}
+
+- (void)pause
+{
+    if (_connection) {
+        [_connection cancel];
     }
 }
 
@@ -182,9 +214,18 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 - (void)offline:(NSArray *)songs
 {
     @try {
-        [_download addObjectsFromArray:songs];
-        [self clear];
-        [self fetch];
+        NSMutableArray *array = [[NSMutableArray alloc] initWithArray:songs];
+        for (int i = 0; i < array.count; i++) {
+            ZenSongData *song = array[i];
+            if ([self exists:song]) {
+                [array removeObjectAtIndex:i];
+            }
+        }
+        if (array.count > 0) {
+            [_download addObjectsFromArray:array];
+            [self clear];
+            [self fetch];
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"ZenOfflineModel offline exception: %@", [exception description]);

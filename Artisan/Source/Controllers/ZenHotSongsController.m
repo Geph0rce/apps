@@ -136,6 +136,7 @@
 
 - (void)offlineDidClick:(ZenSongData *)song
 {
+    [self success:@"已加入[离线]队列"];
     if (song) {
         ZenOfflineModel *manager = [ZenOfflineModel sharedInstance];
         [manager offline:@[song]];

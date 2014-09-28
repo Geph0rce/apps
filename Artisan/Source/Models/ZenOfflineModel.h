@@ -24,8 +24,24 @@
 
 + (ZenOfflineModel *)sharedInstance;
 + (NSURL *)urlForSong:(ZenSongData *)song;
+
+/**
+ *  check if song exists at local store
+ *
+ *  @param song ZenSongData instance
+ *
+ *  @return YES - if exists
+ */
 + (BOOL)songExists:(ZenSongData *)song;
 
+/**
+ *  check if song exists at _offline or _download queue
+ *
+ *  @param song ZenSongData instance
+ *
+ *  @return YES - if exists
+ */
+- (BOOL)exists:(ZenSongData *)song;
 - (void)offline:(NSArray *)songs;
 - (void)removeOfflineObjectAtIndex:(NSUInteger)index;
 - (void)removeDownloadingObjectAtIndex:(NSUInteger)index;

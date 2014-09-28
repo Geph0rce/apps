@@ -8,7 +8,7 @@
 
 #import "ZenMacros.h"
 #import "ZenNavigationBar.h"
-#import "ZenSongCell.h"
+#import "ZenOfflineCell.h"
 #import "ZenOfflineModel.h"
 #import "ZenOfflineController.h"
 #import "ZenPlayerController.h"
@@ -80,7 +80,7 @@
     [_container addSubview:table];
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
     
-    [_table registerNib:[UINib nibWithNibName:@"ZenSongCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineCellId];
+    [_table registerNib:[UINib nibWithNibName:@"ZenOfflineCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineCellId];
     _editing = NO;
     
     [_container addSubview:label];
@@ -167,7 +167,7 @@
     else {
         song = _model.download[indexPath.row];
     }
-    ZenSongCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenOfflineCellId];
+    ZenOfflineCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenOfflineCellId];
     [cell load:song];
     return cell;
 }
@@ -200,6 +200,7 @@
     if (_type == ZenOfflineTypeDownloading) {
         if (_model.download.count == 0) {
             _empty.hidden = NO;
+            [self success:@"离线完成～"];
         }
     }
     else {

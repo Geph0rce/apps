@@ -16,7 +16,7 @@
 
 #define kZenPlaylistCellId @"ZenPlaylistCellId"
 
-@interface ZenPlaylistController ()
+@interface ZenPlaylistController () <ZenSongCellDelegate>
 {
     ZenPlaylistModel *_model;
     ZenOfflineModel *_offline;
@@ -95,6 +95,7 @@
 {
     ZenSongData *song = _model.list[indexPath.row];
     ZenSongCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenPlaylistCellId];
+    cell.delegate = self;
     [cell load:song];
     return cell;
 }
@@ -126,6 +127,18 @@
 {
     [self done];
     [self failed:@"加载失败..."];
+}
+
+#pragma mark
+#pragma mark ZenSongCellDelegate Method
+
+- (void)offlineDidClick:(ZenSongData *)song
+{
+    [self success:@"已加入[离线]队列"];
+    if (song) {
+        ZenOfflineModel *manager = [ZenOfflineModel sharedInstance];
+        [manager offline:@[song]];
+    }
 }
 
 

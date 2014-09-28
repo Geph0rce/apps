@@ -26,7 +26,7 @@
     _artist.font = kZenFont13;
     _progress.backgroundColor = kZenColorLightBlue;
     _progress.hidden = YES;
-    _indicator.hidden = YES;
+    _progressBackgroud.hidden = YES;
     CALayer *layer = _picture.layer;
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:25.0f];
@@ -47,20 +47,16 @@
     [_picture setImageWithURL:[NSURL URLWithString:song.picture] placeholderImage:[UIImage imageNamed:@"cover_default"]];
 
     // config progress bar
-    _progress.hidden = YES;
     if (song.progress > 0) {
         _progress.hidden = NO;
+        _progressBackgroud.hidden = NO;
         CGRect frame = _progress.frame;
         frame.size.width = [self widthForProgress:song.progress];
         _progress.frame = frame;
     }
-    
-    // config indicator
-    [_indicator stopAnimating];
-    _indicator.hidden = YES;
-    if (song.status == ZenSongStatusDownloading) {
-        _indicator.hidden = NO;
-        [_indicator startAnimating];
+    else {
+        _progress.hidden = YES;
+        _progressBackgroud.hidden = YES;
     }
 }
 

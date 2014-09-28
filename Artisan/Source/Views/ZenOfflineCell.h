@@ -10,11 +10,14 @@
 #import "ZenSongData.h"
 
 @interface ZenOfflineCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *artist;
 @property (weak, nonatomic) IBOutlet UIView *progress;
 @property (weak, nonatomic) IBOutlet UIView *border;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIView *progressBackgroud;
+
+- (void)load:(ZenSongData *)song;
 
 @end
