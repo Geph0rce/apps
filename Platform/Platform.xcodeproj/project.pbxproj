@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB83512B19AAC939008A168F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB83512A19AAC939008A168F /* Foundation.framework */; };
+		DB83512D19AAC939008A168F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB83512C19AAC939008A168F /* CoreGraphics.framework */; };
+		DB83512F19AAC939008A168F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB83512E19AAC939008A168F /* UIKit.framework */; };
+		DB83513519AAC939008A168F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB83513319AAC939008A168F /* InfoPlist.strings */; };
+		DB83513719AAC939008A168F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83513619AAC939008A168F /* main.m */; };
+		DB83513B19AAC939008A168F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83513A19AAC939008A168F /* AppDelegate.m */; };
+		DB83513D19AAC939008A168F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB83513C19AAC939008A168F /* Images.xcassets */; };
+		DB83514419AAC939008A168F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB83514319AAC939008A168F /* XCTest.framework */; };
+		DB83514519AAC939008A168F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB83512A19AAC939008A168F /* Foundation.framework */; };
+		DB83514619AAC939008A168F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB83512E19AAC939008A168F /* UIKit.framework */; };
+		DB83514E19AAC939008A168F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB83514C19AAC939008A168F /* InfoPlist.strings */; };
+		DB83515019AAC939008A168F /* MobiSageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83514F19AAC939008A168F /* MobiSageTests.m */; };
+		DB83516519AAC9E2008A168F /* ZenWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83515B19AAC9E2008A168F /* ZenWebViewController.m */; };
+		DB83516619AAC9E2008A168F /* GCDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83515E19AAC9E2008A168F /* GCDHelper.m */; };
+		DB83516719AAC9E2008A168F /* ZenCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83516119AAC9E2008A168F /* ZenCategory.m */; };
+		DB83516819AAC9E2008A168F /* ZenConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83516319AAC9E2008A168F /* ZenConnection.m */; };
+		DB83516C19AACA3E008A168F /* ZenLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83516B19AACA3E008A168F /* ZenLoadingView.m */; };
+		DB83516F19AACA63008A168F /* ZenBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83516E19AACA63008A168F /* ZenBaseController.m */; };
+		DB83517119AACF07008A168F /* ZenWebViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DB83517019AACF07008A168F /* ZenWebViewController.bundle */; };
+		DB83517B19AAD086008A168F /* ZenBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83517A19AAD086008A168F /* ZenBaseModel.m */; };
+		DB83517E19AAD099008A168F /* ZenLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83517D19AAD099008A168F /* ZenLoginModel.m */; };
+		DB83518219AAD7CF008A168F /* ZenLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB83518019AAD7CF008A168F /* ZenLoginController.m */; };
+		DB83518319AAD7CF008A168F /* ZenLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB83518119AAD7CF008A168F /* ZenLoginController.xib */; };
+		DB83518619AAD808008A168F /* btn_login.png in Resources */ = {isa = PBXBuildFile; fileRef = DB83518419AAD808008A168F /* btn_login.png */; };
+		DB83518719AAD808008A168F /* btn_login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB83518519AAD808008A168F /* btn_login@2x.png */; };
+		DB9800AA19D7CA0300BB36B5 /* ZenPlatformController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9800A819D7CA0300BB36B5 /* ZenPlatformController.m */; };
+		DB9800AB19D7CA0300BB36B5 /* ZenPlatformController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB9800A919D7CA0300BB36B5 /* ZenPlatformController.xib */; };
+		DB9800AE19D7CA8000BB36B5 /* limei.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9800AC19D7CA8000BB36B5 /* limei.png */; };
+		DB9800AF19D7CA8000BB36B5 /* adsage.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9800AD19D7CA8000BB36B5 /* adsage.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB83514719AAC939008A168F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB83511F19AAC939008A168F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB83512619AAC939008A168F;
+			remoteInfo = MobiSage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DB83512719AAC939008A168F /* Platform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platform.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB83512A19AAC939008A168F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DB83512C19AAC939008A168F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DB83512E19AAC939008A168F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DB83513219AAC939008A168F /* Platform-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Platform-Info.plist"; sourceTree = "<group>"; };
+		DB83513419AAC939008A168F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DB83513619AAC939008A168F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DB83513819AAC939008A168F /* Platform-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Platform-Prefix.pch"; sourceTree = "<group>"; };
+		DB83513919AAC939008A168F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DB83513A19AAC939008A168F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DB83513C19AAC939008A168F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DB83514219AAC939008A168F /* PlatformTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlatformTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB83514319AAC939008A168F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DB83514B19AAC939008A168F /* PlatformTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PlatformTests-Info.plist"; sourceTree = "<group>"; };
+		DB83514D19AAC939008A168F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DB83514F19AAC939008A168F /* MobiSageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobiSageTests.m; sourceTree = "<group>"; };
+		DB83515A19AAC9E2008A168F /* ZenWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenWebViewController.h; sourceTree = "<group>"; };
+		DB83515B19AAC9E2008A168F /* ZenWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenWebViewController.m; sourceTree = "<group>"; };
+		DB83515D19AAC9E2008A168F /* GCDHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDHelper.h; sourceTree = "<group>"; };
+		DB83515E19AAC9E2008A168F /* GCDHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDHelper.m; sourceTree = "<group>"; };
+		DB83515F19AAC9E2008A168F /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		DB83516019AAC9E2008A168F /* ZenCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenCategory.h; sourceTree = "<group>"; };
+		DB83516119AAC9E2008A168F /* ZenCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenCategory.m; sourceTree = "<group>"; };
+		DB83516219AAC9E2008A168F /* ZenConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenConnection.h; sourceTree = "<group>"; };
+		DB83516319AAC9E2008A168F /* ZenConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenConnection.m; sourceTree = "<group>"; };
+		DB83516419AAC9E2008A168F /* ZenMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenMacros.h; sourceTree = "<group>"; };
+		DB83516A19AACA3E008A168F /* ZenLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenLoadingView.h; sourceTree = "<group>"; };
+		DB83516B19AACA3E008A168F /* ZenLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenLoadingView.m; sourceTree = "<group>"; };
+		DB83516D19AACA63008A168F /* ZenBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenBaseController.h; sourceTree = "<group>"; };
+		DB83516E19AACA63008A168F /* ZenBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenBaseController.m; sourceTree = "<group>"; };
+		DB83517019AACF07008A168F /* ZenWebViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZenWebViewController.bundle; sourceTree = "<group>"; };
+		DB83517919AAD086008A168F /* ZenBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenBaseModel.h; sourceTree = "<group>"; };
+		DB83517A19AAD086008A168F /* ZenBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenBaseModel.m; sourceTree = "<group>"; };
+		DB83517C19AAD099008A168F /* ZenLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenLoginModel.h; sourceTree = "<group>"; };
+		DB83517D19AAD099008A168F /* ZenLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenLoginModel.m; sourceTree = "<group>"; };
+		DB83517F19AAD7CF008A168F /* ZenLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenLoginController.h; sourceTree = "<group>"; };
+		DB83518019AAD7CF008A168F /* ZenLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenLoginController.m; sourceTree = "<group>"; };
+		DB83518119AAD7CF008A168F /* ZenLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenLoginController.xib; sourceTree = "<group>"; };
+		DB83518419AAD808008A168F /* btn_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_login.png; sourceTree = "<group>"; };
+		DB83518519AAD808008A168F /* btn_login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_login@2x.png"; sourceTree = "<group>"; };
+		DB9800A719D7CA0300BB36B5 /* ZenPlatformController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenPlatformController.h; sourceTree = "<group>"; };
+		DB9800A819D7CA0300BB36B5 /* ZenPlatformController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenPlatformController.m; sourceTree = "<group>"; };
+		DB9800A919D7CA0300BB36B5 /* ZenPlatformController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenPlatformController.xib; sourceTree = "<group>"; };
+		DB9800AC19D7CA8000BB36B5 /* limei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = limei.png; sourceTree = "<group>"; };
+		DB9800AD19D7CA8000BB36B5 /* adsage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adsage.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DB83512419AAC939008A168F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB83512D19AAC939008A168F /* CoreGraphics.framework in Frameworks */,
+				DB83512F19AAC939008A168F /* UIKit.framework in Frameworks */,
+				DB83512B19AAC939008A168F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB83513F19AAC939008A168F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB83514419AAC939008A168F /* XCTest.framework in Frameworks */,
+				DB83514619AAC939008A168F /* UIKit.framework in Frameworks */,
+				DB83514519AAC939008A168F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DB83511E19AAC939008A168F = {
+			isa = PBXGroup;
+			children = (
+				DB83513019AAC939008A168F /* MobiSage */,
+				DB83514919AAC939008A168F /* MobiSageTests */,
+				DB83512919AAC939008A168F /* Frameworks */,
+				DB83512819AAC939008A168F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DB83512819AAC939008A168F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DB83512719AAC939008A168F /* Platform.app */,
+				DB83514219AAC939008A168F /* PlatformTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB83512919AAC939008A168F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB83512A19AAC939008A168F /* Foundation.framework */,
+				DB83512C19AAC939008A168F /* CoreGraphics.framework */,
+				DB83512E19AAC939008A168F /* UIKit.framework */,
+				DB83514319AAC939008A168F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB83513019AAC939008A168F /* MobiSage */ = {
+			isa = PBXGroup;
+			children = (
+				DB83517519AAD078008A168F /* Models */,
+				DB83516919AACA3E008A168F /* Views */,
+				DB83515919AAC9E2008A168F /* Controllers */,
+				DB83515C19AAC9E2008A168F /* Utils */,
+				DB83513919AAC939008A168F /* AppDelegate.h */,
+				DB83513A19AAC939008A168F /* AppDelegate.m */,
+				DB83513C19AAC939008A168F /* Images.xcassets */,
+				DB83513119AAC939008A168F /* Supporting Files */,
+			);
+			path = MobiSage;
+			sourceTree = "<group>";
+		};
+		DB83513119AAC939008A168F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB9800AC19D7CA8000BB36B5 /* limei.png */,
+				DB9800AD19D7CA8000BB36B5 /* adsage.png */,
+				DB83518419AAD808008A168F /* btn_login.png */,
+				DB83518519AAD808008A168F /* btn_login@2x.png */,
+				DB83517019AACF07008A168F /* ZenWebViewController.bundle */,
+				DB83513219AAC939008A168F /* Platform-Info.plist */,
+				DB83513319AAC939008A168F /* InfoPlist.strings */,
+				DB83513619AAC939008A168F /* main.m */,
+				DB83513819AAC939008A168F /* Platform-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DB83514919AAC939008A168F /* MobiSageTests */ = {
+			isa = PBXGroup;
+			children = (
+				DB83514F19AAC939008A168F /* MobiSageTests.m */,
+				DB83514A19AAC939008A168F /* Supporting Files */,
+			);
+			path = MobiSageTests;
+			sourceTree = "<group>";
+		};
+		DB83514A19AAC939008A168F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB83514B19AAC939008A168F /* PlatformTests-Info.plist */,
+				DB83514C19AAC939008A168F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DB83515919AAC9E2008A168F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB83515A19AAC9E2008A168F /* ZenWebViewController.h */,
+				DB83515B19AAC9E2008A168F /* ZenWebViewController.m */,
+				DB83516D19AACA63008A168F /* ZenBaseController.h */,
+				DB83516E19AACA63008A168F /* ZenBaseController.m */,
+				DB83517F19AAD7CF008A168F /* ZenLoginController.h */,
+				DB83518019AAD7CF008A168F /* ZenLoginController.m */,
+				DB83518119AAD7CF008A168F /* ZenLoginController.xib */,
+				DB9800A719D7CA0300BB36B5 /* ZenPlatformController.h */,
+				DB9800A819D7CA0300BB36B5 /* ZenPlatformController.m */,
+				DB9800A919D7CA0300BB36B5 /* ZenPlatformController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB83515C19AAC9E2008A168F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DB83515D19AAC9E2008A168F /* GCDHelper.h */,
+				DB83515E19AAC9E2008A168F /* GCDHelper.m */,
+				DB83515F19AAC9E2008A168F /* Singleton.h */,
+				DB83516019AAC9E2008A168F /* ZenCategory.h */,
+				DB83516119AAC9E2008A168F /* ZenCategory.m */,
+				DB83516219AAC9E2008A168F /* ZenConnection.h */,
+				DB83516319AAC9E2008A168F /* ZenConnection.m */,
+				DB83516419AAC9E2008A168F /* ZenMacros.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		DB83516919AACA3E008A168F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DB83516A19AACA3E008A168F /* ZenLoadingView.h */,
+				DB83516B19AACA3E008A168F /* ZenLoadingView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DB83517519AAD078008A168F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB83517919AAD086008A168F /* ZenBaseModel.h */,
+				DB83517A19AAD086008A168F /* ZenBaseModel.m */,
+				DB83517C19AAD099008A168F /* ZenLoginModel.h */,
+				DB83517D19AAD099008A168F /* ZenLoginModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DB83512619AAC939008A168F /* Platform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB83515319AAC939008A168F /* Build configuration list for PBXNativeTarget "Platform" */;
+			buildPhases = (
+				DB83512319AAC939008A168F /* Sources */,
+				DB83512419AAC939008A168F /* Frameworks */,
+				DB83512519AAC939008A168F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Platform;
+			productName = MobiSage;
+			productReference = DB83512719AAC939008A168F /* Platform.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DB83514119AAC939008A168F /* PlatformTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB83515619AAC939008A168F /* Build configuration list for PBXNativeTarget "PlatformTests" */;
+			buildPhases = (
+				DB83513E19AAC939008A168F /* Sources */,
+				DB83513F19AAC939008A168F /* Frameworks */,
+				DB83514019AAC939008A168F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB83514819AAC939008A168F /* PBXTargetDependency */,
+			);
+			name = PlatformTests;
+			productName = MobiSageTests;
+			productReference = DB83514219AAC939008A168F /* PlatformTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DB83511F19AAC939008A168F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Zen;
+				TargetAttributes = {
+					DB83514119AAC939008A168F = {
+						TestTargetID = DB83512619AAC939008A168F;
+					};
+				};
+			};
+			buildConfigurationList = DB83512219AAC939008A168F /* Build configuration list for PBXProject "Platform" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DB83511E19AAC939008A168F;
+			productRefGroup = DB83512819AAC939008A168F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DB83512619AAC939008A168F /* Platform */,
+				DB83514119AAC939008A168F /* PlatformTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DB83512519AAC939008A168F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB83517119AACF07008A168F /* ZenWebViewController.bundle in Resources */,
+				DB9800AF19D7CA8000BB36B5 /* adsage.png in Resources */,
+				DB83518319AAD7CF008A168F /* ZenLoginController.xib in Resources */,
+				DB83518619AAD808008A168F /* btn_login.png in Resources */,
+				DB83518719AAD808008A168F /* btn_login@2x.png in Resources */,
+				DB9800AE19D7CA8000BB36B5 /* limei.png in Resources */,
+				DB9800AB19D7CA0300BB36B5 /* ZenPlatformController.xib in Resources */,
+				DB83513519AAC939008A168F /* InfoPlist.strings in Resources */,
+				DB83513D19AAC939008A168F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB83514019AAC939008A168F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB83514E19AAC939008A168F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DB83512319AAC939008A168F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB83518219AAD7CF008A168F /* ZenLoginController.m in Sources */,
+				DB83516619AAC9E2008A168F /* GCDHelper.m in Sources */,
+				DB83516819AAC9E2008A168F /* ZenConnection.m in Sources */,
+				DB83516F19AACA63008A168F /* ZenBaseController.m in Sources */,
+				DB83517E19AAD099008A168F /* ZenLoginModel.m in Sources */,
+				DB83517B19AAD086008A168F /* ZenBaseModel.m in Sources */,
+				DB83513B19AAC939008A168F /* AppDelegate.m in Sources */,
+				DB83516519AAC9E2008A168F /* ZenWebViewController.m in Sources */,
+				DB9800AA19D7CA0300BB36B5 /* ZenPlatformController.m in Sources */,
+				DB83516719AAC9E2008A168F /* ZenCategory.m in Sources */,
+				DB83516C19AACA3E008A168F /* ZenLoadingView.m in Sources */,
+				DB83513719AAC939008A168F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB83513E19AAC939008A168F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB83515019AAC939008A168F /* MobiSageTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DB83514819AAC939008A168F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB83512619AAC939008A168F /* Platform */;
+			targetProxy = DB83514719AAC939008A168F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DB83513319AAC939008A168F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB83513419AAC939008A168F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DB83514C19AAC939008A168F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB83514D19AAC939008A168F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DB83515119AAC939008A168F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DB83515219AAC939008A168F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DB83515419AAC939008A168F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobiSage/Platform-Prefix.pch";
+				INFOPLIST_FILE = "MobiSage/Platform-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Platform;
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DB83515519AAC939008A168F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobiSage/Platform-Prefix.pch";
+				INFOPLIST_FILE = "MobiSage/Platform-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Platform;
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DB83515719AAC939008A168F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobiSage.app/MobiSage";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobiSage/MobiSage-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MobiSageTests/PlatformTests-Info.plist";
+				PRODUCT_NAME = PlatformTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		DB83515819AAC939008A168F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MobiSage.app/MobiSage";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MobiSage/MobiSage-Prefix.pch";
+				INFOPLIST_FILE = "MobiSageTests/PlatformTests-Info.plist";
+				PRODUCT_NAME = PlatformTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DB83512219AAC939008A168F /* Build configuration list for PBXProject "Platform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB83515119AAC939008A168F /* Debug */,
+				DB83515219AAC939008A168F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB83515319AAC939008A168F /* Build configuration list for PBXNativeTarget "Platform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB83515419AAC939008A168F /* Debug */,
+				DB83515519AAC939008A168F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB83515619AAC939008A168F /* Build configuration list for PBXNativeTarget "PlatformTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB83515719AAC939008A168F /* Debug */,
+				DB83515819AAC939008A168F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DB83511F19AAC939008A168F /* Project object */;
+}
