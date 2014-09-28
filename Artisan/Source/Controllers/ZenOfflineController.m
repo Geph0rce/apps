@@ -8,6 +8,7 @@
 
 #import "ZenMacros.h"
 #import "ZenNavigationBar.h"
+#import "ZenSwitchHeader.h"
 #import "ZenOfflineCell.h"
 #import "ZenOfflineModel.h"
 #import "ZenOfflineController.h"
@@ -15,14 +16,18 @@
 
 #define kZenOfflineCellId @"ZenOfflineCell"
 
-@interface ZenOfflineController () <UITableViewDataSource, UITableViewDelegate>
+@interface ZenOfflineController () <UITableViewDataSource, UITableViewDelegate, ZenSwitchHeaderDelegate>
 {
     ZenOfflineModel *_model;
     UITableView *_table;
     ZenNavigationBar *_bar;
     BOOL _editing;
     UILabel *_empty;
+    UIView *_header;
 }
+
+@property (nonatomic, strong) UIView *header;
+
 @end
 
 @implementation ZenOfflineController
@@ -85,6 +90,15 @@
     
     [_container addSubview:label];
     [_empty centerInGravity];
+     
+    if (_type == ZenOfflineTypeOffline) {
+        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"ZenSwitchHeader" owner:self options:NULL];
+        if (array && array.count > 0) {
+            self.header = array[0];
+            ZenSwitchHeader *header = (ZenSwitchHeader *)_header;
+            header.delegate = self;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,6 +141,7 @@
     return YES;
 }
 
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -152,6 +167,15 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 46.0f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return _header;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -186,6 +210,14 @@
     @catch (NSException *exception) {
         NSLog(@"exception: %@", [exception description]);
     }
+}
+
+#pragma mark
+#pragma mark ZenSwitchHeaderDelegate Method
+
+- (void)onZenSwitchHeaderValueChanged:(ZenSwitchTag)tag
+{
+    NSLog(@"onZenSwitchHeaderValueChanged: %d", tag);
 }
 
 
