@@ -89,8 +89,8 @@
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [confirmBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     confirmBtn.frame = CGRectMake(CGRectGetWidth(self.frame) - 70.0f, _paddingY + 8.0f, 60.0f, 28.0f);
-    [confirmBtn setBackgroundImage:[UIImage imageWithColor:kZenButtonRealBlue] forState:UIControlStateNormal];
-    [confirmBtn setBackgroundImage:[UIImage imageWithColor:kZenButtonRealBlueHL] forState:UIControlStateHighlighted];
+    [confirmBtn setBackgroundImage:[UIImage imageWithColor:kDefaultBarColor] forState:UIControlStateNormal];
+    [confirmBtn setBackgroundImage:[UIImage imageWithColor:kHighlightBarColor] forState:UIControlStateHighlighted];
     UILabel *confirmLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 60.0f, 28.0f)];
     _confirmLabel = confirmLabel;
     confirmLabel.text = @"确定";
