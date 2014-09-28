@@ -24,24 +24,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PQJ-il-3Bh">
-                        <rect key="frame" x="78" y="16" width="220" height="16"/>
+                        <rect key="frame" x="78" y="16" width="177" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ohc-9K-p56">
-                        <rect key="frame" x="78" y="40" width="200" height="15"/>
+                        <rect key="frame" x="78" y="40" width="147" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" id="m7N-uf-cLb">
-                        <rect key="frame" x="15" y="64" width="290" height="4"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nJQ-3g-QL7">
+                        <rect key="frame" x="271" y="15" width="44" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                        <state key="normal" image="offline_btn.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="offlineClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KAz-Kb-hPO"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -49,8 +54,10 @@
                 <outlet property="border" destination="iRP-10-8Nf" id="rIB-gz-0CF"/>
                 <outlet property="name" destination="PQJ-il-3Bh" id="6sj-pU-Ist"/>
                 <outlet property="picture" destination="O90-8H-tZn" id="AZ5-4Y-LcW"/>
-                <outlet property="progress" destination="m7N-uf-cLb" id="7uy-dg-iLF"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="offline_btn.png" width="22" height="20"/>
+    </resources>
 </document>

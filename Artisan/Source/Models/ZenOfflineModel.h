@@ -26,7 +26,7 @@
 + (NSURL *)urlForSong:(ZenSongData *)song;
 + (BOOL)songExists:(ZenSongData *)song;
 
-- (void)offline:(NSMutableArray *)songs;
+- (void)offline:(NSArray *)songs;
 - (void)removeOfflineObjectAtIndex:(NSUInteger)index;
 - (void)removeDownloadingObjectAtIndex:(NSUInteger)index;
 @end

@@ -1,28 +1,19 @@
 //
-//  ZenSongCell.m
+//  ZenOfflineCell.m
 //  Artisan
 //
-//  Created by roger on 14-9-9.
+//  Created by roger on 14-9-28.
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
 #import "UIImageView+WebCache.h"
 #import "ZenMacros.h"
-#import "ZenSongCell.h"
+#import "ZenOfflineCell.h"
 
 #define kZenColorLightBlue ZenColorFromRGB(0x21aabd)
 #define kZenProgressViewWidth 290.0f
 
-@interface ZenSongCell ()
-{
-    ZenSongData *_data;
-}
-
-@property (nonatomic, strong) ZenSongData *data;
-
-@end
-
-@implementation ZenSongCell
+@implementation ZenOfflineCell
 
 - (void)awakeFromNib
 {
@@ -31,14 +22,16 @@
     view.backgroundColor = kZenHighlightDaytime;
     self.selectedBackgroundView = view;
     _border.backgroundColor = kZenBorderColor;
-    _name.font = kZenFont15;
+    _title.font = kZenFont15;
     _artist.font = kZenFont13;
-    
+    _progress.backgroundColor = kZenColorLightBlue;
+    _progress.hidden = YES;
+    _indicator.hidden = YES;
     CALayer *layer = _picture.layer;
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:25.0f];
-    
 }
+
 
 - (CGFloat)widthForProgress:(NSUInteger)progress
 {
@@ -47,19 +40,28 @@
     return width * ratio;
 }
 
-- (IBAction)offlineClicked:(id)sender
-{
-    if (_delegate && [_delegate respondsToSelector:@selector(offlineDidClick:)]) {
-        [_delegate offlineDidClick:_data];
-    }
-}
-
 - (void)load:(ZenSongData *)song
 {
-    self.data = song;
-    _name.text = song.name;
+    _title.text = song.name;
     _artist.text = song.artist;
     [_picture setImageWithURL:[NSURL URLWithString:song.picture] placeholderImage:[UIImage imageNamed:@"cover_default"]];
+
+    // config progress bar
+    _progress.hidden = YES;
+    if (song.progress > 0) {
+        _progress.hidden = NO;
+        CGRect frame = _progress.frame;
+        frame.size.width = [self widthForProgress:song.progress];
+        _progress.frame = frame;
+    }
+    
+    // config indicator
+    [_indicator stopAnimating];
+    _indicator.hidden = YES;
+    if (song.status == ZenSongStatusDownloading) {
+        _indicator.hidden = NO;
+        [_indicator startAnimating];
+    }
 }
 
 @end

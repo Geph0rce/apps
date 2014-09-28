@@ -15,7 +15,7 @@
 
 #define kZenSongCellId @"ZenSongCellId"
 
-@interface ZenHotSongsController ()
+@interface ZenHotSongsController () <ZenSongCellDelegate>
 {
     ZenHotSongsModel *_model;
 }
@@ -102,6 +102,7 @@
     ZenSongData *song = _model.list[indexPath.row];
     ZenSongCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenSongCellId];
     [cell load:song];
+    cell.delegate = self;
     return cell;
 }
 
@@ -127,6 +128,18 @@
 {
     [self done];
     [self failed:@"加载失败..."];
+}
+
+
+#pragma mark
+#pragma mark ZenSongCellDelegate Method
+
+- (void)offlineDidClick:(ZenSongData *)song
+{
+    if (song) {
+        ZenOfflineModel *manager = [ZenOfflineModel sharedInstance];
+        [manager offline:@[song]];
+    }
 }
 
 @end

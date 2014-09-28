@@ -12,7 +12,8 @@
 typedef enum {
     ZenSongStatusNone,
     ZenSongStatusPlay,
-    ZenSongStatusPause
+    ZenSongStatusPause,
+    ZenSongStatusDownloading,
 } ZenSongStatus;
 
 @interface ZenSongData : NSObject <DOUAudioFile>

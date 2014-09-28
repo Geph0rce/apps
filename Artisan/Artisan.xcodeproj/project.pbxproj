@@ -35,6 +35,10 @@
 		DB50FDEA19C2810A008E7974 /* download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE819C2810A008E7974 /* download@2x.png */; };
 		DB6F07D219D5050A00A202C3 /* board_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB6F07D119D5050A00A202C3 /* board_2.plist */; };
 		DB817FF3183110660053BC69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FF2183110660053BC69 /* QuartzCore.framework */; };
+		DB98009F19D7AC0400BB36B5 /* offline_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DB98009E19D7AC0400BB36B5 /* offline_btn.png */; };
+		DB9800A319D7AC5300BB36B5 /* ZenOfflineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9800A119D7AC5300BB36B5 /* ZenOfflineCell.m */; };
+		DB9800A419D7AC5300BB36B5 /* ZenOfflineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB9800A219D7AC5300BB36B5 /* ZenOfflineCell.xib */; };
+		DB9800A619D7B32500BB36B5 /* offline_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9800A519D7B32500BB36B5 /* offline_btn@2x.png */; };
 		DBB7B2E718238DCA00FDFC0B /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7B2E618238DCA00FDFC0B /* libxml2.2.dylib */; };
 		DBBAF1EE195D51F9004FE37B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FEC183110490053BC69 /* libz.dylib */; };
 		DBE9D94A19BE97190068C1C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9D7B519BE97180068C1C3 /* AppDelegate.m */; };
@@ -364,6 +368,11 @@
 		DB818006183110CB0053BC69 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DB818008183110D70053BC69 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		DB832CB7184E1934001137A1 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		DB98009E19D7AC0400BB36B5 /* offline_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offline_btn.png; sourceTree = "<group>"; };
+		DB9800A019D7AC5300BB36B5 /* ZenOfflineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenOfflineCell.h; sourceTree = "<group>"; };
+		DB9800A119D7AC5300BB36B5 /* ZenOfflineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOfflineCell.m; sourceTree = "<group>"; };
+		DB9800A219D7AC5300BB36B5 /* ZenOfflineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenOfflineCell.xib; sourceTree = "<group>"; };
+		DB9800A519D7B32500BB36B5 /* offline_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offline_btn@2x.png"; sourceTree = "<group>"; };
 		DBB7B2E618238DCA00FDFC0B /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		DBBAF1F4195D533C004FE37B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		DBE9D7B419BE97180068C1C3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -951,6 +960,9 @@
 				DBE9DC8919C1482A0068C1C3 /* ZenPlayerCell.h */,
 				DBE9DC8A19C1482A0068C1C3 /* ZenPlayerCell.m */,
 				DBE9DC8B19C1482A0068C1C3 /* ZenPlayerCell.xib */,
+				DB9800A019D7AC5300BB36B5 /* ZenOfflineCell.h */,
+				DB9800A119D7AC5300BB36B5 /* ZenOfflineCell.m */,
+				DB9800A219D7AC5300BB36B5 /* ZenOfflineCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1140,6 +1152,8 @@
 		DBE9DAA319BEC4720068C1C3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DB98009E19D7AC0400BB36B5 /* offline_btn.png */,
+				DB9800A519D7B32500BB36B5 /* offline_btn@2x.png */,
 				DB50FDE719C2810A008E7974 /* download.png */,
 				DB50FDE819C2810A008E7974 /* download@2x.png */,
 				DBE9DC7119C04A1A0068C1C3 /* hot_songs.png */,
@@ -1474,6 +1488,7 @@
 				DBE9DBB619BEC4720068C1C3 /* play2.png in Resources */,
 				DBE9DBD519BEC4720068C1C3 /* share_pic_background@2x.png in Resources */,
 				DBE9DB7E19BEC4720068C1C3 /* cover_default@2x.png in Resources */,
+				DB9800A419D7AC5300BB36B5 /* ZenOfflineCell.xib in Resources */,
 				DBE9DBD919BEC4720068C1C3 /* status_pause.png in Resources */,
 				DBE9DBBE19BEC4720068C1C3 /* player_back@2x.png in Resources */,
 				DBE9DC7719C04A1A0068C1C3 /* hot_songs.png in Resources */,
@@ -1520,6 +1535,7 @@
 				DBE9DBCA19BEC4720068C1C3 /* settingcell_arrow@2x.png in Resources */,
 				DBE9DBD619BEC4720068C1C3 /* share_pocket@2x.png in Resources */,
 				DBE9DB8F19BEC4720068C1C3 /* menu.png in Resources */,
+				DB98009F19D7AC0400BB36B5 /* offline_btn.png in Resources */,
 				DBE9DB8319BEC4720068C1C3 /* feedback_more.png in Resources */,
 				DBE9DB4119BEC4720068C1C3 /* menubar.bundle in Resources */,
 				DBE9DC8519C13DC10068C1C3 /* ZenPlayerView.xib in Resources */,
@@ -1536,6 +1552,7 @@
 				DBE9DB7B19BEC4720068C1C3 /* cover.png in Resources */,
 				DBE9DB6F19BEC4720068C1C3 /* bottom_icon_share.png in Resources */,
 				DBE9DBAF19BEC4720068C1C3 /* notifications@2x.png in Resources */,
+				DB9800A619D7B32500BB36B5 /* offline_btn@2x.png in Resources */,
 				DBE9DB4E19BEC4720068C1C3 /* arrow_down@2x.png in Resources */,
 				DBE9DB5B19BEC4720068C1C3 /* black-linen@2x.png in Resources */,
 				DBE9DB6919BEC4720068C1C3 /* bottom_icon_refresh.png in Resources */,
@@ -1627,6 +1644,7 @@
 				DB24CA7419D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.m in Sources */,
 				DBE9DBE219BECBDE0068C1C3 /* ZenLoadingController.m in Sources */,
 				DB24CA6D19D2F1C800C307A8 /* DOUAudioEventLoop.m in Sources */,
+				DB9800A319D7AC5300BB36B5 /* ZenOfflineCell.m in Sources */,
 				DBE9DA5919BE97190068C1C3 /* UIImage+GIF.m in Sources */,
 				DBE9DA5619BE97190068C1C3 /* TFHppleElement.m in Sources */,
 				DBE9DA5219BE97190068C1C3 /* SDWebImageManager.m in Sources */,

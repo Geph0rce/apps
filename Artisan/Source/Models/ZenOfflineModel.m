@@ -139,6 +139,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
         NSFileManager *fileManager = [[NSFileManager alloc] init];
         [fileManager createFileAtPath:[ZenOfflineModel pathForSong:song] contents:data attributes:nil];
         song.progress = 0;
+        song.status = ZenSongStatusNone;
         [_offline addObject:song];
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         NSMutableArray *list = [NSMutableArray array];
@@ -168,23 +169,19 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 {
     if (_download.count > 0) {
         ZenSongData *song = _download[0];
+        song.status = ZenSongStatusDownloading;
         ZenConnection *conn = [ZenConnection connectionWithURL:[NSURL URLWithString:song.src]];
         conn.delegate = self;
         self.connection = conn;
         [conn startAsynchronous];
     }
-    else {
-        [self send:kZenOfflineStateChange];
-    }
+    
+    [self send:kZenOfflineStateChange];
 }
 
-- (void)offline:(NSMutableArray *)songs
+- (void)offline:(NSArray *)songs
 {
     @try {
-        if (_download.count > 0) {
-            [self send:kZenOfflineDownloading];
-            return;
-        }
         [_download addObjectsFromArray:songs];
         [self clear];
         [self fetch];
