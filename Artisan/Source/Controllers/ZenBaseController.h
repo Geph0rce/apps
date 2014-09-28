@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DDMenuController.h"
-#import "ZenStatusBarOverlay.h"
+#import "ZenToast.h"
 
 typedef void (^ZenBlock)(void);
 
@@ -69,10 +69,6 @@ typedef enum {
 - (void)dismissViewControllerWithOption:(ZenAnimationOption)option completion:(ZenBlock)block;
 
 - (void)blockDDMenuControllerGesture:(BOOL)block;
-
-- (void)postMessage:(NSString *)msg;
-- (void)postMessage:(NSString *)msg type:(ZenStatusBarOverlayType)type;
-- (void)postMessage:(NSString *)msg type:(ZenStatusBarOverlayType)type dismissAfterDelay:(int)delay;
 
 - (void)success:(NSString *)msg;
 - (void)failed:(NSString *)msg;

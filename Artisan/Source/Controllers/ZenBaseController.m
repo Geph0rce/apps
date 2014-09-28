@@ -452,37 +452,25 @@
 }
 
 
-
-#pragma mark -
-#pragma mark - ZenStatusBarOverlay
-
-- (void)postMessage:(NSString *)msg
-{
-    ZenStatusBarOverlay *overlay = [ZenStatusBarOverlay sharedInstance];
-    [overlay postMessage:msg type:ZenStatusBarOverlayTypeInfo dismissAfterDelay:1.0f];
-
-}
-
-- (void)postMessage:(NSString *)msg type:(ZenStatusBarOverlayType)type
-{
-    ZenStatusBarOverlay *overlay = [ZenStatusBarOverlay sharedInstance];
-    [overlay postMessage:msg type:type dismissAfterDelay:1.0f];
-}
-
-- (void)postMessage:(NSString *)msg type:(ZenStatusBarOverlayType)type  dismissAfterDelay:(int)delay
-{
-    ZenStatusBarOverlay *overlay = [ZenStatusBarOverlay sharedInstance];
-    [overlay postMessage:msg type:type dismissAfterDelay:delay];
-}
+#pragma mark
+#pragma mark ZenToast
 
 - (void)success:(NSString *)msg
 {
-    [self postMessage:msg type:ZenStatusBarOverlayTypeSuccess];
+    ZenToast *toast = [ZenToast sharedInstance];
+    [toast postMessage:msg type:ZenToastTypeSuccess dismissAfterDelay:1.0f];
+}
+
+- (void)warning:(NSString *)msg
+{
+    ZenToast *toast = [ZenToast sharedInstance];
+    [toast postMessage:msg type:ZenToastTypeWarning dismissAfterDelay:1.0f];
 }
 
 - (void)failed:(NSString *)msg
 {
-    [self postMessage:msg type:ZenStatusBarOverlayTypeError];
+    ZenToast *toast = [ZenToast sharedInstance];
+    [toast postMessage:msg type:ZenToastTypeError dismissAfterDelay:1.0f];
 }
 
 @end

@@ -39,6 +39,7 @@
 		DB9800A319D7AC5300BB36B5 /* ZenOfflineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9800A119D7AC5300BB36B5 /* ZenOfflineCell.m */; };
 		DB9800A419D7AC5300BB36B5 /* ZenOfflineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB9800A219D7AC5300BB36B5 /* ZenOfflineCell.xib */; };
 		DB9800A619D7B32500BB36B5 /* offline_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9800A519D7B32500BB36B5 /* offline_btn@2x.png */; };
+		DB9800B219D7DB7800BB36B5 /* ZenToast.m in Sources */ = {isa = PBXBuildFile; fileRef = DB9800B119D7DB7800BB36B5 /* ZenToast.m */; };
 		DBB7B2E718238DCA00FDFC0B /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB7B2E618238DCA00FDFC0B /* libxml2.2.dylib */; };
 		DBBAF1EE195D51F9004FE37B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FEC183110490053BC69 /* libz.dylib */; };
 		DBE9D94A19BE97190068C1C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBE9D7B519BE97180068C1C3 /* AppDelegate.m */; };
@@ -373,6 +374,8 @@
 		DB9800A119D7AC5300BB36B5 /* ZenOfflineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOfflineCell.m; sourceTree = "<group>"; };
 		DB9800A219D7AC5300BB36B5 /* ZenOfflineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenOfflineCell.xib; sourceTree = "<group>"; };
 		DB9800A519D7B32500BB36B5 /* offline_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offline_btn@2x.png"; sourceTree = "<group>"; };
+		DB9800B019D7DB7800BB36B5 /* ZenToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenToast.h; sourceTree = "<group>"; };
+		DB9800B119D7DB7800BB36B5 /* ZenToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenToast.m; sourceTree = "<group>"; };
 		DBB7B2E618238DCA00FDFC0B /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		DBBAF1F4195D533C004FE37B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		DBE9D7B419BE97180068C1C3 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -942,6 +945,8 @@
 				DBE9D8FC19BE97190068C1C3 /* ZenNavigationBar.m */,
 				DBE9D90B19BE97190068C1C3 /* ZenStatusBarOverlay.h */,
 				DBE9D90C19BE97190068C1C3 /* ZenStatusBarOverlay.m */,
+				DB9800B019D7DB7800BB36B5 /* ZenToast.h */,
+				DB9800B119D7DB7800BB36B5 /* ZenToast.m */,
 				DBE9DBF419BEDAA60068C1C3 /* ZenSongCell.h */,
 				DBE9DBF519BEDAA60068C1C3 /* ZenSongCell.m */,
 				DBE9DBF619BEDAA60068C1C3 /* ZenSongCell.xib */,
@@ -1631,6 +1636,7 @@
 				DBE9DA5D19BE97190068C1C3 /* SinaWeibo.m in Sources */,
 				DBE9DA2919BE97190068C1C3 /* GCDHelper.m in Sources */,
 				DBE9DA3E19BE97190068C1C3 /* ZenMenuItem.m in Sources */,
+				DB9800B219D7DB7800BB36B5 /* ZenToast.m in Sources */,
 				DB24CA6B19D2F1C800C307A8 /* DOUAudioAnalyzer.m in Sources */,
 				DBE9DBF719BEDAA60068C1C3 /* ZenSongCell.m in Sources */,
 				DB24CA7519D2F1C800C307A8 /* DOUAudioStreamer+Options.m in Sources */,
