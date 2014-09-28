@@ -10,6 +10,7 @@
 #import "ZenCategory.h"
 #import "ZenSwitchHeader.h"
 
+#define kZenSwitchHeaderBackgroundColor ZenColorFromRGBA(0xffffff)
 #define kZenSwitchHeaderNormalColor [UIColor blackColor]
 #define kZenSwitchHeaderHighlightColor ZenColorFromRGB(0x1abc9c)
 #define kZenSwitchSliderFrameLeft CGRectMake(0.0f, 44.0f, 160.0f, 2.0f)
@@ -25,20 +26,22 @@
 
 - (void)awakeFromNib
 {
+    self.backgroundColor = [UIColor whiteColor];
     _firstBtn.titleLabel.font = kZenFont15;
+    _firstBtn.backgroundColor = [UIColor clearColor];
     [_firstBtn setTitleColor:kZenSwitchHeaderHighlightColor forState:UIControlStateNormal];
     [_firstBtn setTitleColor:kZenSwitchHeaderHighlightColor forState:UIControlStateHighlighted];
     _firstBtn.tag = ZenSwitchTagFirst;
     [_firstBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _secondBtn.titleLabel.font = kZenFont15;
+    _secondBtn.backgroundColor = [UIColor clearColor];
     [_secondBtn setTitleColor:kZenSwitchHeaderNormalColor forState:UIControlStateNormal];
     [_secondBtn setTitleColor:kZenSwitchHeaderHighlightColor forState:UIControlStateHighlighted];
     _secondBtn.tag = ZenSwitchTagSecond;
     [_secondBtn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     
     _slider.backgroundColor = kZenSwitchHeaderHighlightColor;
-    
     _tag = ZenSwitchTagFirst;
 }
 
