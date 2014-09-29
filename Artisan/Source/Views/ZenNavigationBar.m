@@ -108,6 +108,11 @@
     _confirmLabel.text = text;
 }
 
+- (void)setRightButtonHidden:(BOOL)flag
+{
+    _rightBtn.hidden = flag;
+}
+
 - (void)addLeftItemWithStyle:(ZenNavigationItemStyle)style target:(id)target action:(SEL)action
 {
     if (_leftBtn) {

@@ -267,7 +267,7 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
              DDMenuController *menuController = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
             if ([gid isEqualToString:kZenOfflineDone]) {
                 ZenOfflineController *controller = [[ZenOfflineController alloc] init];
-                controller.type = ZenOfflineTypeOffline;
+                controller.type = ZenOfflineTypeOfflineSongs;
                 [menuController setRootController:controller animated:YES];
             }
             else if ([gid isEqualToString:kZenOfflineDownloading]) {

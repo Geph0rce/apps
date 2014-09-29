@@ -34,6 +34,7 @@ typedef enum
 - (void)addLeftButtonWithTarget:(id)target action:(SEL)action;
 - (void)addRightButtonWithTarget:(id)target action:(SEL)action;
 - (void)setRightButtonTitle:(NSString *)text;
+- (void)setRightButtonHidden:(BOOL)flag;
 
 - (void)addLeftItemWithStyle:(ZenNavigationItemStyle)style target:(id)target action:(SEL)action;
 - (void)addRightItemWithStyle:(ZenNavigationItemStyle)style target:(id)target action:(SEL)action;

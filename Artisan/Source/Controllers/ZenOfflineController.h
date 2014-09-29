@@ -10,7 +10,8 @@
 
 typedef enum {
     ZenOfflineTypeDownloading,
-    ZenOfflineTypeOffline
+    ZenOfflineTypeOfflineSongs,
+    ZenOfflineTypeOfflineArtists
 } ZenOfflineType;
 
 @interface ZenOfflineController : ZenBaseController

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
+#import "ZenOfflineArtistData.h"
 #import "ZenSongData.h"
 #import "ZenBaseModel.h"
 
@@ -17,10 +18,12 @@
 {
     NSMutableArray *_offline;
     NSMutableArray *_download;
+    NSMutableArray *_artists;
 }
 
 @property (nonatomic, strong) NSMutableArray *offline;
 @property (nonatomic, strong) NSMutableArray *download;
+@property (nonatomic, strong) NSMutableArray *artists;
 
 + (ZenOfflineModel *)sharedInstance;
 + (NSURL *)urlForSong:(ZenSongData *)song;
@@ -45,4 +48,5 @@
 - (void)offline:(NSArray *)songs;
 - (void)removeOfflineObjectAtIndex:(NSUInteger)index;
 - (void)removeDownloadingObjectAtIndex:(NSUInteger)index;
+
 @end

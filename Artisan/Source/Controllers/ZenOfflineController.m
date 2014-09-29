@@ -9,12 +9,14 @@
 #import "ZenMacros.h"
 #import "ZenNavigationBar.h"
 #import "ZenSwitchHeader.h"
+#import "ZenOfflineArtistCell.h"
 #import "ZenOfflineCell.h"
 #import "ZenOfflineModel.h"
 #import "ZenOfflineController.h"
 #import "ZenPlayerController.h"
 
-#define kZenOfflineCellId @"ZenOfflineCell"
+#define kZenOfflineSongCellId @"ZenOfflineSongCell"
+#define kZenOfflineArtistCellId @"ZenOfflineArtistCell"
 
 @interface ZenOfflineController () <UITableViewDataSource, UITableViewDelegate, ZenSwitchHeaderDelegate>
 {
@@ -65,7 +67,7 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.hidden = YES;
     _empty = label;
-    if (_type == ZenOfflineTypeOffline) {
+    if (_type == ZenOfflineTypeOfflineSongs) {
         [_table setAllowsSelection:YES];
         [bar setTitle:@"已离线"];
         [label setText:@"离线完成的歌曲会出现在这里"];
@@ -85,13 +87,14 @@
     [_container addSubview:table];
     _table.frame = CGRectMake(0.0f, bar.height, CGRectGetWidth(_container.frame), CGRectGetHeight(_container.frame) - bar.height);
     
-    [_table registerNib:[UINib nibWithNibName:@"ZenOfflineCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineCellId];
+    [_table registerNib:[UINib nibWithNibName:@"ZenOfflineCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineSongCellId];
+    [_table registerNib:[UINib nibWithNibName:@"ZenOfflineArtistCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenOfflineArtistCellId];
     _editing = NO;
     
     [_container addSubview:label];
     [_empty centerInGravity];
      
-    if (_type == ZenOfflineTypeOffline) {
+    if (_type == ZenOfflineTypeOfflineSongs) {
         NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"ZenSwitchHeader" owner:self options:NULL];
         if (array && array.count > 0) {
             self.header = array[0];
@@ -138,6 +141,9 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_type == ZenOfflineTypeOfflineArtists) {
+        return NO;
+    }
     return YES;
 }
 
@@ -146,7 +152,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        if (_type == ZenOfflineTypeOffline) {
+        if (_type == ZenOfflineTypeOfflineSongs) {
             [_model removeOfflineObjectAtIndex:indexPath.row];
         }
         else {
@@ -159,8 +165,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_type == ZenOfflineTypeOffline) {
+    if (_type == ZenOfflineTypeOfflineSongs) {
         return _model.offline.count;
+    }
+    else if (_type == ZenOfflineTypeOfflineArtists) {
+        return _model.artists.count;
     }
     else {
         return _model.download.count;
@@ -185,21 +194,30 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ZenSongData *song = nil;
-    if (_type == ZenOfflineTypeOffline) {
+    if (_type == ZenOfflineTypeOfflineSongs) {
         song = _model.offline[indexPath.row];
+        ZenOfflineCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenOfflineSongCellId];
+        [cell load:song];
+        return cell;
+    }
+    else if (_type == ZenOfflineTypeDownloading){
+         song = _model.download[indexPath.row];
+        ZenOfflineCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenOfflineSongCellId];
+        [cell load:song];
+        return cell;
     }
     else {
-        song = _model.download[indexPath.row];
+        ZenOfflineArtistData *artist = _model.artists[indexPath.row];
+        ZenOfflineArtistCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenOfflineArtistCellId];
+        [cell load:artist];
+        return cell;
     }
-    ZenOfflineCell *cell = [tableView dequeueReusableCellWithIdentifier:kZenOfflineCellId];
-    [cell load:song];
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     @try {
-        if (_type == ZenOfflineTypeOffline) {
+        if (_type == ZenOfflineTypeOfflineSongs) {
             ZenPlayerController *controller = [ZenPlayerController sharedInstance];
             controller.list = [[NSMutableArray alloc] initWithArray:_model.offline];
             controller.index = indexPath.row;
@@ -218,6 +236,16 @@
 - (void)onZenSwitchHeaderValueChanged:(ZenSwitchTag)tag
 {
     NSLog(@"onZenSwitchHeaderValueChanged: %d", tag);
+    if (tag == ZenSwitchTagFirst) {
+        // offline songs
+        [_bar setRightButtonHidden:NO];
+        _type = ZenOfflineTypeOfflineSongs;
+    }
+    else {
+        [_bar setRightButtonHidden:YES];
+        _type = ZenOfflineTypeOfflineArtists;
+    }
+    [_table reloadData];
 }
 
 

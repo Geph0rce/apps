@@ -59,6 +59,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     if (self) {
         _offline = [[NSMutableArray alloc] init];
         _download = [[NSMutableArray alloc] init];
+        _artists = [[NSMutableArray alloc] init];
         [self initPath];
         [self loadOfflineList];
     }
@@ -101,6 +102,20 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     }
 }
 
+- (BOOL)artistExists:(ZenOfflineArtistData *)artist
+{
+    if (artist) {
+        for (ZenOfflineArtistData *item in _artists) {
+            if ([item.name isEqualToString:artist.name]) {
+                item.count++;
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
+}
+
 - (void)loadOfflineList
 {
     @try {
@@ -114,6 +129,15 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
                 song.picture = item[@"picture"];
                 song.hash = item[@"hash"];
                 [_offline addObject:song];
+            }
+        }
+        
+        for (ZenSongData *song in _offline) {
+            ZenOfflineArtistData *artist = [[ZenOfflineArtistData alloc] init];
+            artist.name = song.artist;
+            artist.picture = song.picture;
+            if (![self artistExists:artist]) {
+                [_artists addObject:artist];
             }
         }
     }
