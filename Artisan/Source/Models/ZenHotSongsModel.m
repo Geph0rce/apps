@@ -69,7 +69,7 @@
             song.length = item[@"length"];
             song.picture = item[@"picture"];
             song.src = item[@"src"];
-            song.hash = [[NSString stringWithFormat:@"%@-%@", song.artist, song.name] md5];
+            song.songHash = [[NSString stringWithFormat:@"%@-%@", song.artist, song.name] md5];
             song.status = ZenSongStatusNone;
             [_list addObject:song];
         }

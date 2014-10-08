@@ -16,7 +16,7 @@
     NSString *artist = _artist == nil ? @"null" : _artist;
     NSString *name = _name == nil ? @"null" : _name;
     NSString *picture = _picture == nil ? @"null" : _picture;
-    NSString *hash = _hash == nil ? @"null" : _hash;
+    NSString *hash = _songHash == nil ? @"null" : _songHash;
     return @{ @"artist" : artist, @"name" : name, @"picture" : picture, @"hash" : hash };
 }
 

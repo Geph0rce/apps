@@ -32,7 +32,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 + (NSURL *)urlForSong:(ZenSongData *)song
 {
     NSString *path = [ZenOfflineModel sharedInstance].path;
-    NSString *url = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.hash]];
+    NSString *url = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.songHash]];
     return [NSURL fileURLWithPath:url];
 }
 
@@ -49,7 +49,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 + (NSString *)pathForSong:(ZenSongData *)song
 {
     NSString *path = [ZenOfflineModel sharedInstance].path;
-    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.hash]];
+    path = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.mp3", song.songHash]];
     return path;
 }
 
@@ -69,7 +69,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 - (BOOL)contains:(ZenSongData *)song
 {
     for (ZenSongData *item in _download) {
-        if ([item.hash isEqualToString:song.hash]) {
+        if ([item.songHash isEqualToString:song.songHash]) {
             return YES;
         }
     }
@@ -127,7 +127,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
                 song.artist = item[@"artist"];
                 song.name = item[@"name"];
                 song.picture = item[@"picture"];
-                song.hash = item[@"hash"];
+                song.songHash = item[@"hash"];
                 [_offline addObject:song];
             }
         }
@@ -152,7 +152,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     NSString *artist = song.artist == nil ? @"null" : song.artist;
     NSString *name = song.name == nil ? @"null" : song.name;
     NSString *picture = song.picture == nil ? @"null" : song.picture;
-    NSString *hash = song.hash == nil ? @"null" : song.hash;
+    NSString *hash = song.songHash == nil ? @"null" : song.songHash;
     
     return @{ @"artist" : artist, @"name" : name, @"picture" : picture, @"hash" : hash};
 }
@@ -183,13 +183,13 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     @try {
         // check if song exists at offline queue
         for (ZenSongData *item in _offline) {
-            if ([item.hash isEqualToString:song.hash]) {
+            if ([item.songHash isEqualToString:song.songHash]) {
                 return YES;
             }
         }
         // check if song exists at download queue
         for (ZenSongData *item in _download) {
-            if ([item.hash isEqualToString:song.hash]) {
+            if ([item.songHash isEqualToString:song.songHash]) {
                 return YES;
             }
         }

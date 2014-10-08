@@ -29,13 +29,13 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     DOUAudioStreamer *_streamer;
     UIBackgroundTaskIdentifier _taskId;
     NSTimer *_timer;
-    NSString *_hash;
+    NSString *_currentHash;
 }
 
 @property (nonatomic, strong) ZenPlayerView *player;
 @property (nonatomic, strong) DOUAudioStreamer *streamer;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSString *hash;
+@property (nonatomic, strong) NSString *currentHash;
 
 @end
 
@@ -137,8 +137,8 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 {
     ZenSongData *song = [_list safeObjectAtIndex:_index];
     if (song) {
-        if (!_hash || ![song.hash isEqualToString:_hash]) {
-            self.hash = song.hash;
+        if (!_currentHash || ![song.songHash isEqualToString:_currentHash]) {
+            self.currentHash = song.songHash;
             [self changeToPlayStatus:ZenSongStatusPlay index:_index];
             [_player load:song];
             [self resetStreamer];
