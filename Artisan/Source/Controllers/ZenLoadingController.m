@@ -164,6 +164,12 @@
     return 0;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"warning: ZenLoadingViewController table:cellForRowAtIndexPath called.");
+    return nil;
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row > 5 && _enableLoadMore) {

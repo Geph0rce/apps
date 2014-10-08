@@ -338,7 +338,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 - (void)playerControlClicked:(id)sender
 {
     UIView *view = (UIView *)sender;
-    ZenPlayerControlType type = view.tag;
+    ZenPlayerControlType type = (ZenPlayerControlType)view.tag;
     if (type == ZenPlayerControlTypeNext) {
         [self next];
     }

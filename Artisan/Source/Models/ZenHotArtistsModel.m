@@ -61,7 +61,7 @@
         for (NSDictionary *artist in artists) {
             ZenArtistData *item = [[ZenArtistData alloc] init];
             item.name = artist[@"name"];
-            item.follower = [NSString stringWithFormat:@"%d", [artist[@"follower"] integerValue]];
+            item.follower = [NSString stringWithFormat:@"%ld", (long)[artist[@"follower"] integerValue]];
             item.picture = artist[@"picture"];
             item.aid = artist[@"id"];
             [_list addObject:item];

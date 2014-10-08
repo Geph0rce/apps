@@ -47,7 +47,7 @@
 
 - (void)onClick:(UIView *)view
 {
-    ZenSwitchTag tag = view.tag;
+    ZenSwitchTag tag = (ZenSwitchTag)view.tag;
     
     if (_tag != tag) {
         CGRect frameAfterAnimation = CGRectZero;

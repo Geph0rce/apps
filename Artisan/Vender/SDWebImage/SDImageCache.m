@@ -414,6 +414,7 @@ static SDImageCache *instance;
     NSDirectoryEnumerator *fileEnumerator = [[NSFileManager defaultManager] enumeratorAtPath:diskCachePath];
     for (NSString *fileName in fileEnumerator)
     {
+        NSLog(@"fileName: %@", fileName);
         count += 1;
     }
     //[_lock unlock];

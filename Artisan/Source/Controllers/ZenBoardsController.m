@@ -156,12 +156,12 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
 #pragma mark -
 #pragma mark UITableViewDataSource and UITableViewDelegate Methods
 
-- (int)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
      return [_boardsData count];
 }
 
-- (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSArray *array = [_dataSource safeObjectAtIndex:section];
     if (array) {
@@ -209,7 +209,7 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
     }
 
     
-    int colorIndex = (section % _menuColors.count);
+    NSUInteger colorIndex = (section % _menuColors.count);
     
     UIColor *colorNarmal = [_menuColors safeObjectAtIndex:colorIndex];
     UIColor *colorHighlight = [_menuHLColors safeObjectAtIndex:colorIndex];

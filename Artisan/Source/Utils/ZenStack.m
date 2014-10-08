@@ -37,9 +37,9 @@ SINGLETON_FOR_CLASS(ZenStack);
 
 - (void)pop:(UIViewController *)controller
 {
-    int index = [_stack indexOfObject:controller];
+    NSUInteger index = [_stack indexOfObject:controller];
     if (index != NSNotFound) {
-        NSLog(@"index: %d ", index);
+        NSLog(@"index: %lu ", (long)index);
         NSIndexSet *indexSet = [[NSIndexSet alloc] initWithIndexesInRange:NSMakeRange(index, _stack.count - index)];
         [_stack removeObjectsAtIndexes:indexSet];
     }

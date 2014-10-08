@@ -59,7 +59,7 @@
         // parser artist profile
         ZenArtistData *item = [[ZenArtistData alloc] init];
         item.name = response[@"name"];
-        item.follower = [NSString stringWithFormat:@"%d", [response[@"follower"] integerValue]];
+        item.follower = [NSString stringWithFormat:@"%ld", (long)[response[@"follower"] integerValue]];
         item.picture = response[@"picture"];
         item.aid = response[@"id"];
         item.style = response[@"style"];

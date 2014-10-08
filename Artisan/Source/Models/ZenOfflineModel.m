@@ -281,6 +281,9 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 {
     @try {
         [_download removeObjectAtIndex:index];
+        if (index == 0 && _connection) {
+            [_connection cancel];
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"ZenOfflineModel removeDownloadingObjectAtIndex exception: %@", [exception description]);
@@ -313,7 +316,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
 - (void)progressOfConnection:(ZenConnection *)connection
 {
     NSUInteger progress = connection.progress;
-    NSLog(@"progress: %d", progress);
+    NSLog(@"progress: %lu", (unsigned long)progress);
     if (_download.count > 0) {
         ZenSongData *song = _download[0];
         song.progress = progress;
