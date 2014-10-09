@@ -60,6 +60,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
         _offline = [[NSMutableArray alloc] init];
         _download = [[NSMutableArray alloc] init];
         _artists = [[NSMutableArray alloc] init];
+        _songs = [[NSMutableArray alloc] init];
         [self initPath];
         [self loadOfflineList];
     }
@@ -287,6 +288,30 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     }
     @catch (NSException *exception) {
         NSLog(@"ZenOfflineModel removeDownloadingObjectAtIndex exception: %@", [exception description]);
+    }
+}
+
+- (void)loadSongsWithArtist:(NSString *)artist
+{
+    [_songs removeAllObjects];
+    for (ZenSongData *song in _offline) {
+        if ([song.artist isEqualToString:artist]) {
+            [_songs addObject:song];
+        }
+    }
+    [self send:kZenOfflineLoadSongsFinished];
+}
+
+- (void)loadArtists
+{
+    [_artists removeAllObjects];
+    for (ZenSongData *song in _offline) {
+        ZenOfflineArtistData *artist = [[ZenOfflineArtistData alloc] init];
+        artist.name = song.artist;
+        artist.picture = song.picture;
+        if (![self artistExists:artist]) {
+            [_artists addObject:artist];
+        }
     }
 }
 

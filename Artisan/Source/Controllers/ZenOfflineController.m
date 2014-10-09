@@ -14,6 +14,7 @@
 #import "ZenOfflineModel.h"
 #import "ZenOfflineController.h"
 #import "ZenPlayerController.h"
+#import "ZenOfflineSongsController.h"
 
 #define kZenOfflineSongCellId @"ZenOfflineSongCell"
 #define kZenOfflineArtistCellId @"ZenOfflineArtistCell"
@@ -224,6 +225,12 @@
             controller.view.frame = _container.bounds;
             [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
         }
+        else if (_type == ZenOfflineTypeOfflineArtists) {
+            ZenOfflineArtistData *artist = _model.artists[indexPath.row];
+            ZenOfflineSongsController *controller = [[ZenOfflineSongsController alloc] init];
+            controller.artist = artist.name;
+            [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"exception: %@", [exception description]);
@@ -244,8 +251,10 @@
     else {
         [_bar setRightButtonHidden:YES];
         _type = ZenOfflineTypeOfflineArtists;
+        [_model loadArtists];
     }
     [_table reloadData];
+    
 }
 
 

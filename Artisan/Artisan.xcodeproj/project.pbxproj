@@ -33,6 +33,7 @@
 		DB24CA7B19D2F1C800C307A8 /* NSData+DOUMappedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA6919D2F1C800C307A8 /* NSData+DOUMappedFile.m */; };
 		DB50FDE919C2810A008E7974 /* download.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE719C2810A008E7974 /* download.png */; };
 		DB50FDEA19C2810A008E7974 /* download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB50FDE819C2810A008E7974 /* download@2x.png */; };
+		DB5C0CCB19E62E00008B43C8 /* ZenOfflineSongsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CCA19E62E00008B43C8 /* ZenOfflineSongsController.m */; };
 		DB6F07D219D5050A00A202C3 /* board_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB6F07D119D5050A00A202C3 /* board_2.plist */; };
 		DB817FF3183110660053BC69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FF2183110660053BC69 /* QuartzCore.framework */; };
 		DB98009F19D7AC0400BB36B5 /* offline_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DB98009E19D7AC0400BB36B5 /* offline_btn.png */; };
@@ -349,6 +350,8 @@
 		DB4B42421861924D00E875FC /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		DB50FDE719C2810A008E7974 /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
 		DB50FDE819C2810A008E7974 /* download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@2x.png"; sourceTree = "<group>"; };
+		DB5C0CC919E62E00008B43C8 /* ZenOfflineSongsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenOfflineSongsController.h; sourceTree = "<group>"; };
+		DB5C0CCA19E62E00008B43C8 /* ZenOfflineSongsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOfflineSongsController.m; sourceTree = "<group>"; };
 		DB5F569E1963B11E00250B79 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		DB6F07D119D5050A00A202C3 /* board_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = board_2.plist; sourceTree = "<group>"; };
 		DB817FE8183110360053BC69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -868,6 +871,8 @@
 				DBE9DC8019C13B7D0068C1C3 /* ZenPlayerController.m */,
 				DB24CA3E19D2D97100C307A8 /* ZenOfflineController.h */,
 				DB24CA3F19D2D97100C307A8 /* ZenOfflineController.m */,
+				DB5C0CC919E62E00008B43C8 /* ZenOfflineSongsController.h */,
+				DB5C0CCA19E62E00008B43C8 /* ZenOfflineSongsController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1608,6 +1613,7 @@
 				DBE9DA5419BE97190068C1C3 /* UIImageView+WebCache.m in Sources */,
 				DB9800B519D7F73D00BB36B5 /* ZenSwitchHeader.m in Sources */,
 				DBE9DA2919BE97190068C1C3 /* GCDHelper.m in Sources */,
+				DB5C0CCB19E62E00008B43C8 /* ZenOfflineSongsController.m in Sources */,
 				DBE9DA3E19BE97190068C1C3 /* ZenMenuItem.m in Sources */,
 				DB9800B219D7DB7800BB36B5 /* ZenToast.m in Sources */,
 				DB24CA6B19D2F1C800C307A8 /* DOUAudioAnalyzer.m in Sources */,
