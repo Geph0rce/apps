@@ -90,7 +90,7 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
     boards.delegate = self;
     boards.scrollsToTop = NO;
     boards.backgroundColor = kZenBackgroundColor;
-    boards.separatorColor = kZenBorderColor;
+    boards.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     _boards = boards;
     [self.view addSubview:boards];
