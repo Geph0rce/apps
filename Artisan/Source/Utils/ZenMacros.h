@@ -29,7 +29,7 @@ green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 \
 alpha:0.8]
 
-#define kZenNightMode [ZenConfig sharedInstance].night
+#define kZenNightMode NO
 
 #define kZenBackgroundColorDaytime ZenColorFromRGB(0xfcfcfc)
 #define kZenBackgroundColorNight   ZenColorFromRGB(0x1f1f1f)

@@ -149,10 +149,10 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 - (void)cancelStreamer
 {
     if (_streamer != nil) {
-        [_streamer pause];
+        [_streamer stop];
         [_streamer removeObserver:self forKeyPath:@"status"];
         [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
-        _streamer = nil;
+        self.streamer = nil;
     }
 }
 
@@ -167,7 +167,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     else
     {
         ZenSongData *song = [_list objectAtIndex:_index];
-        _streamer = [DOUAudioStreamer streamerWithAudioFile:song];
+        self.streamer = [DOUAudioStreamer streamerWithAudioFile:song];
         [_streamer addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:kStatusKVOKey];
         [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
         

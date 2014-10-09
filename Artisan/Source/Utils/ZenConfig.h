@@ -8,15 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
+#define kZenConfigRefreshTimeNotification @"ZenConfigRefreshTimeNotification"
+#define kZenConfigTimeToCloseNotification @"ZenConfigTimeToCloseNotification"
+
 @interface ZenConfig : NSObject
 {
-    BOOL _textOnly;
-    BOOL _night;
+    BOOL _cellularOffline;
+    BOOL _cellularPlay;
+    NSUInteger _time;
 }
 
-@property (nonatomic, assign) BOOL textOnly;
-@property (nonatomic, assign) BOOL night;
+@property (nonatomic, assign) BOOL cellularOffline;
+@property (nonatomic, assign) BOOL cellularPlay;
+@property (nonatomic, assign) NSUInteger time;
 
 + (ZenConfig *)sharedInstance;
+
+/**
+ *  open a new timer to counter down
+ *
+ *  @param time: 0 - close; otherwise open a new counter timer;
+ */
+- (void)openTimer:(NSUInteger)time;
+
 
 @end

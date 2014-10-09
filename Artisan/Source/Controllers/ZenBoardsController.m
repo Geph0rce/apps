@@ -20,6 +20,7 @@
 #import "ZenHotArtistsController.h"
 #import "ZenCategoryController.h"
 #import "ZenOfflineController.h"
+#import "ZenSettingsController.h"
 
 #define kZenBoardWidth 240.0f
 #define kZenMenuItemHeight 64.0f
@@ -310,6 +311,8 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
             }
             else if ([fid isEqualToString:kZenSettingsFid]) {
                 // settings
+                ZenSettingsController *controller = [[ZenSettingsController alloc] initWithNibName:@"ZenSettingsController" bundle:nil];
+                [menuController setRootController:controller animated:YES];
             }
             else if ([fid isEqualToString:kZenDownloadFid]) {
                 // offline

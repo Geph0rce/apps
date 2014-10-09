@@ -9,10 +9,15 @@
 #import "Singleton.h"
 #import "ZenConfig.h"
 
-#define kZenTextOnlyMode @"ZenTextOnlyMode"
-#define kZenNightModeProperty @"ZenNightModeProperty"
+#define kZenCellularPlayMode @"ZenCellularPlayMode"
+#define kZenCellularOfflineMode @"ZenCellularOfflineMode"
 
 @interface ZenConfig ()
+{
+    NSTimer *_timer;
+}
+
+@property (nonatomic, strong) NSTimer *timer;
 
 - (void)loadConfig;
 
@@ -30,32 +35,64 @@ SINGLETON_FOR_CLASS(ZenConfig);
     self = [super init];
     if (self) {
         [self loadConfig];
+        _time = 0;
     }
     
     return self;
 }
 
-- (void)setTextOnly:(BOOL)flag
+- (void)openTimer:(NSUInteger)time
 {
-    _textOnly = flag;
+    // save time
+    _time = time;
+    
+    // invaludate timer
+    if (_timer) {
+        [_timer invalidate];
+        self.timer = nil;
+    }
+
+    if (time == 0) {
+        // close timer
+        return;
+    }
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    [_timer fire];
+}
+
+- (void)setCellularPlay:(BOOL)cellularPlay
+{
+    _cellularPlay = cellularPlay;
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setBool:flag forKey:kZenTextOnlyMode];
+    [ud setBool:cellularPlay forKey:kZenCellularPlayMode];
     [ud synchronize];
 }
 
-- (void)setNight:(BOOL)night
+- (void)setCellularOffline:(BOOL)cellularOffline
 {
-    _night = night;
+    _cellularOffline = cellularOffline;
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setBool:night forKey:kZenNightModeProperty];
+    [ud setBool:cellularOffline forKey:kZenCellularOfflineMode];
     [ud synchronize];
 }
 
 - (void)loadConfig
 {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    _textOnly = [ud boolForKey:kZenTextOnlyMode];
-    _night = [ud boolForKey:kZenNightModeProperty];
+    _cellularPlay = [ud boolForKey:kZenCellularPlayMode];
+    _cellularOffline = [ud boolForKey:kZenCellularOfflineMode];
+}
+
+- (void)timerFired:(NSTimer *)timer
+{
+    if (_time > 0) {
+        _time--;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigRefreshTimeNotification object:self];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigTimeToCloseNotification object:self];
+    }
 }
 
 @end

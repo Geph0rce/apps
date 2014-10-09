@@ -29,8 +29,8 @@
 #import "EGORefreshTableHeaderView.h"
 
 
-#define TEXT_COLOR	 ([ZenConfig sharedInstance].night? ZenColorFromRGB(0x404040) : [UIColor blackColor])
-#define BACK_COLOR ([ZenConfig sharedInstance].night? ZenColorFromRGB(0x181818) : ZenColorFromRGB(0xd9d9d9))
+#define TEXT_COLOR	[UIColor blackColor]
+#define BACK_COLOR ZenColorFromRGB(0xd9d9d9)
 #define kLabelFontSmall [UIFont fontWithName:@"FZLTHK--GBK1-0" size:12.0f]   
 #define kLabelFontMid   [UIFont fontWithName:@"FZLTHK--GBK1-0" size:13.0f]
 #define FLIP_ANIMATION_DURATION 0.18f
@@ -86,13 +86,7 @@
 		
 		[[self layer] addSublayer:layer];
 		_arrowImage=layer;
-		UIActivityIndicatorView *view = nil;
-        if ([ZenConfig sharedInstance].night) {
-            view =  [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-        }
-        else {
-            view =  [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        }
+		UIActivityIndicatorView *view = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 		view.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
 		[self addSubview:view];
 		_activityView = view;
@@ -109,7 +103,6 @@
 {
     _statusLabel.textColor = TEXT_COLOR;
     self.backgroundColor = BACK_COLOR;
-    _activityView.activityIndicatorViewStyle = ([ZenConfig sharedInstance].night? UIActivityIndicatorViewStyleWhite : UIActivityIndicatorViewStyleGray);
 }
 
 
