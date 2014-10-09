@@ -311,7 +311,7 @@ SINGLETON_FOR_CLASS(ZenBoardsController);
             }
             else if ([fid isEqualToString:kZenSettingsFid]) {
                 // settings
-                ZenSettingsController *controller = [[ZenSettingsController alloc] initWithNibName:@"ZenSettingsController" bundle:nil];
+                ZenSettingsController *controller = [[ZenSettingsController alloc] init];
                 [menuController setRootController:controller animated:YES];
             }
             else if ([fid isEqualToString:kZenDownloadFid]) {
