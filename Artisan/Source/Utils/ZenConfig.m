@@ -8,6 +8,7 @@
 
 #import "Singleton.h"
 #import "ZenConfig.h"
+#import "Reachability.h"
 
 #define kZenCellularPlayMode @"ZenCellularPlayMode"
 #define kZenCellularOfflineMode @"ZenCellularOfflineMode"
@@ -15,9 +16,11 @@
 @interface ZenConfig ()
 {
     NSTimer *_timer;
+    Reachability *_reachability;
 }
 
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) Reachability *reachability;
 
 - (void)loadConfig;
 
@@ -36,24 +39,53 @@ SINGLETON_FOR_CLASS(ZenConfig);
     if (self) {
         [self loadConfig];
         _time = 0;
+        self.reachability = [Reachability reachabilityForInternetConnection];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStatusChanged) name:kReachabilityChangedNotification object:_reachability];
+        [_reachability startNotifier];
     }
     
     return self;
 }
 
-- (void)openTimer:(NSUInteger)time
+- (void)cancelTimer
 {
-    // save time
-    _time = time;
-    
-    // invaludate timer
     if (_timer) {
         [_timer invalidate];
         self.timer = nil;
     }
+    _time = 0;
+    _index = 0;
+}
 
+- (BOOL)allowPlay
+{
+    NetworkStatus status = [_reachability currentReachabilityStatus];
+    if (status == ReachableViaWWAN && !_cellularPlay) {
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)allowOffline
+{
+    NetworkStatus status = [_reachability currentReachabilityStatus];
+    if (status == ReachableViaWWAN && !_cellularOffline) {
+        return NO;
+    }
+    return YES;
+}
+
+- (void)openTimer:(NSUInteger)time
+{
+    // cancel timer
+    [self cancelTimer];
+    
+    // save time
+    _time = 15;
+    
     if (time == 0) {
-        // close timer
+        // stop player
+        [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigRefreshTimeNotification object:self];
         return;
     }
     
@@ -91,7 +123,27 @@ SINGLETON_FOR_CLASS(ZenConfig);
         [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigRefreshTimeNotification object:self];
     }
     else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigTimeToCloseNotification object:self];
+        // close timer
+        [self cancelTimer];
+        _index = 0;
+        [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigStopPlayNotification object:self];
+    }
+}
+
+- (void)networkStatusChanged
+{
+    NetworkStatus status = [_reachability currentReachabilityStatus];
+    if (status == ReachableViaWWAN) {
+        if (!_cellularOffline) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigStopOfflineNotification object:self];
+        }
+        if (!_cellularPlay) {
+            [self cancelTimer];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kZenConfigStopPlayNotification object:self];
+        }
+    }
+    else if (status == ReachableViaWiFi) {
+        
     }
 }
 

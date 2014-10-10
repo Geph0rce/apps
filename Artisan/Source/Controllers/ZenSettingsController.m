@@ -10,7 +10,10 @@
 #import "ZenConfig.h"
 #import "ZenNavigationBar.h"
 #import "ZenSettingsController.h"
+#import "ZenOpenTimerController.h"
+#import "ZenHtmlController.h"
 
+#define kZenTimeLabelGrayColor ZenColorFromRGB(0xdfdfdf)
 #define kZenTimeLabelColor ZenColorFromRGB(0x1abc9c)
 
 @interface ZenSettingsController ()
@@ -32,7 +35,9 @@
     
     _config = [ZenConfig sharedInstance];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshTime) name:kZenConfigRefreshTimeNotification object:_config];
+    NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(refreshTime) name:kZenConfigRefreshTimeNotification object:_config];
+    [defaultCenter addObserver:self selector:@selector(refreshTime) name:kZenConfigStopPlayNotification object:_config];
     
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
     [bar setTitle:@"设置"];
@@ -54,7 +59,6 @@
         [_cellularOfflineSwitch setOn:_config.cellularOffline];
         
         _timerTitleLabel.font = kZenFont15;
-        _timeLabel.textColor = kZenTimeLabelColor;
         [self refreshTime];
     }
 }
@@ -62,12 +66,14 @@
 - (void)refreshTime
 {
     if (_config.time == 0) {
+        _timeLabel.textColor = [UIColor darkGrayColor];
         _timeLabel.text = @"未开启";
     }
     else {
         int min = _config.time / 60;
         int sec = _config.time % 60;
         NSString *text = [NSString stringWithFormat:@"%02d:%02d", min, sec];
+        _timeLabel.textColor = kZenTimeLabelColor;
         _timeLabel.text = text;
     }
 }
@@ -98,12 +104,31 @@
 
 - (IBAction)openTimer:(id)sender
 {
-    
+    ZenOpenTimerController *controller = [[ZenOpenTimerController alloc] init];
+    controller.view.frame = _container.bounds;
+    [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
 }
 
 - (IBAction)statementClicked:(id)sender
 {
-    
+    NSString *pagePath = [[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"];
+    NSString *page = [NSString stringWithContentsOfFile:pagePath encoding:NSUTF8StringEncoding error:nil];
+    __block ZenHtmlController *controller = [[ZenHtmlController alloc] init];
+    controller.view.frame = _container.frame;
+    [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:^{
+        [controller loadContent:page];
+        [controller enablePanRightGestureWithDismissBlock:NULL];
+    }];
+
+}
+
+- (IBAction)rankClicked:(id)sender
+{
+    NSString *url = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", kZenAppID];
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", kZenAppID];
+    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 @end

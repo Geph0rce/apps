@@ -9,6 +9,7 @@
 #import "ZenMacros.h"
 #import "ZenNavigationBar.h"
 #import "ZenSwitchHeader.h"
+#import "ZenOfflineFooter.h"
 #import "ZenOfflineArtistCell.h"
 #import "ZenOfflineCell.h"
 #import "ZenOfflineModel.h"
@@ -27,6 +28,7 @@
     BOOL _editing;
     UILabel *_empty;
     UIView *_header;
+    UIView *_footer;
 }
 
 @property (nonatomic, strong) UIView *header;
@@ -101,6 +103,21 @@
             self.header = array[0];
             ZenSwitchHeader *header = (ZenSwitchHeader *)_header;
             header.delegate = self;
+        }
+    }
+    else if (_type == ZenOfflineTypeDownloading) {
+        NSArray *array = [[NSBundle mainBundle] loadNibNamed:@"ZenOfflineFooter" owner:self options:NULL];
+        if (array && array.count > 0) {
+            _footer = array[0];
+            _footer.frame = CGRectMake(0.0f, CGRectGetHeight(_container.bounds) - 44.0f, 320.0f, 44.0f);
+            _table.frame = CGRectMake(0.0f, _bar.height, CGRectGetWidth(_container.frame),CGRectGetHeight(_container.frame) - _bar.height - 44.0f);
+            [_container addSubview:_footer];
+            if (_model.download.count > 0) {
+                _footer.hidden = NO;
+            }
+            else {
+                _footer.hidden = YES;
+            }
         }
     }
 }
@@ -179,7 +196,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 46.0f;
+    if (_model.offline.count > 0) {
+        if (_type == ZenOfflineTypeOfflineSongs || _type == ZenOfflineTypeOfflineArtists) {
+            return 46.0f;
+        }
+    }
+
+    return 0.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -270,6 +293,7 @@
         if (_model.download.count == 0) {
             _empty.hidden = NO;
             [self success:@"离线完成～"];
+            _footer.hidden = YES;
         }
     }
     else {
@@ -277,6 +301,16 @@
             _empty.hidden = NO;
         }
     }
+}
+
+- (IBAction)offlinePause:(id)sender
+{
+    [_model pause];
+}
+
+- (IBAction)offlineStart:(id)sender
+{
+    [_model start];
 }
 
 @end

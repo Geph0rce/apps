@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
+#import "ZenConfig.h"
 #import "ZenOfflineModel.h"
 #import "ZenNavigationBar.h"
 #import "ZenPlaylistModel.h"
@@ -20,6 +21,7 @@
 {
     ZenPlaylistModel *_model;
     ZenOfflineModel *_offline;
+    ZenConfig *_config;
 }
 @end
 
@@ -37,6 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _config = [ZenConfig sharedInstance];
     _model = [[ZenPlaylistModel alloc] init];
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(requestFinished:) name:kZenPlaylistRequestFinished object:_model];
@@ -64,8 +67,14 @@
 
 - (void)offline:(id)sender
 {
-    [self success:@"已加入[离线]队列"];
-    [_offline offline:_model.list];
+    if ([_config allowOffline]) {
+        
+        [self success:@"已加入[离线]队列"];
+        [_offline offline:_model.list];
+    }
+    else {
+        [self alert:@"请在[设置]中允许使用2G/3G/4G离线"];
+    }
 }
 
 
@@ -103,11 +112,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     @try {
-        ZenPlayerController *controller = [ZenPlayerController sharedInstance];
-        controller.list = [[NSMutableArray alloc] initWithArray:_model.list];
-        controller.index = indexPath.row;
-        controller.view.frame = _container.bounds;
-        [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+        if ([_config allowPlay]) {
+            
+            ZenPlayerController *controller = [ZenPlayerController sharedInstance];
+            controller.list = [[NSMutableArray alloc] initWithArray:_model.list];
+            controller.index = indexPath.row;
+            controller.view.frame = _container.bounds;
+            [self presentViewController:controller option:ZenAnimationOptionHorizontal completion:NULL];
+        }
+        else {
+            [self alert:@"请在[设置]中允许使用2G/3G/4G播放"];
+        }
     }
     @catch (NSException *exception) {
         NSLog(@"exception: %@", [exception description]);
@@ -134,10 +149,16 @@
 
 - (void)offlineDidClick:(ZenSongData *)song
 {
-    [self success:@"已加入[离线]队列"];
-    if (song) {
-        ZenOfflineModel *manager = [ZenOfflineModel sharedInstance];
-        [manager offline:@[song]];
+    if ([_config allowOffline]) {
+        
+        [self success:@"已加入[离线]队列"];
+        if (song) {
+            ZenOfflineModel *manager = [ZenOfflineModel sharedInstance];
+            [manager offline:@[song]];
+        }
+    }
+    else {
+        [self alert:@"请在[设置]中允许使用2G/3G/4G离线"];
     }
 }
 

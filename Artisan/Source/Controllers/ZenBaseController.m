@@ -473,4 +473,14 @@
     [toast postMessage:msg type:ZenToastTypeError dismissAfterDelay:1.0f];
 }
 
+- (void)alert:(NSString *)msg
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:msg
+                                                   delegate:nil
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 @end

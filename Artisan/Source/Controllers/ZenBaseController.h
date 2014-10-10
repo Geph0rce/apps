@@ -72,6 +72,6 @@ typedef enum {
 
 - (void)success:(NSString *)msg;
 - (void)failed:(NSString *)msg;
-
+- (void)alert:(NSString *)msg;
 
 @end

@@ -36,6 +36,19 @@
 		DB5C0CCB19E62E00008B43C8 /* ZenOfflineSongsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CCA19E62E00008B43C8 /* ZenOfflineSongsController.m */; };
 		DB5C0CCF19E65A8A008B43C8 /* ZenSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CCD19E65A8A008B43C8 /* ZenSettingsController.m */; };
 		DB5C0CD719E6656C008B43C8 /* ZenSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5C0CD619E6656C008B43C8 /* ZenSettingsView.xib */; };
+		DB5C0CDF19E76D5D008B43C8 /* ZenOpenTimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CDE19E76D5D008B43C8 /* ZenOpenTimerController.m */; };
+		DB5C0CE219E773D4008B43C8 /* time_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB5C0CE019E773D4008B43C8 /* time_selected@2x.png */; };
+		DB5C0CE319E773D4008B43C8 /* time_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = DB5C0CE119E773D4008B43C8 /* time_selected.png */; };
+		DB5C0CE719E773F8008B43C8 /* ZenTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CE519E773F8008B43C8 /* ZenTimeCell.m */; };
+		DB5C0CE819E773F8008B43C8 /* ZenTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5C0CE619E773F8008B43C8 /* ZenTimeCell.xib */; };
+		DB5C0CEB19E7769F008B43C8 /* ZenTimeData.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CEA19E7769F008B43C8 /* ZenTimeData.m */; };
+		DB5C0CED19E77735008B43C8 /* Artisan-timer.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB5C0CEC19E77735008B43C8 /* Artisan-timer.plist */; };
+		DB5C0CF119E78273008B43C8 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CF019E78273008B43C8 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DB5C0CF419E78E4F008B43C8 /* ZenOfflineFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB5C0CF319E78E4F008B43C8 /* ZenOfflineFooter.xib */; };
+		DB5C0CF719E78EA8008B43C8 /* ZenOfflineFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CF619E78EA8008B43C8 /* ZenOfflineFooter.m */; };
+		DB5C0CFA19E7BFC8008B43C8 /* ZenHtmlController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CF919E7BFC8008B43C8 /* ZenHtmlController.m */; };
+		DB5C0CFD19E7C027008B43C8 /* ZenBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5C0CFC19E7C027008B43C8 /* ZenBottomBar.m */; };
+		DB5C0CFF19E7C119008B43C8 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = DB5C0CFE19E7C119008B43C8 /* about.html */; };
 		DB6F07D219D5050A00A202C3 /* board_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB6F07D119D5050A00A202C3 /* board_2.plist */; };
 		DB817FF3183110660053BC69 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FF2183110660053BC69 /* QuartzCore.framework */; };
 		DB98009F19D7AC0400BB36B5 /* offline_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = DB98009E19D7AC0400BB36B5 /* offline_btn.png */; };
@@ -357,6 +370,26 @@
 		DB5C0CCC19E65A8A008B43C8 /* ZenSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenSettingsController.h; sourceTree = "<group>"; };
 		DB5C0CCD19E65A8A008B43C8 /* ZenSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenSettingsController.m; sourceTree = "<group>"; };
 		DB5C0CD619E6656C008B43C8 /* ZenSettingsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenSettingsView.xib; sourceTree = "<group>"; };
+		DB5C0CDD19E76D5D008B43C8 /* ZenOpenTimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenOpenTimerController.h; sourceTree = "<group>"; };
+		DB5C0CDE19E76D5D008B43C8 /* ZenOpenTimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOpenTimerController.m; sourceTree = "<group>"; };
+		DB5C0CE019E773D4008B43C8 /* time_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "time_selected@2x.png"; sourceTree = "<group>"; };
+		DB5C0CE119E773D4008B43C8 /* time_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time_selected.png; sourceTree = "<group>"; };
+		DB5C0CE419E773F8008B43C8 /* ZenTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenTimeCell.h; sourceTree = "<group>"; };
+		DB5C0CE519E773F8008B43C8 /* ZenTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenTimeCell.m; sourceTree = "<group>"; };
+		DB5C0CE619E773F8008B43C8 /* ZenTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenTimeCell.xib; sourceTree = "<group>"; };
+		DB5C0CE919E7769F008B43C8 /* ZenTimeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenTimeData.h; sourceTree = "<group>"; };
+		DB5C0CEA19E7769F008B43C8 /* ZenTimeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenTimeData.m; sourceTree = "<group>"; };
+		DB5C0CEC19E77735008B43C8 /* Artisan-timer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Artisan-timer.plist"; sourceTree = "<group>"; };
+		DB5C0CEF19E78273008B43C8 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		DB5C0CF019E78273008B43C8 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		DB5C0CF319E78E4F008B43C8 /* ZenOfflineFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZenOfflineFooter.xib; sourceTree = "<group>"; };
+		DB5C0CF519E78EA8008B43C8 /* ZenOfflineFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenOfflineFooter.h; sourceTree = "<group>"; };
+		DB5C0CF619E78EA8008B43C8 /* ZenOfflineFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenOfflineFooter.m; sourceTree = "<group>"; };
+		DB5C0CF819E7BFC8008B43C8 /* ZenHtmlController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenHtmlController.h; sourceTree = "<group>"; };
+		DB5C0CF919E7BFC8008B43C8 /* ZenHtmlController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenHtmlController.m; sourceTree = "<group>"; };
+		DB5C0CFB19E7C027008B43C8 /* ZenBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenBottomBar.h; sourceTree = "<group>"; };
+		DB5C0CFC19E7C027008B43C8 /* ZenBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenBottomBar.m; sourceTree = "<group>"; };
+		DB5C0CFE19E7C119008B43C8 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		DB5F569E1963B11E00250B79 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		DB6F07D119D5050A00A202C3 /* board_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = board_2.plist; sourceTree = "<group>"; };
 		DB817FE8183110360053BC69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -828,9 +861,19 @@
 			path = DouAudioStreamer;
 			sourceTree = "<group>";
 		};
+		DB5C0CEE19E78273008B43C8 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				DB5C0CEF19E78273008B43C8 /* Reachability.h */,
+				DB5C0CF019E78273008B43C8 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		DBE9D7B319BE97180068C1C3 /* Artisan */ = {
 			isa = PBXGroup;
 			children = (
+				DB5C0CFE19E7C119008B43C8 /* about.html */,
 				DBE9D7B419BE97180068C1C3 /* AppDelegate.h */,
 				DBE9D7B519BE97180068C1C3 /* AppDelegate.m */,
 				DBE9D7B619BE97180068C1C3 /* Artisan-Info.plist */,
@@ -838,6 +881,7 @@
 				DBE9D7BD19BE97190068C1C3 /* InfoPlist.strings */,
 				DBE9D7BF19BE97190068C1C3 /* Images.xcassets */,
 				DBE9D7C019BE97190068C1C3 /* main.m */,
+				DB5C0CEC19E77735008B43C8 /* Artisan-timer.plist */,
 			);
 			path = Artisan;
 			sourceTree = "<group>";
@@ -856,6 +900,8 @@
 		DBE9D87619BE97190068C1C3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB5C0CF819E7BFC8008B43C8 /* ZenHtmlController.h */,
+				DB5C0CF919E7BFC8008B43C8 /* ZenHtmlController.m */,
 				DBE9D87B19BE97190068C1C3 /* ZenBaseController.h */,
 				DBE9D87C19BE97190068C1C3 /* ZenBaseController.m */,
 				DBE9D87D19BE97190068C1C3 /* ZenBoardsController.h */,
@@ -880,6 +926,8 @@
 				DB5C0CCA19E62E00008B43C8 /* ZenOfflineSongsController.m */,
 				DB5C0CCC19E65A8A008B43C8 /* ZenSettingsController.h */,
 				DB5C0CCD19E65A8A008B43C8 /* ZenSettingsController.m */,
+				DB5C0CDD19E76D5D008B43C8 /* ZenOpenTimerController.h */,
+				DB5C0CDE19E76D5D008B43C8 /* ZenOpenTimerController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -909,6 +957,8 @@
 				DBEE934219D8F00B00DB920F /* ZenOfflineArtistData.m */,
 				DB24CA3219D2A4E000C307A8 /* ZenOfflineModel.h */,
 				DB24CA3319D2A4E000C307A8 /* ZenOfflineModel.m */,
+				DB5C0CE919E7769F008B43C8 /* ZenTimeData.h */,
+				DB5C0CEA19E7769F008B43C8 /* ZenTimeData.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -939,6 +989,8 @@
 		DBE9D8E419BE97190068C1C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB5C0CFB19E7C027008B43C8 /* ZenBottomBar.h */,
+				DB5C0CFC19E7C027008B43C8 /* ZenBottomBar.m */,
 				DBE9DA6719BE9D670068C1C3 /* ZenTableViewCell.h */,
 				DBE9DA6819BE9D670068C1C3 /* ZenTableViewCell.m */,
 				DBE9D8E519BE97190068C1C3 /* EGOLoadMoreTableFooterView.h */,
@@ -983,6 +1035,12 @@
 				DBEE933D19D8EED800DB920F /* ZenOfflineArtistCell.m */,
 				DBEE933E19D8EED800DB920F /* ZenOfflineArtistCell.xib */,
 				DB5C0CD619E6656C008B43C8 /* ZenSettingsView.xib */,
+				DB5C0CE419E773F8008B43C8 /* ZenTimeCell.h */,
+				DB5C0CE519E773F8008B43C8 /* ZenTimeCell.m */,
+				DB5C0CE619E773F8008B43C8 /* ZenTimeCell.xib */,
+				DB5C0CF519E78EA8008B43C8 /* ZenOfflineFooter.h */,
+				DB5C0CF619E78EA8008B43C8 /* ZenOfflineFooter.m */,
+				DB5C0CF319E78E4F008B43C8 /* ZenOfflineFooter.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -990,6 +1048,7 @@
 		DBE9D91519BE97190068C1C3 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				DB5C0CEE19E78273008B43C8 /* Reachability */,
 				DB24CA4119D2F1C800C307A8 /* DouAudioStreamer */,
 				DBE9DBEC19BED02A0068C1C3 /* DoubanArtist */,
 				DBE9D91619BE97190068C1C3 /* DDMenuController */,
@@ -1144,6 +1203,8 @@
 		DBE9DAA319BEC4720068C1C3 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DB5C0CE019E773D4008B43C8 /* time_selected@2x.png */,
+				DB5C0CE119E773D4008B43C8 /* time_selected.png */,
 				DB98009E19D7AC0400BB36B5 /* offline_btn.png */,
 				DB9800A519D7B32500BB36B5 /* offline_btn@2x.png */,
 				DB50FDE719C2810A008E7974 /* download.png */,
@@ -1442,6 +1503,7 @@
 				DBE9DBA019BEC4720068C1C3 /* more_archive@2x.png in Resources */,
 				DBE9DB8719BEC4720068C1C3 /* image_load_more.png in Resources */,
 				DBE9DBA119BEC4720068C1C3 /* more_recommend.png in Resources */,
+				DB5C0CE319E773D4008B43C8 /* time_selected.png in Resources */,
 				DBE9DBBB19BEC4720068C1C3 /* player_back.png in Resources */,
 				DBE9D95219BE97190068C1C3 /* Images.xcassets in Resources */,
 				DBE9DBB719BEC4720068C1C3 /* play2@2x.png in Resources */,
@@ -1459,6 +1521,7 @@
 				DBE9DB5919BEC4720068C1C3 /* bg_search@2x.png in Resources */,
 				DBE9DBD419BEC4720068C1C3 /* share_ok@2x.png in Resources */,
 				DBE9DB5219BEC4720068C1C3 /* back.png in Resources */,
+				DB5C0CE219E773D4008B43C8 /* time_selected@2x.png in Resources */,
 				DBE9DB4619BEC4720068C1C3 /* about_more@2x.png in Resources */,
 				DBE9DB7D19BEC4720068C1C3 /* cover_default.png in Resources */,
 				DBE9DBB819BEC4720068C1C3 /* play@2x.png in Resources */,
@@ -1493,6 +1556,7 @@
 				DBE9DB4C19BEC4720068C1C3 /* album_btn_add_click@2x.png in Resources */,
 				DBE9DB8919BEC4720068C1C3 /* list.png in Resources */,
 				DBE9DBC019BEC4720068C1C3 /* prev2.png in Resources */,
+				DB5C0CE819E773F8008B43C8 /* ZenTimeCell.xib in Resources */,
 				DBE9DB5E19BEC4720068C1C3 /* bottom_bg.png in Resources */,
 				DBE9DBD019BEC4720068C1C3 /* share_clip@2x.png in Resources */,
 				DBE9DB8E19BEC4720068C1C3 /* list_split_line@2x.png in Resources */,
@@ -1508,6 +1572,7 @@
 				DBE9DB9919BEC4720068C1C3 /* menu_search.png in Resources */,
 				DBE9DBA319BEC4720068C1C3 /* more_refresh.png in Resources */,
 				DBE9DBDD19BEC4720068C1C3 /* user_avatar@2x.png in Resources */,
+				DB5C0CED19E77735008B43C8 /* Artisan-timer.plist in Resources */,
 				DBE9DBAD19BEC4720068C1C3 /* no_message.png in Resources */,
 				DBE9DB8119BEC4720068C1C3 /* dot_border.png in Resources */,
 				DBE9DBCE19BEC4720068C1C3 /* settingcell_bg_selected@2x.png in Resources */,
@@ -1539,6 +1604,7 @@
 				DBE9DBC519BEC4720068C1C3 /* preview_close_pressed.png in Resources */,
 				DBE9DB8419BEC4720068C1C3 /* feedback_more@2x.png in Resources */,
 				DBE9DB9D19BEC4720068C1C3 /* menu_settings.png in Resources */,
+				DB5C0CF419E78E4F008B43C8 /* ZenOfflineFooter.xib in Resources */,
 				DBE9DC7819C04A1A0068C1C3 /* offline.png in Resources */,
 				DBE9DB9519BEC4720068C1C3 /* menu_right_arrow.png in Resources */,
 				DBE9DB7B19BEC4720068C1C3 /* cover.png in Resources */,
@@ -1549,6 +1615,7 @@
 				DBE9DB5B19BEC4720068C1C3 /* black-linen@2x.png in Resources */,
 				DBE9DB6919BEC4720068C1C3 /* bottom_icon_refresh.png in Resources */,
 				DBE9DBC319BEC4720068C1C3 /* preview_close.png in Resources */,
+				DB5C0CFF19E7C119008B43C8 /* about.html in Resources */,
 				DBE9DBBF19BEC4720068C1C3 /* prev.png in Resources */,
 				DBE9DB6619BEC4720068C1C3 /* bottom_icon_next@2x.png in Resources */,
 				DBE9DB4D19BEC4720068C1C3 /* arrow_down.png in Resources */,
@@ -1610,6 +1677,7 @@
 				DB24CA7919D2F1C800C307A8 /* DOUMPMediaLibraryAssetLoader.m in Sources */,
 				DBE9DA2C19BE97190068C1C3 /* ZenCategory.m in Sources */,
 				DBE9DA2F19BE97190068C1C3 /* ZenConnection.m in Sources */,
+				DB5C0CFD19E7C027008B43C8 /* ZenBottomBar.m in Sources */,
 				DBE9DA3319BE97190068C1C3 /* ZenStack.m in Sources */,
 				DBE9DA4F19BE97190068C1C3 /* SDImageCache.m in Sources */,
 				DB24CA7619D2F1C800C307A8 /* DOUAudioStreamer.m in Sources */,
@@ -1620,7 +1688,9 @@
 				DB24CA6C19D2F1C800C307A8 /* DOUAudioDecoder.m in Sources */,
 				DBE9DA4819BE97190068C1C3 /* ZenStatusBarOverlay.m in Sources */,
 				DBE9DA5419BE97190068C1C3 /* UIImageView+WebCache.m in Sources */,
+				DB5C0CEB19E7769F008B43C8 /* ZenTimeData.m in Sources */,
 				DB9800B519D7F73D00BB36B5 /* ZenSwitchHeader.m in Sources */,
+				DB5C0CDF19E76D5D008B43C8 /* ZenOpenTimerController.m in Sources */,
 				DBE9DA2919BE97190068C1C3 /* GCDHelper.m in Sources */,
 				DB5C0CCB19E62E00008B43C8 /* ZenOfflineSongsController.m in Sources */,
 				DBE9DA3E19BE97190068C1C3 /* ZenMenuItem.m in Sources */,
@@ -1656,9 +1726,11 @@
 				DBE9D95319BE97190068C1C3 /* main.m in Sources */,
 				DB24CA7119D2F1C800C307A8 /* DOUAudioLPCM.m in Sources */,
 				DB24CA7819D2F1C800C307A8 /* DOUEAGLView.m in Sources */,
+				DB5C0CF719E78EA8008B43C8 /* ZenOfflineFooter.m in Sources */,
 				DBE9DBF319BED6850068C1C3 /* ZenSongData.m in Sources */,
 				DBE9DC8819C13F560068C1C3 /* ZenPlayerView.m in Sources */,
 				DBEE933F19D8EED800DB920F /* ZenOfflineArtistCell.m in Sources */,
+				DB5C0CFA19E7BFC8008B43C8 /* ZenHtmlController.m in Sources */,
 				DB5C0CCF19E65A8A008B43C8 /* ZenSettingsController.m in Sources */,
 				DBE9DA0319BE97190068C1C3 /* ZenBaseController.m in Sources */,
 				DBE9DA9819BEC30A0068C1C3 /* ZenHotSongsController.m in Sources */,
@@ -1667,6 +1739,7 @@
 				DBE9DA5819BE97190068C1C3 /* UIColor+MLPFlatColors.m in Sources */,
 				DBE9DBF019BED02A0068C1C3 /* DoubanArtist.m in Sources */,
 				DBE9DC6C19C029400068C1C3 /* ZenAlbumData.m in Sources */,
+				DB5C0CE719E773F8008B43C8 /* ZenTimeCell.m in Sources */,
 				DBE9DA3519BE97190068C1C3 /* EGOLoadMoreTableFooterView.m in Sources */,
 				DB24CA6F19D2F1C800C307A8 /* DOUAudioFileProvider.m in Sources */,
 				DBE9DC4B19BFECE50068C1C3 /* ZenCategoryModel.m in Sources */,
@@ -1683,6 +1756,7 @@
 				DBE9DA3F19BE97190068C1C3 /* ZenMoreOptionsView.m in Sources */,
 				DBE9DA3C19BE97190068C1C3 /* ZenLoadingView.m in Sources */,
 				DBE9DC6419C0213C0068C1C3 /* ZenAlbumModel.m in Sources */,
+				DB5C0CF119E78273008B43C8 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

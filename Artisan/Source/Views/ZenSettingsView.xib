@@ -11,6 +11,7 @@
                 <outlet property="cellularOfflineSwitch" destination="uig-Xy-EDv" id="XAl-WO-DWP"/>
                 <outlet property="cellularPlayLabel" destination="ZUE-v5-0dO" id="T4R-9k-SG1"/>
                 <outlet property="cellularPlaySwitch" destination="3F0-wd-4Y3" id="M4w-JT-DSd"/>
+                <outlet property="rankLabel" destination="7aN-Td-JN5" id="EZw-9f-Wz8"/>
                 <outlet property="statementLabel" destination="P2G-b4-9cU" id="23g-pA-wuo"/>
                 <outlet property="timeLabel" destination="7xp-v0-3y1" id="BEh-pQ-3Lx"/>
                 <outlet property="timerTitleLabel" destination="HUt-sf-Yoh" id="vN8-xf-Ad2"/>
@@ -90,7 +91,7 @@
                         <action selector="statementClicked:" destination="-1" eventType="touchUpInside" id="kxf-kX-blY"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版权声明" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P2G-b4-9cU">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于Artisan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P2G-b4-9cU">
                     <rect key="frame" x="25" y="226" width="190" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -98,6 +99,27 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingcell_arrow.png" id="Mv0-gX-n1i">
                     <rect key="frame" x="285" y="230" width="7" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="udn-8R-bcM">
+                    <rect key="frame" x="0.0" y="260" width="320" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="settingcell_bg.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" image="settingcell_bg_selected.png"/>
+                    <connections>
+                        <action selector="rankClicked:" destination="-1" eventType="touchUpInside" id="DS7-1C-PyL"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="给Artisan评分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7aN-Td-JN5">
+                    <rect key="frame" x="25" y="274" width="231" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingcell_arrow.png" id="ucX-7m-9Tr">
+                    <rect key="frame" x="285" y="278" width="7" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

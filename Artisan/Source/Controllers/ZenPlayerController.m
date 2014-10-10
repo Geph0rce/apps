@@ -7,6 +7,7 @@
 //
 
 
+#import "ZenConfig.h"
 #import "ZenOfflineModel.h"
 #import "DOUAudioStreamer.h"
 #import "Singleton.h"
@@ -16,6 +17,7 @@
 #import "ZenPlayerCell.h"
 #import "ZenPlayerController.h"
 
+
 #define kZenPlayerCellId @"ZenPlayerCellId"
 #define kZenPlayerHeight 160.0f
 
@@ -24,6 +26,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 @interface ZenPlayerController () <UITableViewDataSource, UITableViewDelegate>
 {
+    ZenConfig *_config;
     UITableView *_table;
     ZenPlayerView *_player;
     DOUAudioStreamer *_streamer;
@@ -46,6 +49,9 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _config = [ZenConfig sharedInstance];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopPlay) name:kZenConfigStopPlayNotification object:_config];
     
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
     [bar addLeftItemWithStyle:ZenNavigationItemStyleBack target:self action:@selector(back:)];
@@ -234,6 +240,16 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     [self load];
 }
 
+- (void)stopPlay
+{
+    [_streamer pause];
+    [self changeToPlayStatus:ZenSongStatusPause index:_index];
+    ZenSongData *song = [_list safeObjectAtIndex:_index];
+    if (song) {
+        [_player load:song];
+    }
+}
+
 #pragma mark -
 #pragma mark AudioStreamer Stuff
 
@@ -254,7 +270,16 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     int time = (int)(_streamer.duration - _streamer.currentTime);
     
     if (time == 0) {
-        [_player setTimeLabelText:@"loading"];
+        if (_streamer == nil) {
+            if (_timer) {
+                [_timer invalidate];
+                self.timer = nil;
+            }
+            [_player setTimeLabelText:@"stopped"];
+        }
+        else {
+            [_player setTimeLabelText:@"loading"];
+        }
     }
     else {
         int min = time/60;

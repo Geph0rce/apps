@@ -9,18 +9,21 @@
 #import <Foundation/Foundation.h>
 
 #define kZenConfigRefreshTimeNotification @"ZenConfigRefreshTimeNotification"
-#define kZenConfigTimeToCloseNotification @"ZenConfigTimeToCloseNotification"
+#define kZenConfigStopPlayNotification @"ZenConfigStopPlayNotification"
+#define kZenConfigStopOfflineNotification @"ZenConfigStopOfflineNotification"
 
 @interface ZenConfig : NSObject
 {
     BOOL _cellularOffline;
     BOOL _cellularPlay;
     NSUInteger _time;
+    NSUInteger _index;
 }
 
 @property (nonatomic, assign) BOOL cellularOffline;
 @property (nonatomic, assign) BOOL cellularPlay;
 @property (nonatomic, assign) NSUInteger time;
+@property (nonatomic, assign) NSUInteger index;
 
 + (ZenConfig *)sharedInstance;
 
@@ -31,5 +34,7 @@
  */
 - (void)openTimer:(NSUInteger)time;
 
+- (BOOL)allowPlay;
+- (BOOL)allowOffline;
 
 @end

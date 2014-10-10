@@ -19,11 +19,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *cellularOfflineLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timerTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statementLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rankLabel;
 
 // actions
 - (IBAction)cellularPlayOnValueChange:(id)sender;
 - (IBAction)cellularOfflineOnValueChange:(id)sender;
 - (IBAction)openTimer:(id)sender;
 - (IBAction)statementClicked:(id)sender;
+- (IBAction)rankClicked:(id)sender;
 
 @end

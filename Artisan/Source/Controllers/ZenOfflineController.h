@@ -21,4 +21,7 @@ typedef enum {
 
 @property (nonatomic, assign) ZenOfflineType type;
 
+- (IBAction)offlinePause:(id)sender;
+- (IBAction)offlineStart:(id)sender;
+
 @end

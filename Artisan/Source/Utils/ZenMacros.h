@@ -47,11 +47,8 @@ alpha:0.8]
 
 #define kZenBorderColor [UIColor colorWithPatternImage:[UIImage imageNamed:@"dot_border"]]
 
-#ifndef ZenPro
 #define kZenAppID @"750634897"
-#else
-#define kZenAppID @"750634980"
-#endif
+
 
 //iOS Version
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch]!=NSOrderedAscending)

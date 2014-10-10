@@ -54,4 +54,7 @@
 - (void)loadSongsWithArtist:(NSString *)artist;
 - (void)loadArtists;
 
+- (void)pause;
+- (void)start;
+
 @end

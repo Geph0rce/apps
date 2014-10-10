@@ -8,6 +8,7 @@
 
 #import "Singleton.h"
 #import "ZenCategory.h"
+#import "ZenConfig.h"
 #import "ZenConnection.h"
 #import "ZenOfflineModel.h"
 
@@ -17,6 +18,7 @@
 {
     ZenConnection *_connection;
     NSString *_path;
+    ZenConfig *_config;
 }
 
 @property (nonatomic, strong) ZenConnection *connection;
@@ -63,6 +65,9 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
         _songs = [[NSMutableArray alloc] init];
         [self initPath];
         [self loadOfflineList];
+        
+        _config = [ZenConfig sharedInstance];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopOffline) name:kZenConfigStopOfflineNotification object:_config];
     }
     return self;
 }
@@ -130,15 +135,6 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
                 song.picture = item[@"picture"];
                 song.songHash = item[@"hash"];
                 [_offline addObject:song];
-            }
-        }
-        
-        for (ZenSongData *song in _offline) {
-            ZenOfflineArtistData *artist = [[ZenOfflineArtistData alloc] init];
-            artist.name = song.artist;
-            artist.picture = song.picture;
-            if (![self artistExists:artist]) {
-                [_artists addObject:artist];
             }
         }
     }
@@ -215,16 +211,9 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
     }
 }
 
-- (void)pause
-{
-    if (_connection) {
-        [_connection cancel];
-    }
-}
-
 - (void)fetch
 {
-    if (_download.count > 0) {
+    if (_download.count > 0 && [_config allowOffline]) {
         ZenSongData *song = _download[0];
         song.status = ZenSongStatusDownloading;
         ZenConnection *conn = [ZenConnection connectionWithURL:[NSURL URLWithString:song.src]];
@@ -309,6 +298,7 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
         ZenOfflineArtistData *artist = [[ZenOfflineArtistData alloc] init];
         artist.name = song.artist;
         artist.picture = song.picture;
+        artist.count = 1;
         if (![self artistExists:artist]) {
             [_artists addObject:artist];
         }
@@ -347,6 +337,33 @@ SINGLETON_FOR_CLASS(ZenOfflineModel)
         song.progress = progress;
         [self send:kZenOfflineStateChange];
     }
+}
+
+- (void)stopOffline
+{
+    if (_connection) {
+        [_connection cancel];
+        self.connection = nil;
+    }
+}
+
+- (void)pause
+{
+    if (_connection) {
+        [_connection cancel];
+        self.connection = nil;
+    }
+    if (_download.count > 0) {
+        ZenSongData *song = _download[0];
+        song.status = ZenSongStatusNone;
+        song.progress = 0;
+    }
+    [self send:kZenOfflineStateChange];
+}
+
+- (void)start
+{
+    [self fetch];
 }
 
 @end
