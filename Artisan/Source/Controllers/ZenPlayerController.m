@@ -199,6 +199,12 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
             [_player load:song];
             [self resetStreamer];
         }
+        else if (_playMode == ZenPlayerPlayRepeatOne) {
+            self.currentHash = song.songHash;
+            [self changeToPlayStatus:ZenSongStatusPlay index:_index];
+            [_player load:song];
+            [self resetStreamer];
+        }
     }
 }
 
