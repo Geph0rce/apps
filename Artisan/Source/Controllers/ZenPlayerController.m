@@ -115,7 +115,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 - (void)loadPlayMode
 {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    _playMode = [ud integerForKey:kZenPlayerPlayMode];
+    _playMode = (ZenPlayerPlayMode)[ud integerForKey:kZenPlayerPlayMode];
 }
 
 - (UIImage *)imageForPlayMode:(ZenPlayerPlayMode)mode
