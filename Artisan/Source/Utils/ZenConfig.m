@@ -81,7 +81,7 @@ SINGLETON_FOR_CLASS(ZenConfig);
     [self cancelTimer];
     
     // save time
-    _time = 15;
+    _time = time;
     
     if (time == 0) {
         // stop player
