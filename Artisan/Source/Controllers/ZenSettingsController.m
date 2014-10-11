@@ -70,9 +70,9 @@
         _timeLabel.text = @"未开启";
     }
     else {
-        int min = _config.time / 60;
+        NSUInteger min = _config.time / 60;
         int sec = _config.time % 60;
-        NSString *text = [NSString stringWithFormat:@"%02d:%02d", min, sec];
+        NSString *text = [NSString stringWithFormat:@"%02lu:%02d", (unsigned long)min, sec];
         _timeLabel.textColor = kZenTimeLabelColor;
         _timeLabel.text = text;
     }

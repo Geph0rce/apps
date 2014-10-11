@@ -12,7 +12,8 @@
 typedef enum {
     ZenPlayerControlTypePrev,
     ZenPlayerControlTypePlay,
-    ZenPlayerControlTypeNext
+    ZenPlayerControlTypeNext,
+    ZenPlayerControlTypeMode
 } ZenPlayerControlType;
 
 
@@ -23,6 +24,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *playModeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (weak, nonatomic) IBOutlet UIButton *prevBtn;
 @property (weak, nonatomic) IBOutlet UIButton *nextBtn;

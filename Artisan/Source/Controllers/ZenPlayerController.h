@@ -9,6 +9,12 @@
 #import "ZenSongData.h"
 #import "ZenBaseController.h"
 
+typedef enum {
+    ZenPlayerPlayModeSequence = 0,
+    ZenPlayerPlayModeCycle,
+    ZenPlayerPlayRepeatOne
+} ZenPlayerPlayMode;
+
 @interface ZenPlayerController : ZenBaseController
 {
     NSMutableArray *_list;

@@ -24,6 +24,8 @@
 static void *kStatusKVOKey = &kStatusKVOKey;
 static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
+#define kZenPlayerPlayMode @"ZenPlayerPlayMode"
+
 @interface ZenPlayerController () <UITableViewDataSource, UITableViewDelegate>
 {
     ZenConfig *_config;
@@ -33,6 +35,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     UIBackgroundTaskIdentifier _taskId;
     NSTimer *_timer;
     NSString *_currentHash;
+    ZenPlayerPlayMode _playMode;
 }
 
 @property (nonatomic, strong) ZenPlayerView *player;
@@ -52,6 +55,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     
     _config = [ZenConfig sharedInstance];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopPlay) name:kZenConfigStopPlayNotification object:_config];
+    [self loadPlayMode];
     
     ZenNavigationBar *bar = [[ZenNavigationBar alloc] init];
     [bar addLeftItemWithStyle:ZenNavigationItemStyleBack target:self action:@selector(back:)];
@@ -74,6 +78,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
         _player.frame = frame;
         [_container addSubview:_player];
         [_player addTarget:self action:@selector(playerControlClicked:)];
+        [_player.playModeBtn setImage:[self imageForPlayMode:_playMode] forState:UIControlStateNormal];
     }
     
     [_table registerNib:[UINib nibWithNibName:@"ZenPlayerCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenPlayerCellId];
@@ -105,6 +110,51 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 - (void)back:(id)sender
 {
     [self dismissViewControllerWithOption:ZenAnimationOptionHorizontal completion:NULL];
+}
+
+- (void)loadPlayMode
+{
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    _playMode = [ud integerForKey:kZenPlayerPlayMode];
+}
+
+- (UIImage *)imageForPlayMode:(ZenPlayerPlayMode)mode
+{
+    if (mode == ZenPlayerPlayModeSequence) {
+        return [UIImage imageNamed:@"sequential"];
+    }
+    else if (mode == ZenPlayerPlayModeCycle) {
+        return [UIImage imageNamed:@"cycled"];
+    }
+    else if (mode == ZenPlayerPlayRepeatOne) {
+        return [UIImage imageNamed:@"repeated"];
+    }
+    // default
+    return [UIImage imageNamed:@"sequential"];
+}
+
+
+// sequence -> cycle -> repeat -> sequence
+- (void)changePlayMode
+{
+    if (_playMode == ZenPlayerPlayModeSequence) {
+        _playMode = ZenPlayerPlayModeCycle;
+        [self success:@"列表循环"];
+    }
+    else if (_playMode == ZenPlayerPlayModeCycle) {
+        _playMode = ZenPlayerPlayRepeatOne;
+        [self success:@"单曲循环"];
+    }
+    else {
+        _playMode = ZenPlayerPlayModeSequence;
+        [self success:@"顺序播放"];
+    }
+    // change play mode icon
+    [_player.playModeBtn setImage:[self imageForPlayMode:_playMode] forState:UIControlStateNormal];
+    // save play mode
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:[NSNumber numberWithInt:_playMode] forKey:kZenPlayerPlayMode];
+    [ud synchronize];
 }
 
 #pragma mark
@@ -230,12 +280,30 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 }
 
 
-- (void)next
+- (void)next:(BOOL)manual
 {
-    _index++;
-    if (_index >= _list.count) {
-        _index = 0;
+    if (manual) {
+        _index++;
+        if (_index >= _list.count) {
+            _index = 0;
+        }
     }
+    else {
+        if (_playMode == ZenPlayerPlayModeSequence) {
+            _index++;
+            if (_index >= _list.count) {
+                // stop
+                return;
+            }
+        }
+        else if (_playMode == ZenPlayerPlayModeCycle) {
+            _index++;
+            if (_index >= _list.count) {
+                _index = 0;
+            }
+        }
+    }
+    
     [_table reloadData];
     [self load];
 }
@@ -307,7 +375,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
         case DOUAudioStreamerFinished:
             //[_statusLabel setText:@"finished"];
             //[self _actionNext:nil];
-            [self next];
+            [self next:NO];
             break;
             
         case DOUAudioStreamerBuffering:
@@ -365,13 +433,16 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     UIView *view = (UIView *)sender;
     ZenPlayerControlType type = (ZenPlayerControlType)view.tag;
     if (type == ZenPlayerControlTypeNext) {
-        [self next];
+        [self next:YES];
     }
     else if(type == ZenPlayerControlTypePrev) {
         [self prev];
     }
     else if(type == ZenPlayerControlTypePlay) {
         [self play];
+    }
+    else if (type == ZenPlayerControlTypeMode) {
+        [self changePlayMode];
     }
 }
 
@@ -397,14 +468,12 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
                 break;
                 
             case UIEventSubtypeRemoteControlNextTrack:
-                [self next];
+                [self next:YES];
                 break;
             default:
                 break;
         }
     }
 }
-
-
 
 @end

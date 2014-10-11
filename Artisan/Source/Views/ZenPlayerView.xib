@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZenPlayerController"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZenPlayerView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
@@ -57,6 +57,13 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RaY-Kn-ouu">
+                    <rect key="frame" x="268" y="49" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="cycled.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.097845950185146344" green="0.75805165816326525" blue="0.54206455765779638" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -66,12 +73,14 @@
                 <outlet property="nextBtn" destination="RHs-ii-QPd" id="ox5-za-Idd"/>
                 <outlet property="picture" destination="snL-5T-9tg" id="aJU-xr-ASC"/>
                 <outlet property="playBtn" destination="6IK-8d-Ccy" id="om7-WO-Qjp"/>
+                <outlet property="playModeBtn" destination="RaY-Kn-ouu" id="M6K-dw-hnQ"/>
                 <outlet property="prevBtn" destination="yQH-m2-BS7" id="ffr-O3-C2N"/>
                 <outlet property="timeLabel" destination="UWs-zU-JRb" id="W3y-uv-FPe"/>
             </connections>
         </view>
     </objects>
     <resources>
+        <image name="cycled.png" width="32" height="32"/>
         <image name="next.png" width="34" height="34"/>
         <image name="play.png" width="42" height="42"/>
         <image name="prev.png" width="34" height="34"/>

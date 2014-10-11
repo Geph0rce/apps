@@ -33,6 +33,8 @@
     [_nextBtn setImage:[UIImage imageNamed:@"next2"] forState:UIControlStateHighlighted];
     
     _playBtn.tag = ZenPlayerControlTypePlay;
+    
+    _playModeBtn.tag = ZenPlayerControlTypeMode;
 }
 
 - (void)load:(ZenSongData *)song
@@ -60,6 +62,7 @@
     [_prevBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [_nextBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [_playBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    [_playModeBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 }
 
 @end
