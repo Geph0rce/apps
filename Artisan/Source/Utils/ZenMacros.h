@@ -47,7 +47,7 @@ alpha:0.8]
 
 #define kZenBorderColor [UIColor colorWithPatternImage:[UIImage imageNamed:@"dot_border"]]
 
-#define kZenAppID @"750634897"
+#define kZenAppID @"928799039"
 
 
 //iOS Version

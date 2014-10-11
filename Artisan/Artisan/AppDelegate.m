@@ -15,7 +15,7 @@
 #import "ZenBoardsController.h"
 #import "ZenHotSongsController.h"
 
-#define kZenUmengAppKey @"53ad110856240b7d51008592"
+#define kZenUmengAppKey @"5438c92efd98c54d1f024b81"
 
 @interface AppDelegate ()
 
