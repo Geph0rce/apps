@@ -36,6 +36,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     NSTimer *_timer;
     NSString *_currentHash;
     ZenPlayerPlayMode _playMode;
+    BOOL _isLocalSong;
 }
 
 @property (nonatomic, strong) ZenPlayerView *player;
@@ -83,6 +84,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     
     [_table registerNib:[UINib nibWithNibName:@"ZenPlayerCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:kZenPlayerCellId];
     [self enablePanRightGestureWithDismissBlock:NULL];
+    _isLocalSong = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -205,6 +207,9 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
             [_player load:song];
             [self resetStreamer];
         }
+        if ([ZenOfflineModel songExists:song]) {
+            _isLocalSong = YES;
+        }
     }
 }
 
@@ -234,6 +239,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
         [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
         
         [_streamer play];
+        [self newBackgoundTask];
     }
 }
 
@@ -316,11 +322,13 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 
 - (void)stopPlay
 {
-    [_streamer pause];
-    [self changeToPlayStatus:ZenSongStatusPause index:_index];
-    ZenSongData *song = [_list safeObjectAtIndex:_index];
-    if (song) {
-        [_player load:song];
+    if (!_isLocalSong) {
+        [_streamer pause];
+        [self changeToPlayStatus:ZenSongStatusPause index:_index];
+        ZenSongData *song = [_list safeObjectAtIndex:_index];
+        if (song) {
+            [_player load:song];
+        }
     }
 }
 
@@ -332,7 +340,8 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     UIBackgroundTaskIdentifier newTaskId = UIBackgroundTaskInvalid;
     newTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
     if (newTaskId != UIBackgroundTaskInvalid && _taskId != UIBackgroundTaskInvalid) {
-        [[UIApplication sharedApplication] endBackgroundTask: _taskId];}
+        [[UIApplication sharedApplication] endBackgroundTask: _taskId];
+    }
     _taskId = newTaskId;
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
@@ -422,14 +431,6 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     }
 }
 
-- (void)createStreamer:(NSURL *)src
-{
-    [self newBackgoundTask];
-}
-
-
-
-
 
 #pragma mark -
 #pragma mark ZenPlayerViewDelegate Methods
@@ -456,11 +457,13 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 #pragma mark -
 #pragma mark Remote Control
 
-- (BOOL)canBecomeFirstResponder {
+- (BOOL)canBecomeFirstResponder
+{
     return YES;
 }
 
-- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+- (void)remoteControlReceivedWithEvent: (UIEvent *) receivedEvent
+{
     if (receivedEvent.type == UIEventTypeRemoteControl) {
         
         switch (receivedEvent.subtype) {
