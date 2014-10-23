@@ -10,6 +10,7 @@
 		DB121462180F86A900C7C1EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121461180F86A900C7C1EE /* Foundation.framework */; };
 		DB121464180F86A900C7C1EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121463180F86A900C7C1EE /* CoreGraphics.framework */; };
 		DB121466180F86A900C7C1EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121465180F86A900C7C1EE /* UIKit.framework */; };
+		DB19A7B319F8A5A3006892BC /* ArtisanApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = DB19A7B219F8A5A3006892BC /* ArtisanApplication.m */; };
 		DB1A06B7190E1A7E00F1924F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB818006183110CB0053BC69 /* AudioToolbox.framework */; };
 		DB24CA3419D2A4E000C307A8 /* ZenOfflineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA3319D2A4E000C307A8 /* ZenOfflineModel.m */; };
 		DB24CA4019D2D97100C307A8 /* ZenOfflineController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB24CA3F19D2D97100C307A8 /* ZenOfflineController.m */; };
@@ -321,6 +322,8 @@
 		DB121463180F86A900C7C1EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DB121465180F86A900C7C1EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DB12147A180F86A900C7C1EE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DB19A7B119F8A5A3006892BC /* ArtisanApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtisanApplication.h; sourceTree = "<group>"; };
+		DB19A7B219F8A5A3006892BC /* ArtisanApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtisanApplication.m; sourceTree = "<group>"; };
 		DB1A06AD190E1A3B00F1924F /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		DB1A06B0190E1A5300F1924F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DB1A06B2190E1A6500F1924F /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -898,6 +901,8 @@
 				DBE9D7BF19BE97190068C1C3 /* Images.xcassets */,
 				DBE9D7C019BE97190068C1C3 /* main.m */,
 				DB5C0CEC19E77735008B43C8 /* Artisan-timer.plist */,
+				DB19A7B119F8A5A3006892BC /* ArtisanApplication.h */,
+				DB19A7B219F8A5A3006892BC /* ArtisanApplication.m */,
 			);
 			path = Artisan;
 			sourceTree = "<group>";
@@ -1736,6 +1741,7 @@
 				DB24CA6E19D2F1C800C307A8 /* DOUAudioFilePreprocessor.m in Sources */,
 				DBE9DC6119C021280068C1C3 /* ZenAlbumController.m in Sources */,
 				DBE9DA5319BE97190068C1C3 /* SDWebImagePrefetcher.m in Sources */,
+				DB19A7B319F8A5A3006892BC /* ArtisanApplication.m in Sources */,
 				DBE9DC8C19C1482A0068C1C3 /* ZenPlayerCell.m in Sources */,
 				DB24CA7419D2F1C800C307A8 /* DOUAudioSpatialAnalyzer.m in Sources */,
 				DBE9DBE219BECBDE0068C1C3 /* ZenLoadingController.m in Sources */,
@@ -1928,7 +1934,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Artisan;
-				PROVISIONING_PROFILE = "d2f32417-7337-493b-bf3a-21d30b6e6ab3";
+				PROVISIONING_PROFILE = "1a8d314d-1451-4514-abb7-4297119dd5b7";
 				TARGETED_DEVICE_FAMILY = 1;
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
 				WRAPPER_EXTENSION = app;

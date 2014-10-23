@@ -26,4 +26,8 @@ typedef enum {
 
 + (ZenPlayerController *)sharedInstance;
 
+- (void)play;
+- (void)prev;
+- (void)next:(BOOL)manual;
+
 @end

@@ -37,7 +37,7 @@
     self.window.rootViewController = menuController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     return YES;
 }
 

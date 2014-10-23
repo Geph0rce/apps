@@ -239,7 +239,6 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
         [_streamer addObserver:self forKeyPath:@"bufferingRatio" options:NSKeyValueObservingOptionNew context:kBufferingRatioKVOKey];
         
         [_streamer play];
-        [self newBackgoundTask];
     }
 }
 
@@ -263,6 +262,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
 
 - (void)play
 {
+    NSLog(@"play");
     ZenSongStatus songStatus = ZenSongStatusNone;
     DOUAudioStreamerStatus status = [_streamer status];
     if (status == DOUAudioStreamerPaused) {
@@ -453,36 +453,5 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
     }
 }
 
-
-#pragma mark -
-#pragma mark Remote Control
-
-- (BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
-
-- (void)remoteControlReceivedWithEvent: (UIEvent *) receivedEvent
-{
-    if (receivedEvent.type == UIEventTypeRemoteControl) {
-        
-        switch (receivedEvent.subtype) {
-                
-            case UIEventSubtypeRemoteControlTogglePlayPause:
-                [self play];
-                break;
-                
-            case UIEventSubtypeRemoteControlPreviousTrack:
-                [self prev];
-                break;
-                
-            case UIEventSubtypeRemoteControlNextTrack:
-                [self next:YES];
-                break;
-            default:
-                break;
-        }
-    }
-}
 
 @end
