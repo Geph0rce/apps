@@ -210,6 +210,7 @@ SINGLETON_FOR_CLASS(ZenPlayerController);
         if ([ZenOfflineModel songExists:song]) {
             _isLocalSong = YES;
         }
+        [self newBackgoundTask];
     }
 }
 
