@@ -12,9 +12,6 @@
 		DB121462180F86A900C7C1EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121461180F86A900C7C1EE /* Foundation.framework */; };
 		DB121464180F86A900C7C1EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121463180F86A900C7C1EE /* CoreGraphics.framework */; };
 		DB121466180F86A900C7C1EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121465180F86A900C7C1EE /* UIKit.framework */; };
-		DB12147B180F86A900C7C1EE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB12147A180F86A900C7C1EE /* XCTest.framework */; };
-		DB12147C180F86A900C7C1EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121461180F86A900C7C1EE /* Foundation.framework */; };
-		DB12147D180F86A900C7C1EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB121465180F86A900C7C1EE /* UIKit.framework */; };
 		DB1214D1180F88CC00C7C1EE /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1214BC180F88CC00C7C1EE /* EGORefreshTableHeaderView.m */; };
 		DB14D912186BD23E00A7D19A /* menu_notifications.png in Resources */ = {isa = PBXBuildFile; fileRef = DB14D90E186BD23E00A7D19A /* menu_notifications.png */; };
 		DB14D913186BD23E00A7D19A /* menu_notifications@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB14D90F186BD23E00A7D19A /* menu_notifications@2x.png */; };
@@ -264,16 +261,6 @@
 		DBFB6F7B1833C4BF00AABDE1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFB6F7A1833C4BF00AABDE1 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DB12147E180F86A900C7C1EE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DB121456180F86A900C7C1EE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DB12145D180F86A900C7C1EE;
-			remoteInfo = Zen;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		DB11A574186A7F3C00735989 /* menu_saved.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_saved.png; sourceTree = "<group>"; };
 		DB11A575186A7F3C00735989 /* menu_saved@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu_saved@2x.png"; sourceTree = "<group>"; };
@@ -281,7 +268,6 @@
 		DB121461180F86A900C7C1EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DB121463180F86A900C7C1EE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DB121465180F86A900C7C1EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		DB121479180F86A900C7C1EE /* PandoraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PandoraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB12147A180F86A900C7C1EE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DB1214BB180F88CC00C7C1EE /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
 		DB1214BC180F88CC00C7C1EE /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
@@ -675,16 +661,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB121476180F86A900C7C1EE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DB12147B180F86A900C7C1EE /* XCTest.framework in Frameworks */,
-				DB12147D180F86A900C7C1EE /* UIKit.framework in Frameworks */,
-				DB12147C180F86A900C7C1EE /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -702,7 +678,6 @@
 			isa = PBXGroup;
 			children = (
 				DB12145E180F86A900C7C1EE /* Pandora.app */,
-				DB121479180F86A900C7C1EE /* PandoraTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1351,24 +1326,6 @@
 			productReference = DB12145E180F86A900C7C1EE /* Pandora.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DB121478180F86A900C7C1EE /* PandoraTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DB12148D180F86A900C7C1EE /* Build configuration list for PBXNativeTarget "PandoraTests" */;
-			buildPhases = (
-				DB121475180F86A900C7C1EE /* Sources */,
-				DB121476180F86A900C7C1EE /* Frameworks */,
-				DB121477180F86A900C7C1EE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DB12147F180F86A900C7C1EE /* PBXTargetDependency */,
-			);
-			name = PandoraTests;
-			productName = ZenTests;
-			productReference = DB121479180F86A900C7C1EE /* PandoraTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1386,9 +1343,6 @@
 							};
 						};
 					};
-					DB121478180F86A900C7C1EE = {
-						TestTargetID = DB12145D180F86A900C7C1EE;
-					};
 				};
 			};
 			buildConfigurationList = DB121459180F86A900C7C1EE /* Build configuration list for PBXProject "Pandora" */;
@@ -1404,7 +1358,6 @@
 			projectRoot = "";
 			targets = (
 				DB12145D180F86A900C7C1EE /* Pandora */,
-				DB121478180F86A900C7C1EE /* PandoraTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1580,13 +1533,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB121477180F86A900C7C1EE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1659,22 +1605,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DB121475180F86A900C7C1EE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DB12147F180F86A900C7C1EE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DB12145D180F86A900C7C1EE /* Pandora */;
-			targetProxy = DB12147E180F86A900C7C1EE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DBDC021D1A4910220092F842 /* InfoPlist.strings */ = {
@@ -1791,7 +1722,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Pandora;
-				PROVISIONING_PROFILE = "002941bd-d322-444f-9de3-ebcb6aa7230a";
+				PROVISIONING_PROFILE = "9f963f5c-1784-41f6-8dc7-1f927dcc3603";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64 armv7";
 				WARNING_CFLAGS = "-Wno-arc-performSelector-leaks";
@@ -1840,46 +1771,6 @@
 			};
 			name = Release;
 		};
-		DB12148E180F86A900C7C1EE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Zen.app/Zen";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Zen/Zen-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ZenTests/ZenTests-Info.plist";
-				PRODUCT_NAME = PandoraTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		DB12148F180F86A900C7C1EE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Zen.app/Zen";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Zen/Zen-Prefix.pch";
-				INFOPLIST_FILE = "ZenTests/ZenTests-Info.plist";
-				PRODUCT_NAME = PandoraTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1897,15 +1788,6 @@
 			buildConfigurations = (
 				DB12148B180F86A900C7C1EE /* Debug */,
 				DB12148C180F86A900C7C1EE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DB12148D180F86A900C7C1EE /* Build configuration list for PBXNativeTarget "PandoraTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DB12148E180F86A900C7C1EE /* Debug */,
-				DB12148F180F86A900C7C1EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
