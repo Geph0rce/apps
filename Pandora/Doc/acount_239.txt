@@ -1,0 +1,12 @@
+http://js2.me/share_account_list.php?id=239
+
+{
+id: "239",
+nickname: "一些资料",
+description: "日语英语等",
+cookie: "STOKEN|147811045e04902a01b4bdb54c6722fd|wappass.baidu.com|/;BAIDU_WISE_UID|wpass_1397541874960_474|wappass.baidu.com|/;BDUSS|JMU1FUWmtKVktKaUN1TzdXVDdSR21ROVNvVUJCMTMwYWlrYkRPN0ZRbzhXWFJUQVFBQUFBJCQAAAAAAAAAAAEAAABR8FA1d2lvdXJnd2YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADzMTFM8zExTMX|.baidu.com|/;PTOKEN|5e65f71b937fd2b1e277507151abdd86|wappass.baidu.com|/;HISTORY|278f4db0e8bd4790760f905065ae1977|wappass.baidu.com|/;SAVEUSERID|c5a2a057765de9201249ad2a|wappass.baidu.com|/;UBI|fi_PncwhpxZ%7ETaJc0Mx5-tFbBjHk%7E3KpJpHHYak%7ED%7EgbNAeLY1KctCdR5CIJ9eUUNJ29WuSIEkif9mr7pGWZbMqg7zVFlTsIHjEI0FiO2fNn393N0cgxv-E7x6T4WzDYAR0jx-0lyA2rQ7qEBaD0jbOFfok|wappass.baidu.com|/",
+md5: "4d68efb7a423a111660c25f2d29f85fa",
+time: "1397541947",
+type: "9",
+webiste: "0"
+}

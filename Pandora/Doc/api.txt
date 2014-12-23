@@ -1,0 +1,20 @@
+# list dir
+url: http://pan.baidu.com/api/list?order=time&desc=1&web=1&dir=/
+extra: cookie
+
+# quota 配额
+http://pan.baidu.com/api/quota
+
+# login 
+
+# 密码有误
+"errInfo":{
+        "no": "400011",
+        "msg": "您输入的密码有误"
+    },
+    "data": {
+        "u": "",
+        "codeString" : "",
+        "gotoUrl" : ""
+
+    }
