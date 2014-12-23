@@ -53,7 +53,6 @@
 		DB2C8A481859B1910022B3FC /* weibo_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DB2C8A441859B1910022B3FC /* weibo_more@2x.png */; };
 		DB39BA2118113565001140A7 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB39BA2018113565001140A7 /* DDMenuController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		DB40A55619CA8BA3002C613F /* libmobiSageSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB40A54919CA8BA3002C613F /* libmobiSageSDK.a */; };
-		DB416BDC18E5521C0020160F /* libevernote.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB416BDB18E5521C0020160F /* libevernote.a */; };
 		DB416BDE18E552940020160F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB416BDD18E552940020160F /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DB416BDF18E552A30020160F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB817FEA183110400053BC69 /* MobileCoreServices.framework */; };
 		DB4B423C1861922D00E875FC /* black-linen.png in Resources */ = {isa = PBXBuildFile; fileRef = DB4B42361861922D00E875FC /* black-linen.png */; };
@@ -209,10 +208,6 @@
 		DBBCFFFB19FE2FC00033F7FF /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = DBBCFFE519FE2FC00033F7FF /* unzip.c */; };
 		DBBCFFFC19FE2FC00033F7FF /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = DBBCFFE719FE2FC00033F7FF /* zip.c */; };
 		DBBCFFFD19FE2FC00033F7FF /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = DBBCFFEA19FE2FC00033F7FF /* ZipArchive.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DBC3FF6418E17B6600ECBC97 /* PocketAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC3FF5C18E17B6600ECBC97 /* PocketAPI.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DBC3FF6518E17B6600ECBC97 /* PocketAPILogin.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC3FF5E18E17B6600ECBC97 /* PocketAPILogin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DBC3FF6618E17B6600ECBC97 /* PocketAPIOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC3FF6018E17B6600ECBC97 /* PocketAPIOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		DBC3FF6718E17B6600ECBC97 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DBC3FF6318E17B6600ECBC97 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DBC3FF7218E17C0100ECBC97 /* more_share.png in Resources */ = {isa = PBXBuildFile; fileRef = DBC3FF6B18E17C0100ECBC97 /* more_share.png */; };
 		DBC3FF7318E17C0100ECBC97 /* more_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBC3FF6C18E17C0100ECBC97 /* more_share@2x.png */; };
 		DBC3FF7418E17C0100ECBC97 /* share_evernote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBC3FF6D18E17C0100ECBC97 /* share_evernote@2x.png */; };
@@ -239,7 +234,6 @@
 		DBDC02291A4910220092F842 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DBDC021D1A4910220092F842 /* InfoPlist.strings */; };
 		DBDC022A1A4910220092F842 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBDC021F1A4910220092F842 /* Images.xcassets */; };
 		DBDC022B1A4910220092F842 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02201A4910220092F842 /* main.m */; };
-		DBDC022C1A4910220092F842 /* Pandora-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DBDC02211A4910220092F842 /* Pandora-Info.plist */; };
 		DBDC02631A4910640092F842 /* PandoraAccountsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02301A4910640092F842 /* PandoraAccountsController.m */; };
 		DBDC02641A4910640092F842 /* PandoraBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02321A4910640092F842 /* PandoraBaseController.m */; };
 		DBDC02651A4910640092F842 /* PandoraFileListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02341A4910640092F842 /* PandoraFileListController.m */; };
@@ -335,75 +329,6 @@
 		DB40A54919CA8BA3002C613F /* libmobiSageSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmobiSageSDK.a; sourceTree = "<group>"; };
 		DB40A55419CA8BA3002C613F /* MobiSageAdFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobiSageAdFactory.h; sourceTree = "<group>"; };
 		DB40A55519CA8BA3002C613F /* MobiSageNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobiSageNative.h; sourceTree = "<group>"; };
-		DB416B9718E5521C0020160F /* EDAM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAM.h; sourceTree = "<group>"; };
-		DB416B9818E5521C0020160F /* EDAMErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAMErrors.h; sourceTree = "<group>"; };
-		DB416B9918E5521C0020160F /* EDAMLimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAMLimits.h; sourceTree = "<group>"; };
-		DB416B9A18E5521C0020160F /* EDAMNoteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAMNoteStore.h; sourceTree = "<group>"; };
-		DB416B9B18E5521C0020160F /* EDAMNoteStoreClient+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EDAMNoteStoreClient+Utilities.h"; sourceTree = "<group>"; };
-		DB416B9C18E5521C0020160F /* EDAMTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAMTypes.h; sourceTree = "<group>"; };
-		DB416B9D18E5521C0020160F /* EDAMUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAMUserStore.h; sourceTree = "<group>"; };
-		DB416B9E18E5521C0020160F /* ENAFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENAFURLConnectionOperation.h; sourceTree = "<group>"; };
-		DB416B9F18E5521C0020160F /* ENAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENAPI.h; sourceTree = "<group>"; };
-		DB416BA018E5521C0020160F /* ENApplicationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENApplicationBridge.h; sourceTree = "<group>"; };
-		DB416BA118E5521C0020160F /* ENApplicationBridge_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENApplicationBridge_Private.h; sourceTree = "<group>"; };
-		DB416BA218E5521C0020160F /* ENApplicationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENApplicationRequest.h; sourceTree = "<group>"; };
-		DB416BA318E5521C0020160F /* ENAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENAuthenticationRequest.h; sourceTree = "<group>"; };
-		DB416BA418E5521C0020160F /* ENConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENConstants.h; sourceTree = "<group>"; };
-		DB416BA518E5521C0020160F /* ENCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENCredentials.h; sourceTree = "<group>"; };
-		DB416BA618E5521C0020160F /* ENCredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENCredentialStore.h; sourceTree = "<group>"; };
-		DB416BA718E5521C0020160F /* ENEncryptedContentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENEncryptedContentInfo.h; sourceTree = "<group>"; };
-		DB416BA818E5521C0020160F /* ENGCOAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENGCOAuth.h; sourceTree = "<group>"; };
-		DB416BA918E5521C0020160F /* ENLinkNotebookRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENLinkNotebookRequest.h; sourceTree = "<group>"; };
-		DB416BAA18E5521C0020160F /* ENMIMEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENMIMEUtils.h; sourceTree = "<group>"; };
-		DB416BAB18E5521C0020160F /* ENMLUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENMLUtility.h; sourceTree = "<group>"; };
-		DB416BAC18E5521C0020160F /* ENMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENMLWriter.h; sourceTree = "<group>"; };
-		DB416BAD18E5521C0020160F /* ENNewNoteRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENNewNoteRequest.h; sourceTree = "<group>"; };
-		DB416BAE18E5521C0020160F /* ENNoteImportRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENNoteImportRequest.h; sourceTree = "<group>"; };
-		DB416BAF18E5521C0020160F /* ENNoteViewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENNoteViewRequest.h; sourceTree = "<group>"; };
-		DB416BB018E5521C0020160F /* ENOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENOAuthViewController.h; sourceTree = "<group>"; };
-		DB416BB118E5521C0020160F /* ENResourceAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENResourceAttachment.h; sourceTree = "<group>"; };
-		DB416BB218E5521C0020160F /* ENSearchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENSearchRequest.h; sourceTree = "<group>"; };
-		DB416BB318E5521C0020160F /* ENXMLDTD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENXMLDTD.h; sourceTree = "<group>"; };
-		DB416BB418E5521C0020160F /* ENXMLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENXMLUtils.h; sourceTree = "<group>"; };
-		DB416BB518E5521C0020160F /* ENXMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENXMLWriter.h; sourceTree = "<group>"; };
-		DB416BB618E5521C0020160F /* EvernoteBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteBridge.h; sourceTree = "<group>"; };
-		DB416BB718E5521C0020160F /* EvernoteNoteStore+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EvernoteNoteStore+Extras.h"; sourceTree = "<group>"; };
-		DB416BB818E5521C0020160F /* EvernoteNoteStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteNoteStore.h; sourceTree = "<group>"; };
-		DB416BB918E5521C0020160F /* EvernoteSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteSDK.h; sourceTree = "<group>"; };
-		DB416BBA18E5521C0020160F /* EvernoteSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteSession.h; sourceTree = "<group>"; };
-		DB416BBB18E5521C0020160F /* EvernoteUserStore+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EvernoteUserStore+Extras.h"; sourceTree = "<group>"; };
-		DB416BBC18E5521C0020160F /* EvernoteUserStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvernoteUserStore.h; sourceTree = "<group>"; };
-		DB416BBD18E5521C0020160F /* KSForwardingWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSForwardingWriter.h; sourceTree = "<group>"; };
-		DB416BBE18E5521C0020160F /* KSHTMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSHTMLWriter.h; sourceTree = "<group>"; };
-		DB416BBF18E5521C0020160F /* KSWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSWriter.h; sourceTree = "<group>"; };
-		DB416BC018E5521C0020160F /* KSXMLAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSXMLAttributes.h; sourceTree = "<group>"; };
-		DB416BC118E5521C0020160F /* KSXMLWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSXMLWriter.h; sourceTree = "<group>"; };
-		DB416BC218E5521C0020160F /* NoteBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteBrowserViewController.h; sourceTree = "<group>"; };
-		DB416BC318E5521C0020160F /* NSData+ENBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ENBase64.h"; sourceTree = "<group>"; };
-		DB416BC418E5521C0020160F /* NSData+EvernoteSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+EvernoteSDK.h"; sourceTree = "<group>"; };
-		DB416BC518E5521C0020160F /* NSDataBase64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataBase64Additions.h; sourceTree = "<group>"; };
-		DB416BC618E5521C0020160F /* NSDate+EDAMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+EDAMAdditions.h"; sourceTree = "<group>"; };
-		DB416BC718E5521C0020160F /* NSRegularExpression+ENAGRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSRegularExpression+ENAGRegex.h"; sourceTree = "<group>"; };
-		DB416BC818E5521C0020160F /* NSString+EDAMNilAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EDAMNilAdditions.h"; sourceTree = "<group>"; };
-		DB416BC918E5521C0020160F /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
-		DB416BCA18E5521C0020160F /* NSString+XMLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XMLAdditions.h"; sourceTree = "<group>"; };
-		DB416BCB18E5521C0020160F /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
-		DB416BCC18E5521C0020160F /* TApplicationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TApplicationException.h; sourceTree = "<group>"; };
-		DB416BCD18E5521C0020160F /* TBinaryProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBinaryProtocol.h; sourceTree = "<group>"; };
-		DB416BCE18E5521C0020160F /* TException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TException.h; sourceTree = "<group>"; };
-		DB416BCF18E5521C0020160F /* Thrift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thrift.h; sourceTree = "<group>"; };
-		DB416BD018E5521C0020160F /* THTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THTTPClient.h; sourceTree = "<group>"; };
-		DB416BD118E5521C0020160F /* TMemoryBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMemoryBuffer.h; sourceTree = "<group>"; };
-		DB416BD218E5521C0020160F /* TObjective-C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TObjective-C.h"; sourceTree = "<group>"; };
-		DB416BD318E5521C0020160F /* TProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProcessor.h; sourceTree = "<group>"; };
-		DB416BD418E5521C0020160F /* TProcessorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProcessorFactory.h; sourceTree = "<group>"; };
-		DB416BD518E5521C0020160F /* TProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocol.h; sourceTree = "<group>"; };
-		DB416BD618E5521C0020160F /* TProtocolException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolException.h; sourceTree = "<group>"; };
-		DB416BD718E5521C0020160F /* TProtocolFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolFactory.h; sourceTree = "<group>"; };
-		DB416BD818E5521C0020160F /* TProtocolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TProtocolUtil.h; sourceTree = "<group>"; };
-		DB416BD918E5521C0020160F /* TTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransport.h; sourceTree = "<group>"; };
-		DB416BDA18E5521C0020160F /* TTransportException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTransportException.h; sourceTree = "<group>"; };
-		DB416BDB18E5521C0020160F /* libevernote.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libevernote.a; sourceTree = "<group>"; };
 		DB416BDD18E552940020160F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DB4B42361861922D00E875FC /* black-linen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-linen.png"; sourceTree = "<group>"; };
 		DB4B42371861922D00E875FC /* black-linen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-linen@2x.png"; sourceTree = "<group>"; };
@@ -601,16 +526,6 @@
 		DBBCFFE819FE2FC00033F7FF /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		DBBCFFE919FE2FC00033F7FF /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		DBBCFFEA19FE2FC00033F7FF /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
-		DBC3FF5A18E17B6600ECBC97 /* PocketAPI+NSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PocketAPI+NSOperation.h"; sourceTree = "<group>"; };
-		DBC3FF5B18E17B6600ECBC97 /* PocketAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPI.h; sourceTree = "<group>"; };
-		DBC3FF5C18E17B6600ECBC97 /* PocketAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPI.m; sourceTree = "<group>"; };
-		DBC3FF5D18E17B6600ECBC97 /* PocketAPILogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPILogin.h; sourceTree = "<group>"; };
-		DBC3FF5E18E17B6600ECBC97 /* PocketAPILogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPILogin.m; sourceTree = "<group>"; };
-		DBC3FF5F18E17B6600ECBC97 /* PocketAPIOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPIOperation.h; sourceTree = "<group>"; };
-		DBC3FF6018E17B6600ECBC97 /* PocketAPIOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PocketAPIOperation.m; sourceTree = "<group>"; };
-		DBC3FF6118E17B6600ECBC97 /* PocketAPITypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PocketAPITypes.h; sourceTree = "<group>"; };
-		DBC3FF6218E17B6600ECBC97 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		DBC3FF6318E17B6600ECBC97 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		DBC3FF6B18E17C0100ECBC97 /* more_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = more_share.png; sourceTree = "<group>"; };
 		DBC3FF6C18E17C0100ECBC97 /* more_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more_share@2x.png"; sourceTree = "<group>"; };
 		DBC3FF6D18E17C0100ECBC97 /* share_evernote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_evernote@2x.png"; sourceTree = "<group>"; };
@@ -754,7 +669,6 @@
 				DB817FF7183110820053BC69 /* SystemConfiguration.framework in Frameworks */,
 				DB121464180F86A900C7C1EE /* CoreGraphics.framework in Frameworks */,
 				DB817FF3183110660053BC69 /* QuartzCore.framework in Frameworks */,
-				DB416BDC18E5521C0020160F /* libevernote.a in Frameworks */,
 				DBB7B2E718238DCA00FDFC0B /* libxml2.2.dylib in Frameworks */,
 				DB121466180F86A900C7C1EE /* UIKit.framework in Frameworks */,
 				DB121462180F86A900C7C1EE /* Foundation.framework in Frameworks */,
@@ -870,10 +784,8 @@
 				DB291B0019737EE6004A0F55 /* MobiSageSDK */,
 				DBBAF1EA195D4FF4004FE37B /* UMAnalytics */,
 				DBD82BC71921BBE000B7B7B1 /* AdMobSDK */,
-				DB416B9518E5521B0020160F /* EverNoteSDK */,
 				DB64E46918E2C7F6009F2581 /* WeiboSDK */,
 				DBC3FF7E18E26CC000ECBC97 /* WeChatSDK */,
-				DBC3FF5918E17B6600ECBC97 /* PocketSDK */,
 				DBCDA591185EC6C400D04C0F /* SDWebImage */,
 				DB7137111850BBFB003AED1F /* UIImage+Gif */,
 				DBB7B2DC18238D8400FDFC0B /* TFHpple */,
@@ -912,90 +824,6 @@
 				DB39BA2018113565001140A7 /* DDMenuController.m */,
 			);
 			path = DDMenuController;
-			sourceTree = "<group>";
-		};
-		DB416B9518E5521B0020160F /* EverNoteSDK */ = {
-			isa = PBXGroup;
-			children = (
-				DB416B9618E5521C0020160F /* include */,
-				DB416BDB18E5521C0020160F /* libevernote.a */,
-			);
-			path = EverNoteSDK;
-			sourceTree = "<group>";
-		};
-		DB416B9618E5521C0020160F /* include */ = {
-			isa = PBXGroup;
-			children = (
-				DB416B9718E5521C0020160F /* EDAM.h */,
-				DB416B9818E5521C0020160F /* EDAMErrors.h */,
-				DB416B9918E5521C0020160F /* EDAMLimits.h */,
-				DB416B9A18E5521C0020160F /* EDAMNoteStore.h */,
-				DB416B9B18E5521C0020160F /* EDAMNoteStoreClient+Utilities.h */,
-				DB416B9C18E5521C0020160F /* EDAMTypes.h */,
-				DB416B9D18E5521C0020160F /* EDAMUserStore.h */,
-				DB416B9E18E5521C0020160F /* ENAFURLConnectionOperation.h */,
-				DB416B9F18E5521C0020160F /* ENAPI.h */,
-				DB416BA018E5521C0020160F /* ENApplicationBridge.h */,
-				DB416BA118E5521C0020160F /* ENApplicationBridge_Private.h */,
-				DB416BA218E5521C0020160F /* ENApplicationRequest.h */,
-				DB416BA318E5521C0020160F /* ENAuthenticationRequest.h */,
-				DB416BA418E5521C0020160F /* ENConstants.h */,
-				DB416BA518E5521C0020160F /* ENCredentials.h */,
-				DB416BA618E5521C0020160F /* ENCredentialStore.h */,
-				DB416BA718E5521C0020160F /* ENEncryptedContentInfo.h */,
-				DB416BA818E5521C0020160F /* ENGCOAuth.h */,
-				DB416BA918E5521C0020160F /* ENLinkNotebookRequest.h */,
-				DB416BAA18E5521C0020160F /* ENMIMEUtils.h */,
-				DB416BAB18E5521C0020160F /* ENMLUtility.h */,
-				DB416BAC18E5521C0020160F /* ENMLWriter.h */,
-				DB416BAD18E5521C0020160F /* ENNewNoteRequest.h */,
-				DB416BAE18E5521C0020160F /* ENNoteImportRequest.h */,
-				DB416BAF18E5521C0020160F /* ENNoteViewRequest.h */,
-				DB416BB018E5521C0020160F /* ENOAuthViewController.h */,
-				DB416BB118E5521C0020160F /* ENResourceAttachment.h */,
-				DB416BB218E5521C0020160F /* ENSearchRequest.h */,
-				DB416BB318E5521C0020160F /* ENXMLDTD.h */,
-				DB416BB418E5521C0020160F /* ENXMLUtils.h */,
-				DB416BB518E5521C0020160F /* ENXMLWriter.h */,
-				DB416BB618E5521C0020160F /* EvernoteBridge.h */,
-				DB416BB718E5521C0020160F /* EvernoteNoteStore+Extras.h */,
-				DB416BB818E5521C0020160F /* EvernoteNoteStore.h */,
-				DB416BB918E5521C0020160F /* EvernoteSDK.h */,
-				DB416BBA18E5521C0020160F /* EvernoteSession.h */,
-				DB416BBB18E5521C0020160F /* EvernoteUserStore+Extras.h */,
-				DB416BBC18E5521C0020160F /* EvernoteUserStore.h */,
-				DB416BBD18E5521C0020160F /* KSForwardingWriter.h */,
-				DB416BBE18E5521C0020160F /* KSHTMLWriter.h */,
-				DB416BBF18E5521C0020160F /* KSWriter.h */,
-				DB416BC018E5521C0020160F /* KSXMLAttributes.h */,
-				DB416BC118E5521C0020160F /* KSXMLWriter.h */,
-				DB416BC218E5521C0020160F /* NoteBrowserViewController.h */,
-				DB416BC318E5521C0020160F /* NSData+ENBase64.h */,
-				DB416BC418E5521C0020160F /* NSData+EvernoteSDK.h */,
-				DB416BC518E5521C0020160F /* NSDataBase64Additions.h */,
-				DB416BC618E5521C0020160F /* NSDate+EDAMAdditions.h */,
-				DB416BC718E5521C0020160F /* NSRegularExpression+ENAGRegex.h */,
-				DB416BC818E5521C0020160F /* NSString+EDAMNilAdditions.h */,
-				DB416BC918E5521C0020160F /* NSString+URLEncoding.h */,
-				DB416BCA18E5521C0020160F /* NSString+XMLAdditions.h */,
-				DB416BCB18E5521C0020160F /* SSKeychain.h */,
-				DB416BCC18E5521C0020160F /* TApplicationException.h */,
-				DB416BCD18E5521C0020160F /* TBinaryProtocol.h */,
-				DB416BCE18E5521C0020160F /* TException.h */,
-				DB416BCF18E5521C0020160F /* Thrift.h */,
-				DB416BD018E5521C0020160F /* THTTPClient.h */,
-				DB416BD118E5521C0020160F /* TMemoryBuffer.h */,
-				DB416BD218E5521C0020160F /* TObjective-C.h */,
-				DB416BD318E5521C0020160F /* TProcessor.h */,
-				DB416BD418E5521C0020160F /* TProcessorFactory.h */,
-				DB416BD518E5521C0020160F /* TProtocol.h */,
-				DB416BD618E5521C0020160F /* TProtocolException.h */,
-				DB416BD718E5521C0020160F /* TProtocolFactory.h */,
-				DB416BD818E5521C0020160F /* TProtocolUtil.h */,
-				DB416BD918E5521C0020160F /* TTransport.h */,
-				DB416BDA18E5521C0020160F /* TTransportException.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		DB6415FD1835C6CB009D5B0D /* Resources */ = {
@@ -1345,23 +1173,6 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
-		DBC3FF5918E17B6600ECBC97 /* PocketSDK */ = {
-			isa = PBXGroup;
-			children = (
-				DBC3FF5A18E17B6600ECBC97 /* PocketAPI+NSOperation.h */,
-				DBC3FF5B18E17B6600ECBC97 /* PocketAPI.h */,
-				DBC3FF5C18E17B6600ECBC97 /* PocketAPI.m */,
-				DBC3FF5D18E17B6600ECBC97 /* PocketAPILogin.h */,
-				DBC3FF5E18E17B6600ECBC97 /* PocketAPILogin.m */,
-				DBC3FF5F18E17B6600ECBC97 /* PocketAPIOperation.h */,
-				DBC3FF6018E17B6600ECBC97 /* PocketAPIOperation.m */,
-				DBC3FF6118E17B6600ECBC97 /* PocketAPITypes.h */,
-				DBC3FF6218E17B6600ECBC97 /* SFHFKeychainUtils.h */,
-				DBC3FF6318E17B6600ECBC97 /* SFHFKeychainUtils.m */,
-			);
-			path = PocketSDK;
-			sourceTree = "<group>";
-		};
 		DBC3FF7E18E26CC000ECBC97 /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -1693,7 +1504,6 @@
 				DB6416951835C6CC009D5B0D /* about_more@2x.png in Resources */,
 				DB14D91D186C078400A7D19A /* bottom_icon_more@2x.png in Resources */,
 				DB6416DC1835C6CC009D5B0D /* nav-icon-share@2x.png in Resources */,
-				DBDC022C1A4910220092F842 /* Pandora-Info.plist in Resources */,
 				DB6416A41835C6CC009D5B0D /* badge@2x.png in Resources */,
 				DB6416C81835C6CC009D5B0D /* image_load_more@2x.png in Resources */,
 				DB6416EB1835C6CC009D5B0D /* settingcell_bg@2x.png in Resources */,
@@ -1794,7 +1604,6 @@
 				DBDC02651A4910640092F842 /* PandoraFileListController.m in Sources */,
 				DBDC02631A4910640092F842 /* PandoraAccountsController.m in Sources */,
 				DBB7B2E318238D8400FDFC0B /* TFHpple.m in Sources */,
-				DBC3FF6518E17B6600ECBC97 /* PocketAPILogin.m in Sources */,
 				DBCDA5A3185EC6C400D04C0F /* SDWebImageDecoder.m in Sources */,
 				DB64E47518E2C7F6009F2581 /* SinaWeiboRequest.m in Sources */,
 				DBCDA5A7185EC6C400D04C0F /* UIImageView+WebCache.m in Sources */,
@@ -1807,10 +1616,8 @@
 				DBDC026D1A4910640092F842 /* GCDHelper.m in Sources */,
 				DBBCFFFB19FE2FC00033F7FF /* unzip.c in Sources */,
 				DBB4CB2419C7BB7D0024D7B5 /* Reachability.m in Sources */,
-				DBC3FF6618E17B6600ECBC97 /* PocketAPIOperation.m in Sources */,
 				DBDC02641A4910640092F842 /* PandoraBaseController.m in Sources */,
 				DBBCFFF219FE2FC00033F7FF /* CJSONSerialization.m in Sources */,
-				DBC3FF6418E17B6600ECBC97 /* PocketAPI.m in Sources */,
 				DBDC02751A4910640092F842 /* ZenStack.m in Sources */,
 				DBDC02781A4910640092F842 /* PandoraEmptyView.m in Sources */,
 				DBBCFFFA19FE2FC00033F7FF /* mztools.c in Sources */,
@@ -1840,7 +1647,6 @@
 				DBDC02701A4910640092F842 /* ZenCategory.m in Sources */,
 				DBB7B2E518238D8400FDFC0B /* XPathQuery.m in Sources */,
 				DBCDA5A6185EC6C400D04C0F /* SDWebImagePrefetcher.m in Sources */,
-				DBC3FF6718E17B6600ECBC97 /* SFHFKeychainUtils.m in Sources */,
 				DBBCFFF719FE2FC00033F7FF /* CJSONScanner.m in Sources */,
 				DBBCFFF519FE2FC00033F7FF /* NSDictionary_JSONExtensions.m in Sources */,
 				DBDC02721A4910640092F842 /* ZenConfig.m in Sources */,
@@ -1973,11 +1779,10 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "Pandora/Pandora-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vender/WeChatSDK",
-					"$(PROJECT_DIR)/Vender/EverNoteSDK",
 					"$(PROJECT_DIR)/Vender/AdMobSDK",
 					"$(PROJECT_DIR)/Vender/UMAnalytics",
 					"$(PROJECT_DIR)/Vender/MobiSageSDK",
@@ -2015,11 +1820,10 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "Pandora/Pandora-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Vender/WeChatSDK",
-					"$(PROJECT_DIR)/Vender/EverNoteSDK",
 					"$(PROJECT_DIR)/Vender/AdMobSDK",
 					"$(PROJECT_DIR)/Vender/UMAnalytics",
 					"$(PROJECT_DIR)/Vender/MobiSageSDK",
