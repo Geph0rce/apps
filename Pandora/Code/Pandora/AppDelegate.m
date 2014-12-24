@@ -43,19 +43,7 @@
     [navigationController.navigationBar setHidden:YES];
     self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-//    [UIApplication sharedApplication].statusBarHidden = NO;
-//    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-//        if ([ZenConfig sharedInstance].night) {
-//            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-//        }
-//        else {
-//            [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-//        }
-//    }
-//    
-    
+    [self.window makeKeyAndVisible];    
     return YES;
 }
 
