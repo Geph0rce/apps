@@ -13,6 +13,7 @@
 #import "ZenAdManager.h"
 #import "AppDelegate.h"
 #import "PandoraThiefModel.h"
+#import "PandoraNavigationController.h"
 #import "PandoraWebViewController.h"
 #import "PandoraFileListController.h"
 #import "PandoraAccountsController.h"
@@ -38,7 +39,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
    
     PandoraAccountsController *controller = [[PandoraAccountsController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    PandoraNavigationController *navigationController = [[PandoraNavigationController alloc] initWithRootViewController:controller];
     [navigationController.navigationBar setHidden:YES];
     self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];

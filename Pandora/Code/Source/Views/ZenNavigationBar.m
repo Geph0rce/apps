@@ -14,6 +14,8 @@
 #define kZenNavigationBarTitleColor [UIColor whiteColor]
 #define kDefaultBarColor (kZenNightMode ? ZenColorFromRGB(0x1f1f1f) : ZenColorFromRGB(0x2a5b83))
 #define kHighiteBarColor  (kZenNightMode ? ZenColorFromRGB(0x080808) : ZenColorFromRGB(0xdfdfdf))
+#define kZenNormalNavigationItemColor [UIColor whiteColor]
+#define kZenHighlightNavigationItemColor ZenColorFromRGB(0x547b9b)
 #define kZenNavigationBarH 44.0f
 
 #define kZenButtonRealBlue ZenColorFromRGB(0x3498db)
@@ -113,7 +115,7 @@
     }
     
     UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [leftBtn setBackgroundImage:[UIImage imageWithColor:kHighiteBarColor ] forState:UIControlStateHighlighted];
+    //[leftBtn setBackgroundImage:[UIImage imageWithColor:kHighiteBarColor ] forState:UIControlStateHighlighted];
     _leftBtn = leftBtn;
     [leftBtn setFrame:CGRectMake(0.0f, _paddingY, 44.0f, 44.0f)];
     [self addSubview:_leftBtn];
@@ -128,18 +130,27 @@
     _badge = badge;
     [_leftBtn addSubview:badge];
     
+    UIImage *icon = nil;
     switch (style) {
         case ZenNavigationItemStyleMenu:
-             [_leftBtn setImage:[UIImage imageNamed:@"nav-icon-menu"] forState:
-              UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-menu"];
             break;
         case ZenNavigationItemStyleBack:
-             [_leftBtn setImage:[UIImage imageNamed:@"nav-icon-back"] forState:UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-back"];
             break;
         case ZenNavigationItemStyleCancel:
-             [_leftBtn setImage:[UIImage imageNamed:@"nav-icon-cancel"] forState:UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-cancel"];
+            break;
         default:
             break;
+    }
+    
+    if (icon) {
+        [_leftBtn setImage:[icon tintImageWithColor:kZenNormalNavigationItemColor] forState:UIControlStateNormal];
+        [_leftBtn setImage:[icon tintImageWithColor:kZenHighlightNavigationItemColor] forState:UIControlStateHighlighted];
+    }
+    else {
+        NSLog(@"zen left navigation item icon is nil");
     }
 }
 

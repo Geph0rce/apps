@@ -11,7 +11,6 @@
 
 @interface PandoraFileCell : UITableViewCell
 
-
 - (void)load:(PandoraFile *)file;
 
 @end

@@ -46,7 +46,7 @@ alpha:0.8]
 
 #define kZenBackgroundColor (kZenNightMode? kZenBackgroundColorNight : kZenBackgroundColorDaytime)
 #define kZenMainFontColor (kZenNightMode? kZenMainFontColorNight : kZenMainFontColorDaytime)
-//#define kZenMainColor ZenColorFromRGB(0xfcfcfc)
+#define kZenMainStyleColor ZenColorFromRGB(0x2a5b83)
 #define kZenHighlightColor (kZenNightMode? kZenHighlightNight : kZenHighlightDaytime)
 
 #define kZenBorderColorDaytime ZenColorFromRGB(0xe0e0e0)

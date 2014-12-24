@@ -13,7 +13,7 @@
 #import "ZenLoadingView.h"
 #import "PandoraWebViewController.h"
 
-#define kZenWebViewControllerBarColor ZenColorFromRGB(0xc11208)
+#define kZenWebViewControllerBarColor ZenColorFromRGB(0x2a5b83)
 #define kOpenInSafari 0
 #define kCopyLink 1
 #define kOpenInTaobao 2

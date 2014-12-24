@@ -53,26 +53,27 @@
         return @"file_videofile_icon";
     }
     else {
-        return @"file_unknown_pressed";
+        return @"icon_unknow";
     }
 }
 
-- (NSString *)size:(int)size
+- (NSString *)size:(long long)size
 {
     NSString *suffix = @"B";
+    double result = 0.0f;
     if (size > 1024) {
         suffix = @"KB";
-        size = size / 1024; // KB
-        if (size > 1024) {
+        result = size * 1.0f / 1024.0f; // KB
+        if (result > 1024.0f) {
             suffix = @"MB";
-            size = size/1024; // MB
-            if (size > 1024) {
+            result = result / 1024.0f; // MB
+            if (result > 1024.0f) {
                 suffix = @"GB";
-                size = size/1024; // GB
+                result = result / 1024.0f; // GB
             }
         }
     }
-    return [NSString stringWithFormat:@"%d %@", size, suffix];
+    return [NSString stringWithFormat:@"%.1f %@", result, suffix];
 }
 
 - (void)load:(NSString *)dir
@@ -125,7 +126,7 @@
                 item.name = [file stringForKey:@"server_filename"];
                 item.category = [file intForKey:@"category"];
                 item.isdir = [file intForKey:@"isdir"] == 0? NO : YES;
-                int size = [file intForKey:@"size"];
+                long long size = [file longLongForKey:@"size"];
                 item.size = [self size:size];
                 NSDictionary *thumbs = [file objectForKey:@"thumbs"];
                 if ([thumbs has:@"url2"]) {

@@ -79,6 +79,7 @@
 @interface UIImage (ZenHelper)
 
 + (UIImage *)imageWithColor:(UIColor *)color;
+- (UIImage *)tintImageWithColor:(UIColor *)color;
 - (UIImage *)cropToSize:(CGSize)newSize;
 - (UIImage *)scaleToSize:(CGSize)newSize;
 

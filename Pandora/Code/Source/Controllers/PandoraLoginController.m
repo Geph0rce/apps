@@ -1,37 +1,27 @@
 //
 //  PandoraLoginController.m
-//  Zen
+//  Pandora
 //
-//  Created by roger on 14-7-9.
+//  Created by roger on 14/12/24.
 //  Copyright (c) 2014年 Zen. All rights reserved.
 //
 
 #import "UIImageView+WebCache.h"
-
 #import "ZenMacros.h"
-#import "ZenConfig.h"
 #import "ZenCategory.h"
+#import "PandoraLoginModel.h"
 #import "ZenNavigationBar.h"
 #import "ZenLoadingView.h"
-#import "PandoraLoginModel.h"
 #import "PandoraLoginController.h"
 
-
-#define kZenBtnColorNormal ZenColorFromRGB(0x0b6aff)
-#define kZenBtnColorHighlight ZenColorFromRGB(0xe67e22)
-
-#define kZenLoginElementsFrame (kZenDeviceiPad? CGRectMake(0.0f, 176.0f, 320, 110.0f) : CGRectMake(0.0f, 70.0f, kZenScreenWidth, 110.0f))
-#define kZenForgetBtnOffsetX (kZenDeviceiPad? 480.0f : 240.0f)
-#define kZenLoginBtnOffsetX (kZenDeviceiPad? 240.0f : 11.0f)
-
-@interface PandoraLoginController () <UIGestureRecognizerDelegate>
+@interface PandoraLoginController ()
 {
-    UITextField *_userNameTextField;
-    UITextField *_passwordTextField;
-    UITextField *_verifyCodeTextField;
-    UIImageView *_verifyCode;
     PandoraLoginModel *_model;
     ZenLoadingView *_loading;
+    BOOL _isNeedVerifyCode;
+    
+    UIButton *_loginBtn;
+    UIButton *_closeKeyboardBtn;
 }
 @end
 
@@ -45,88 +35,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    
     _model = [[PandoraLoginModel alloc] init];
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
+    [defaultCenter addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [defaultCenter addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [defaultCenter addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [defaultCenter addObserver:self selector:@selector(loginFinished:) name:kPandoraLoginSuccess object:_model];
     [defaultCenter addObserver:self selector:@selector(loginFailed:) name:kPandoraLoginFailed object:_model];
     [defaultCenter addObserver:self selector:@selector(refreshCode:) name:kPandoraLoginNeedVerify object:_model];
-    
-    UIView *elements = [[UIView alloc] initWithFrame:kZenLoginElementsFrame];
-    elements.backgroundColor = kZenBackgroundColor;
-    [self.view addSubview:elements];
-    [elements centerInHorizontal];
-    
-    UILabel *userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 10.0f, 60.0f, 16.0f)];
-    userNameLabel.font = kZenFont16;
-    userNameLabel.backgroundColor = [UIColor clearColor];
-    userNameLabel.textColor = kZenMainFontColor;
-    userNameLabel.textAlignment = NSTextAlignmentLeft;
-    userNameLabel.text = @"用户名";
-    [elements addSubview:userNameLabel];
-    
-    
-    UITextField *userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(userNameLabel.frame) + 20.0f, CGRectGetMinY(userNameLabel.frame), 220.0f, 20.0f)];
-    _userNameTextField = userNameTextField;
-    userNameTextField.font = kZenFont14;
-    userNameTextField.textColor = kZenMainFontColor;
-    userNameTextField.backgroundColor = [UIColor clearColor];
-    userNameTextField.borderStyle = UITextBorderStyleNone;
-    userNameTextField.placeholder = @"请输入用户名";
-    userNameTextField.keyboardType = UIKeyboardTypeDefault;
-    userNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [elements addSubview:userNameTextField];
-    
-    UILabel *passwordLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, 45.0f, 60.0f, 16.0f)];
-    passwordLabel.font = kZenFont16;
-    passwordLabel.backgroundColor = [UIColor clearColor];
-    passwordLabel.textColor = kZenMainFontColor;
-    passwordLabel.textAlignment = NSTextAlignmentLeft;
-    passwordLabel.text = @"密码";
-    [elements addSubview:passwordLabel];
-    
-    UITextField *passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(CGRectGetMaxX(passwordLabel.frame) + 20.0f, CGRectGetMinY(passwordLabel.frame), 220.0f, 20.0f)];
-    _passwordTextField = passwordTextField;
-    passwordTextField.secureTextEntry = YES;
-    passwordTextField.font = kZenFont14;
-    passwordTextField.textColor = kZenMainFontColor;
-    passwordTextField.backgroundColor = [UIColor clearColor];
-    passwordTextField.borderStyle = UITextBorderStyleNone;
-    passwordTextField.placeholder = @"请输入密码";
-    passwordTextField.keyboardType = UIKeyboardTypeDefault;
-    passwordTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [elements addSubview:passwordTextField];
-    
-    CGFloat offsetY = CGRectGetMaxY(passwordTextField.frame) + 10.0f;
-    
-    UITextField *verifyCodeTextField = [[UITextField alloc] initWithFrame:CGRectMake(20.0f, offsetY, 120.0f, 20.0f)];
-    _verifyCodeTextField = verifyCodeTextField;
-    verifyCodeTextField.hidden = YES;
-    verifyCodeTextField.font = kZenFont14;
-    verifyCodeTextField.textColor = kZenMainFontColor;
-    verifyCodeTextField.backgroundColor = [UIColor clearColor];
-    verifyCodeTextField.borderStyle = UITextBorderStyleNone;
-    verifyCodeTextField.placeholder = @"请输入验证码";
-    verifyCodeTextField.keyboardType = UIKeyboardTypeDefault;
-    verifyCodeTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-    [elements addSubview:verifyCodeTextField];
-    
-    UIImageView *verifyCode = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(verifyCodeTextField.frame) + 10.0f, offsetY, 60.0f, 20.0f)];
-    verifyCode.hidden = YES;
-    _verifyCode = verifyCode;
-    [elements addSubview:verifyCode];
-
-    offsetY = CGRectGetMaxY(elements.frame);
-    
-    UIButton *loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginBtn.frame = CGRectMake(kZenLoginBtnOffsetX, offsetY + 15.0f, 160.0f, 43.0f);
-    [loginBtn setBackgroundImage:[UIImage imageNamed:@"btn_login"] forState:UIControlStateNormal];
-    [loginBtn setTitle:@"登录" forState:UIControlStateNormal];
-    loginBtn.titleLabel.font = kZenFont16;
-    loginBtn.titleLabel.textColor = [UIColor whiteColor];
-    [loginBtn addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginBtn];
-    [loginBtn centerInHorizontal];
     
     _loading = [[ZenLoadingView alloc] init];
     _loading.type = ZenLoadingViewTypeUnderNavigationBar;
@@ -137,49 +54,126 @@
     [bar addLeftItemWithStyle:ZenNavigationItemStyleBack target:self action:@selector(back:)];
     [bar setTitle:@"登录"];
     [self.view addSubview:bar];
+    [_userIcon setImage:[[UIImage imageNamed:@"login_icon_usr"] tintImageWithColor:kZenMainStyleColor]];
+    [_passIcon setImage:[[UIImage imageNamed:@"login_icon_pass"] tintImageWithColor:kZenMainStyleColor]];
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
-    tap.delegate = self;
-    [self.view addGestureRecognizer:tap];
+    _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _loginBtn.frame = CGRectMake(0.0f, 0.0f, 236.0f, 35.0f);
+    [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_loginBtn setTitleShadowColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_loginBtn setTitle:@"登录" forState:UIControlStateNormal];
+    [_loginBtn setBackgroundImage:[UIImage imageWithColor:kZenMainStyleColor] forState:UIControlStateNormal];
+    [_loginBtn addTarget:self action:@selector(onLoginClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_loginBtn];
+    [_loginBtn centerInHorizontal];
     
-    _userNameTextField.text = @"心里有根刺1997";
-    _passwordTextField.text = @"spurs1997";
+    UIButton *closeKeyboardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _closeKeyboardBtn = closeKeyboardBtn;
+    UIImage *closeKeyboardImage = [UIImage imageNamed:@"close_keyboard"];
+    [_closeKeyboardBtn setImage:[closeKeyboardImage tintImageWithColor:kZenMainStyleColor] forState:UIControlStateNormal];
+    _closeKeyboardBtn.frame = CGRectMake(CGRectGetWidth(self.view.frame) - closeKeyboardImage.size.width - 10.0f, 0.0f, closeKeyboardImage.size.width, closeKeyboardImage.size.height);
+    _closeKeyboardBtn.hidden = YES;
+    [_closeKeyboardBtn addTarget:self action:@selector(onCloseKeyboard:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_closeKeyboardBtn];
     
-    [_model refreshCookie];
+    _verifyCodeView.hidden = YES;
+    _isNeedVerifyCode = NO;
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
+    [self adjustLoginBtnFrame];
     [_userNameTextField becomeFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)adjustLoginBtnFrame
 {
-    [super didReceiveMemoryWarning];
-    
+    CGRect frame = _loginBtn.frame;
+    if (_isNeedVerifyCode) {
+        CGFloat offsetY = CGRectGetMaxY(_verifyCodeView.frame) + 8.0f;
+        frame.origin.y = offsetY;
+    }
+    else {
+        CGFloat offsetY = CGRectGetMaxY(_passwordView.frame) + 8.0f;
+        frame.origin.y = offsetY;
+    }
+    _loginBtn.frame = frame;
 }
-
-#pragma mark -
-#pragma mark Events and Notifications Handler
 
 - (void)resign
 {
-    [_userNameTextField resignFirstResponder];
-    [_passwordTextField resignFirstResponder];
+    if ([_userNameTextField isFirstResponder]) {
+        [_userNameTextField resignFirstResponder];
+    }
+    else if ([_passwordTextField isFirstResponder]) {
+        [_passwordTextField resignFirstResponder];
+    }
+    else if ([_verifyCodeTextField isFirstResponder]) {
+        [_verifyCodeTextField resignFirstResponder];
+    }
 }
 
-- (void)tap:(UITapGestureRecognizer *)recognizer
+- (UITextField *)firstResponderTextField
+{
+    if ([_userNameTextField isFirstResponder]) {
+        return _userNameTextField;
+    }
+    else if ([_passwordTextField isFirstResponder]) {
+        return _passwordTextField;
+    }
+    else if ([_verifyCodeTextField isFirstResponder]) {
+        return _verifyCodeTextField;
+    }
+    return nil;
+}
+
+- (void)adjustFrameWithKeyboardHeight:(CGFloat)keyboardHeight
+{
+    // change closeKeyboardBtn frame
+    CGFloat closeBtnOffsetY = CGRectGetMaxY(_closeKeyboardBtn.frame) - (CGRectGetHeight(self.view.frame) - keyboardHeight);
+    if (closeBtnOffsetY > 0 || closeBtnOffsetY < -5.0f) {
+        CGRect closeBtnFrame = _closeKeyboardBtn.frame;
+        closeBtnFrame.origin.y -= closeBtnOffsetY;
+        _closeKeyboardBtn.frame = closeBtnFrame;
+    }
+    _closeKeyboardBtn.hidden = NO;
+}
+
+#pragma mark
+#pragma mark Actions
+
+- (void)onCloseKeyboard:(id)sender
 {
     [self resign];
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if ([touch.view isKindOfClass:[UIButton class]]){
-        return NO;
+- (void)onLoginClick:(id)sender
+{
+    NSString *userName = _userNameTextField.text;
+    NSString *password = _passwordTextField.text;
+    NSString *verifyCode = _verifyCodeTextField.text;
+    
+    if ([userName isEqualToString:@""]) {
+        [self warning:@"请输入用户名"];
     }
-    return YES;
+    else if ([password isEqualToString:@""]) {
+        [self warning:@"请输入密码"];
+    }
+    else if (_isNeedVerifyCode && [verifyCode isEqualToString:@""]) {
+        [self warning:@"请输入验证码"];
+    }
+    else {
+        [_loading show];
+        if (!_isNeedVerifyCode) {
+            [_model login:userName password:password verifyCode:@""];
+        }
+        else {
+            [_model login:userName password:password verifyCode:verifyCode];
+        }
+    }
 }
+
 
 - (void)back:(id)sender
 {
@@ -187,23 +181,10 @@
 }
 
 
-- (void)login:(id)sender
-{
-    [_loading show];
-    if (_verifyCodeTextField.hidden) {
-        [_model login:_userNameTextField.text password:_passwordTextField.text verifyCode:@""];
-    }
-    else {
-        [_model login:_userNameTextField.text password:_passwordTextField.text verifyCode:_verifyCodeTextField.text];
-    }
-}
-
-
 - (void)loginFinished:(NSNotification *)notification
 {
     [_loading hide];
     [self success:@"登录成功！"];
-    [self resign];
     [self.navigationController popViewControllerAnimated:YES];
     //[_model test];
 }
@@ -218,8 +199,11 @@
 {
     [_loading hide];
     _verifyCodeTextField.hidden = NO;
-    _verifyCode.hidden = NO;
-    [_verifyCode setImageWithURL:[NSURL URLWithString:_model.verifyCodeURL]];
+    _verifyCodeView.hidden = NO;
+    _isNeedVerifyCode = YES;
+    [self adjustLoginBtnFrame];
+    
+    [_verifyCodeImageView setImageWithURL:[NSURL URLWithString:_model.verifyCodeURL]];
     NSDictionary *info = notification.userInfo;
     if (info) {
         NSString *msg = [info stringForKey:@"msg"];
@@ -228,7 +212,32 @@
             return;
         }
     }
-    [self failed:@"请输入验证码!"];
+    [self failed:@"请输入正确的验证码!"];
+}
+
+
+#pragma mark
+#pragma mark UIKeyBoardNotitifications
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    NSValue* aValue = [notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGSize keyboardSize = [aValue CGRectValue].size;
+    CGFloat keyboardHeight = keyboardSize.height;
+    [self adjustFrameWithKeyboardHeight:keyboardHeight];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    _closeKeyboardBtn.hidden = YES;
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification
+{
+    NSValue* aValue = [notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGSize keyboardSize = [aValue CGRectValue].size;
+    CGFloat keyboardHeight = keyboardSize.height;
+    [self adjustFrameWithKeyboardHeight:keyboardHeight];
 }
 
 @end

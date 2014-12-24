@@ -234,7 +234,6 @@
 		DBDC02631A4910640092F842 /* PandoraAccountsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02301A4910640092F842 /* PandoraAccountsController.m */; };
 		DBDC02641A4910640092F842 /* PandoraBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02321A4910640092F842 /* PandoraBaseController.m */; };
 		DBDC02651A4910640092F842 /* PandoraFileListController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02341A4910640092F842 /* PandoraFileListController.m */; };
-		DBDC02661A4910640092F842 /* PandoraLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02361A4910640092F842 /* PandoraLoginController.m */; };
 		DBDC02671A4910640092F842 /* PandoraWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02381A4910640092F842 /* PandoraWebViewController.m */; };
 		DBDC02681A4910640092F842 /* PandoraBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC023B1A4910640092F842 /* PandoraBaseModel.m */; };
 		DBDC02691A4910640092F842 /* PandoraFileListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC023D1A4910640092F842 /* PandoraFileListModel.m */; };
@@ -258,6 +257,16 @@
 		DBDC02811A49148B0092F842 /* ZenLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02801A49148B0092F842 /* ZenLoadingView.m */; };
 		DBDC02851A491B070092F842 /* ZenToast.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02841A491B070092F842 /* ZenToast.m */; };
 		DBDC02881A491C4D0092F842 /* ZenRulesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC02871A491C4D0092F842 /* ZenRulesModel.m */; };
+		DBDC028B1A4A6ED90092F842 /* icon_unknow.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDC02891A4A6ED90092F842 /* icon_unknow.png */; };
+		DBDC028C1A4A6ED90092F842 /* icon_unknow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDC028A1A4A6ED90092F842 /* icon_unknow@2x.png */; };
+		DBDC02901A4A80D50092F842 /* PandoraLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC028E1A4A80D50092F842 /* PandoraLoginController.m */; };
+		DBDC02911A4A80D50092F842 /* PandoraLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBDC028F1A4A80D50092F842 /* PandoraLoginController.xib */; };
+		DBDC02961A4A820B0092F842 /* login_icon_usr.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDC02921A4A820B0092F842 /* login_icon_usr.png */; };
+		DBDC02971A4A820B0092F842 /* login_icon_pass.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDC02931A4A820B0092F842 /* login_icon_pass.png */; };
+		DBDC02981A4A820B0092F842 /* login_icon_pass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDC02941A4A820B0092F842 /* login_icon_pass@2x.png */; };
+		DBDC02991A4A820B0092F842 /* login_icon_usr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDC02951A4A820B0092F842 /* login_icon_usr@2x.png */; };
+		DBDC029B1A4A9A440092F842 /* close_keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBDC029A1A4A9A440092F842 /* close_keyboard@2x.png */; };
+		DBDC029E1A4A9CCB0092F842 /* PandoraNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBDC029D1A4A9CCB0092F842 /* PandoraNavigationController.m */; };
 		DBFB6F7B1833C4BF00AABDE1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFB6F7A1833C4BF00AABDE1 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -571,8 +580,6 @@
 		DBDC02321A4910640092F842 /* PandoraBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraBaseController.m; sourceTree = "<group>"; };
 		DBDC02331A4910640092F842 /* PandoraFileListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraFileListController.h; sourceTree = "<group>"; };
 		DBDC02341A4910640092F842 /* PandoraFileListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraFileListController.m; sourceTree = "<group>"; };
-		DBDC02351A4910640092F842 /* PandoraLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraLoginController.h; sourceTree = "<group>"; };
-		DBDC02361A4910640092F842 /* PandoraLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraLoginController.m; sourceTree = "<group>"; };
 		DBDC02371A4910640092F842 /* PandoraWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraWebViewController.h; sourceTree = "<group>"; };
 		DBDC02381A4910640092F842 /* PandoraWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraWebViewController.m; sourceTree = "<group>"; };
 		DBDC023A1A4910640092F842 /* PandoraBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraBaseModel.h; sourceTree = "<group>"; };
@@ -622,6 +629,18 @@
 		DBDC02841A491B070092F842 /* ZenToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenToast.m; sourceTree = "<group>"; };
 		DBDC02861A491C4D0092F842 /* ZenRulesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZenRulesModel.h; sourceTree = "<group>"; };
 		DBDC02871A491C4D0092F842 /* ZenRulesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZenRulesModel.m; sourceTree = "<group>"; };
+		DBDC02891A4A6ED90092F842 /* icon_unknow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_unknow.png; sourceTree = "<group>"; };
+		DBDC028A1A4A6ED90092F842 /* icon_unknow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_unknow@2x.png"; sourceTree = "<group>"; };
+		DBDC028D1A4A80D50092F842 /* PandoraLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraLoginController.h; sourceTree = "<group>"; };
+		DBDC028E1A4A80D50092F842 /* PandoraLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraLoginController.m; sourceTree = "<group>"; };
+		DBDC028F1A4A80D50092F842 /* PandoraLoginController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PandoraLoginController.xib; sourceTree = "<group>"; };
+		DBDC02921A4A820B0092F842 /* login_icon_usr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_icon_usr.png; sourceTree = "<group>"; };
+		DBDC02931A4A820B0092F842 /* login_icon_pass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_icon_pass.png; sourceTree = "<group>"; };
+		DBDC02941A4A820B0092F842 /* login_icon_pass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_icon_pass@2x.png"; sourceTree = "<group>"; };
+		DBDC02951A4A820B0092F842 /* login_icon_usr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_icon_usr@2x.png"; sourceTree = "<group>"; };
+		DBDC029A1A4A9A440092F842 /* close_keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close_keyboard@2x.png"; sourceTree = "<group>"; };
+		DBDC029C1A4A9CCB0092F842 /* PandoraNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PandoraNavigationController.h; sourceTree = "<group>"; };
+		DBDC029D1A4A9CCB0092F842 /* PandoraNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PandoraNavigationController.m; sourceTree = "<group>"; };
 		DBFB6F781833B27100AABDE1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DBFB6F7A1833C4BF00AABDE1 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -831,6 +850,13 @@
 		DB64161B1835C6CC009D5B0D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				DBDC029A1A4A9A440092F842 /* close_keyboard@2x.png */,
+				DBDC02921A4A820B0092F842 /* login_icon_usr.png */,
+				DBDC02931A4A820B0092F842 /* login_icon_pass.png */,
+				DBDC02941A4A820B0092F842 /* login_icon_pass@2x.png */,
+				DBDC02951A4A820B0092F842 /* login_icon_usr@2x.png */,
+				DBDC02891A4A6ED90092F842 /* icon_unknow.png */,
+				DBDC028A1A4A6ED90092F842 /* icon_unknow@2x.png */,
 				DB291B2B1973A758004A0F55 /* file_filefolder_icon@2x.png */,
 				DB291B2C1973A758004A0F55 /* file_unknown_pressed@2x.png */,
 				DB291B171973A716004A0F55 /* file_audiofile_icon@2x.png */,
@@ -1230,10 +1256,13 @@
 				DBDC02321A4910640092F842 /* PandoraBaseController.m */,
 				DBDC02331A4910640092F842 /* PandoraFileListController.h */,
 				DBDC02341A4910640092F842 /* PandoraFileListController.m */,
-				DBDC02351A4910640092F842 /* PandoraLoginController.h */,
-				DBDC02361A4910640092F842 /* PandoraLoginController.m */,
 				DBDC02371A4910640092F842 /* PandoraWebViewController.h */,
 				DBDC02381A4910640092F842 /* PandoraWebViewController.m */,
+				DBDC028D1A4A80D50092F842 /* PandoraLoginController.h */,
+				DBDC028E1A4A80D50092F842 /* PandoraLoginController.m */,
+				DBDC028F1A4A80D50092F842 /* PandoraLoginController.xib */,
+				DBDC029C1A4A9CCB0092F842 /* PandoraNavigationController.h */,
+				DBDC029D1A4A9CCB0092F842 /* PandoraNavigationController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1392,6 +1421,7 @@
 				DB64169D1835C6CC009D5B0D /* arrow_up.png in Resources */,
 				DB6416E11835C6CC009D5B0D /* notifications@2x.png in Resources */,
 				DB6416F11835C6CC009D5B0D /* share_ok@2x.png in Resources */,
+				DBDC02981A4A820B0092F842 /* login_icon_pass@2x.png in Resources */,
 				DB6416AD1835C6CC009D5B0D /* bottom_icon_next@2x.png in Resources */,
 				DB6416E31835C6CC009D5B0D /* rank_more@2x.png in Resources */,
 				DB6416C31835C6CC009D5B0D /* feedback_more.png in Resources */,
@@ -1407,6 +1437,7 @@
 				DB6416AC1835C6CC009D5B0D /* bottom_icon_next.png in Resources */,
 				DB14D93C186C1F0C00A7D19A /* more_recommend@2x.png in Resources */,
 				DBC3FF9418E2A16E00ECBC97 /* zen.png in Resources */,
+				DBDC028B1A4A6ED90092F842 /* icon_unknow.png in Resources */,
 				DB64169B1835C6CC009D5B0D /* arrow_down.png in Resources */,
 				DB64168A1835C6CC009D5B0D /* menubar.bundle in Resources */,
 				DB2C8A461859B1910022B3FC /* night_more@2x.png in Resources */,
@@ -1433,6 +1464,7 @@
 				DB6416B81835C6CC009D5B0D /* bottom_icon_write.png in Resources */,
 				DB64169F1835C6CC009D5B0D /* back.png in Resources */,
 				DB6416B11835C6CC009D5B0D /* bottom_icon_refresh@2x.png in Resources */,
+				DBDC02991A4A820B0092F842 /* login_icon_usr@2x.png in Resources */,
 				DB666133196E8AC8005393AB /* empty_normal@2x.png in Resources */,
 				DB6416B61835C6CC009D5B0D /* bottom_icon_share.png in Resources */,
 				DB14D93D186C1F0C00A7D19A /* more_refresh.png in Resources */,
@@ -1443,6 +1475,7 @@
 				DB291B231973A716004A0F55 /* file_doc_icon@2x.png in Resources */,
 				DB8A96FF18B34C1A0068485E /* bg_search.png in Resources */,
 				DB6416E61835C6CC009D5B0D /* sep_line.png in Resources */,
+				DBDC02971A4A820B0092F842 /* login_icon_pass.png in Resources */,
 				DBDC02281A4910220092F842 /* Default@2x.png in Resources */,
 				DB14D93A186C1F0C00A7D19A /* more_archive@2x.png in Resources */,
 				DB6416D81835C6CC009D5B0D /* nav-icon-menu@2x.png in Resources */,
@@ -1457,6 +1490,7 @@
 				DB6416951835C6CC009D5B0D /* about_more@2x.png in Resources */,
 				DB14D91D186C078400A7D19A /* bottom_icon_more@2x.png in Resources */,
 				DB6416DC1835C6CC009D5B0D /* nav-icon-share@2x.png in Resources */,
+				DBDC029B1A4A9A440092F842 /* close_keyboard@2x.png in Resources */,
 				DB6416A41835C6CC009D5B0D /* badge@2x.png in Resources */,
 				DB6416C81835C6CC009D5B0D /* image_load_more@2x.png in Resources */,
 				DB6416EB1835C6CC009D5B0D /* settingcell_bg@2x.png in Resources */,
@@ -1469,6 +1503,7 @@
 				DB6416A51835C6CC009D5B0D /* blackArrow.png in Resources */,
 				DB6416A91835C6CC009D5B0D /* bottom_icon_back@2x.png in Resources */,
 				DB6416C21835C6CC009D5B0D /* dot_border.png in Resources */,
+				DBDC02911A4A80D50092F842 /* PandoraLoginController.xib in Resources */,
 				DBDC02271A4910220092F842 /* Default.png in Resources */,
 				DB6416EC1835C6CC009D5B0D /* settingcell_bg_selected.png in Resources */,
 				DB291B2D1973A758004A0F55 /* file_filefolder_icon@2x.png in Resources */,
@@ -1482,6 +1517,7 @@
 				DB6416CD1835C6CC009D5B0D /* menu_right_arrow.png in Resources */,
 				DB66612E196E7C99005393AB /* pandora_bg.png in Resources */,
 				DB6416E21835C6CC009D5B0D /* rank_more.png in Resources */,
+				DBDC02961A4A820B0092F842 /* login_icon_usr.png in Resources */,
 				DB1841CD18C4C1D300E3F9DB /* dongqiudi_iPad@2x.png in Resources */,
 				DB6416F31835C6CC009D5B0D /* user_avatar@2x.png in Resources */,
 				DB6416D51835C6CC009D5B0D /* nav-icon-back.png in Resources */,
@@ -1489,6 +1525,7 @@
 				DB291B261973A716004A0F55 /* file_pdf_icon@2x.png in Resources */,
 				DB291B221973A716004A0F55 /* file_compressFile_icon@2x.png in Resources */,
 				DB6416BD1835C6CC009D5B0D /* btn_signup@2x.png in Resources */,
+				DBDC028C1A4A6ED90092F842 /* icon_unknow@2x.png in Resources */,
 				DB6416941835C6CC009D5B0D /* about_more.png in Resources */,
 				DB14D914186BD23E00A7D19A /* menu_settings.png in Resources */,
 				DB6416F21835C6CC009D5B0D /* share_pic_background@2x.png in Resources */,
@@ -1553,6 +1590,7 @@
 				DBCDA5A3185EC6C400D04C0F /* SDWebImageDecoder.m in Sources */,
 				DB64E47518E2C7F6009F2581 /* SinaWeiboRequest.m in Sources */,
 				DBCDA5A7185EC6C400D04C0F /* UIImageView+WebCache.m in Sources */,
+				DBDC02901A4A80D50092F842 /* PandoraLoginController.m in Sources */,
 				DBDC02741A4910640092F842 /* ZenIDFA.m in Sources */,
 				DBDC026C1A4910640092F842 /* PandoraUserManager.m in Sources */,
 				DBCDA5A5185EC6C400D04C0F /* SDWebImageManager.m in Sources */,
@@ -1586,8 +1624,8 @@
 				DBDC026A1A4910640092F842 /* PandoraLoginModel.m in Sources */,
 				DB64E47318E2C7F6009F2581 /* SinaWeibo.m in Sources */,
 				DBDC02711A4910640092F842 /* ZenColorManager.m in Sources */,
-				DBDC02661A4910640092F842 /* PandoraLoginController.m in Sources */,
 				DBDC026F1A4910640092F842 /* ZenAdManager.m in Sources */,
+				DBDC029E1A4A9CCB0092F842 /* PandoraNavigationController.m in Sources */,
 				DBDC02811A49148B0092F842 /* ZenLoadingView.m in Sources */,
 				DB39BA2118113565001140A7 /* DDMenuController.m in Sources */,
 				DBDC02701A4910640092F842 /* ZenCategory.m in Sources */,

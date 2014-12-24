@@ -13,13 +13,15 @@
 
 #import "PandoraFileCell.h"
 
-#define kPandoraThemeWidth 40.0f
+#define kPandoraThemeWidth  40.0f
+#define kPandoraThemeHeight 40.0f
 #define kPandoraFileMargin 10.0f
 #define kPandoraFileCellWidth kZenDeviceWidth
 #define kPandoraMaxTitleSize CGSizeMake(kPandoraFileCellWidth - 3 * kPandoraFileMargin - kPandoraThemeWidth, 36.0f)
-#define kPandoraFileCellHeight 60.0f
+#define kPandoraFileCellHeight 68.0f
 #define kPandoraContainerFrame CGRectMake(2 * kPandoraFileMargin + kPandoraThemeWidth, 0.0f, kPandoraFileCellWidth - 3 * kPandoraFileMargin - kPandoraThemeWidth, 0.0f);
 #define kPandoraMaxLines 2
+#define kPandoraTintColor ZenColorFromRGB(0x547b9b)
 
 @interface PandoraFileCell ()
 {
@@ -38,7 +40,7 @@
     if (self) {
         self.backgroundColor = kZenBackgroundColor;
         
-        UIImageView *theme = [[UIImageView alloc] initWithFrame:CGRectMake(kPandoraFileMargin, kPandoraFileMargin, 40.0f, 40.0f)];
+        UIImageView *theme = [[UIImageView alloc] initWithFrame:CGRectMake(kPandoraFileMargin, (kPandoraFileCellHeight - kPandoraThemeHeight) / 2.0f, kPandoraThemeWidth, kPandoraThemeHeight)];
         theme.backgroundColor = kZenBackgroundColor;
         _theme = theme;
         [self.contentView addSubview:theme];
@@ -85,10 +87,14 @@
     // load theme
     NSString *uri = [PandoraFileListModel themeWithFile:file];
     if ([uri contains:@"http"]) {
-        [_theme setImageWithURL:[NSURL URLWithString:uri] placeholderImage:[UIImage imageNamed:@"file_unknown_pressed"]];
+        [_theme setImageWithURL:[NSURL URLWithString:uri] placeholderImage:[[UIImage imageNamed:@"icon_unknow"] tintImageWithColor:kPandoraTintColor]];
+        [_theme.layer setMasksToBounds:YES];
+        [_theme.layer setCornerRadius:kPandoraThemeWidth/2.0f];
     }
     else {
         [_theme setImage:[UIImage imageNamed:uri]];
+        [_theme.layer setMasksToBounds:NO];
+        [_theme.layer setCornerRadius:0.0f];
     }
     
     // layout subject and size label
@@ -96,9 +102,10 @@
     _subject.text = file.name;
     _subject.frame = CGRectMake(0.0f, 0.0f, size.width, size.height);
     
-    CGFloat height = size.height + kPandoraFileMargin;
+    CGFloat height = size.height;
     _size.hidden = YES;
     if (!file.isdir) {
+        height += 5.0f;
         _size.hidden = NO;
         _size.frame = CGRectMake(0.0f, height, 160.0f, 15.0f);
         _size.text = file.size;
