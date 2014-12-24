@@ -163,26 +163,35 @@
     
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setFrame:CGRectMake(CGRectGetWidth(self.frame) - 44.0f, _paddingY, 44.0f, 44.0f)];
-    [rightBtn setBackgroundImage:[UIImage imageWithColor:kHighiteBarColor ] forState:UIControlStateHighlighted];
     _rightBtn = rightBtn;
     [self addSubview:_rightBtn];
     [_rightBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIImage *icon = nil;
     switch (style) {
         case ZenNavigationItemStyleShare:
-            [_rightBtn setImage:[UIImage imageNamed:@"nav-icon-share"] forState:UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-share"];
             break;
         case ZenNavigationItemStyleMore:
-            [_rightBtn setImage:[UIImage imageNamed:@"nav-icon-more"] forState:UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-more"];
             break;
         case ZenNavigationItemStyleAddUser:
-            [_rightBtn setImage:[UIImage imageNamed:@"nav-icon-adduser"] forState:UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-adduser"];
             break;
         case ZenNavigationItemStyleWrite:
-            [_rightBtn setImage:[UIImage imageNamed:@"nav-icon-write"] forState:UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-write"];
         case ZenNavigationItemStyleOk:
-             [_rightBtn setImage:[UIImage imageNamed:@"nav-icon-ok"] forState:UIControlStateNormal];
+            icon = [UIImage imageNamed:@"nav-icon-ok"];
+            break;
         default:
             break;
+    }
+    
+    if (icon) {
+        [_rightBtn setImage:[icon tintImageWithColor:kZenNormalNavigationItemColor] forState:UIControlStateNormal];
+        [_rightBtn setImage:[icon tintImageWithColor:kZenHighlightNavigationItemColor] forState:UIControlStateHighlighted];
+    }
+    else {
+        NSLog(@"zen right navigation item, icon is nil.");
     }
  
 }

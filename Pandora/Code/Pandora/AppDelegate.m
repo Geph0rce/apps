@@ -43,7 +43,7 @@
     [navigationController.navigationBar setHidden:YES];
     self.window.rootViewController = navigationController;
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
