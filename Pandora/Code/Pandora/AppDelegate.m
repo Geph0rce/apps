@@ -17,9 +17,6 @@
 #import "PandoraWebViewController.h"
 #import "PandoraFileListController.h"
 #import "PandoraAccountsController.h"
-#define kBXJFid  @"34"
-#define kBXJName @"步行街"
-#define kHotFid @"1988"
 
 #define kZenUmengAppKey @"53ad110856240b7d51008592"
 
@@ -31,6 +28,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[PandoraThiefModel sharedInstance] run];
     [MobClick startWithAppkey:kZenUmengAppKey reportPolicy:SEND_ON_EXIT channelId:@"AppStore"];
     [ZenAdManager sharedInstance];
     

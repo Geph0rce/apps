@@ -199,7 +199,7 @@
     }
     else if (file.category == PandoraFileTypeVideo){
         
-        //NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://pcs.baidu.com/rest/2.0/pcs/file?method=streaming&type=M3U8_AUTO_480&app_id=250528&path=%@", [file.path urlEncode]]];
+//        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://pcs.baidu.com/rest/2.0/pcs/file?method=streaming&type=M3U8_640_480&app_id=250528&path=%@", [file.path urlEncode]]];
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://pan.baidu.com/play/video#video/path=%@&t=-1", [file.path urlEncode]]];
         PandoraWebViewController *controller = [[PandoraWebViewController alloc] init];
         controller.token = _token;

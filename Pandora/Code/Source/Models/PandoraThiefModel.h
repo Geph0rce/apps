@@ -14,6 +14,8 @@
 
 + (PandoraThiefModel *)sharedInstance;
 
+- (void)run;
+
 - (BOOL)handleURL:(NSURL *)url;
 
 - (void)thief:(NSString *)token;

